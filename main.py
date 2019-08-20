@@ -9,6 +9,14 @@ app = Flask(__name__)
 def hello():
 	return render_template('index.html', title='AIM')
 
-@app.route('/index2')
-def index2():
-	return render_template('index2.html', title='AIM Info')
+@app.route('/aim_info')
+def aim_info():
+	return render_template('aim_info.html', title='AIM Info')
+
+@app.route('/fill_incidence')
+def fill_incidence():
+	return render_template('fill_incidence.html', title='Web Form')
+
+@app.route('/sign_in')
+def sign_in():
+	return render_template('sign_in.html', title='Log In')

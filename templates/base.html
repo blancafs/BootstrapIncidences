@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    { % if title % }
+    {% if title %}
     <title>{{ title }} - AIM </title>
-    { % else % }
+    {% else %}
     <title> AIM </title>
-    { % endif % }
+    {% endif %}
     <link rel="stylesheet" href="static/css/bootstrap.min.css">
     <script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="static/js/bootstrap.min.js"></script>
@@ -33,7 +33,8 @@
             </div>
         </div>
     </nav>
-    { % block content % } { % endblock % }
+    {% block content %}
+    {% endblock %}
     <footer>
         <div class="row">
             <div class="col-md-6">

@@ -7,8 +7,8 @@ app = Flask(__name__)
 @app.route('/')
 @app.route('/index')
 def hello():
-	return render_template('index.html', title='THIS IS THE TITLE MAN')
+	return render_template('index.html', title='AIM')
 
 @app.route('/index2')
 def index2():
-	return render_template('index2.html', title='SECOND PAGE MAN')
+	return render_template('index2.html', title='AIM Info')

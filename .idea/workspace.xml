@@ -2,6 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca6f3bb4-dc6a-4535-8557-92bbe49f19b7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/.ipynb_checkpoints/classifier-checkpoint.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/.ipynb_checkpoints/processor-checkpoint.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/.ipynb_checkpoints/processor_tfidf-checkpoint.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/NOTUSED-wrapper.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/classifier.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/configurator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/engine.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/incident.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/incidentBase.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/processor.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/processor_tfidf.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/info.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bee/bin/python" beforeDir="false" afterPath="$PROJECT_DIR$/bee/bin/python" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bee/include/python3.6m" beforeDir="false" afterPath="$PROJECT_DIR$/bee/include/python3.6m" afterDir="false" />
@@ -56,8 +70,9 @@
       <change beforePath="$PROJECT_DIR$/bee/lib/python3.6/warnings.py" beforeDir="false" afterPath="$PROJECT_DIR$/bee/lib/python3.6/warnings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bee/lib/python3.6/weakref.py" beforeDir="false" afterPath="$PROJECT_DIR$/bee/lib/python3.6/weakref.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/aim_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/aim_info.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index2.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/aim_info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,32 +81,32 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5658972">
+    <splitter split-orientation="horizontal" split-proportion="0.48153216">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/templates/aim_info.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="160">
-                  <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/main.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="320">
-                  <caret line="21" column="58" lean-forward="true" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
+                  <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/main.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="224">
+                  <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/templates/sign_in.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="240">
-                  <caret line="15" column="31" lean-forward="true" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+                  <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
                 </state>
               </provider>
             </entry>
@@ -99,8 +114,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/static/css/bootstrap.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1219">
-                  <caret line="2492" column="24" lean-forward="true" selection-start-line="2492" selection-start-column="24" selection-end-line="2492" selection-end-column="24" />
+                <state relative-caret-position="39872">
+                  <caret line="2492" column="24" selection-start-line="2492" selection-start-column="24" selection-end-line="2492" selection-end-column="24" />
                 </state>
               </provider>
             </entry>
@@ -117,12 +132,12 @@
         </leaf>
       </split-first>
       <split-second>
-        <leaf>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/templates/index.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="432">
-                  <caret line="27" column="55" lean-forward="true" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
+                  <caret line="27" column="55" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
                 </state>
               </provider>
             </entry>
@@ -131,7 +146,7 @@
             <entry file="file://$PROJECT_DIR$/templates/base.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="128">
-                  <caret line="8" column="54" lean-forward="true" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
+                  <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
                 </state>
               </provider>
             </entry>
@@ -163,8 +178,8 @@
         <option value="$PROJECT_DIR$/static/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/templates/sign_in.html" />
+        <option value="$PROJECT_DIR$/main.py" />
       </list>
     </option>
   </component>
@@ -180,10 +195,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2063" />
-    <option name="y" value="-336" />
-    <option name="width" value="789" />
-    <option name="height" value="1095" />
+    <option name="x" value="2062" />
+    <option name="y" value="-337" />
+    <option name="width" value="790" />
+    <option name="height" value="1096" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -222,6 +237,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
@@ -255,9 +271,10 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1359" y="-319" width="1753" height="962" extended-state="6" />
+    <frame x="1359" y="-170" width="1753" height="962" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21782178" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.14851485" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -302,13 +319,6 @@
     <entry file="file://$PROJECT_DIR$/static/css/bootstrap-reboot.min.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/bootstrap.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1219">
-          <caret line="2492" column="24" lean-forward="true" selection-start-line="2492" selection-start-column="24" selection-end-line="2492" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/css/bootstrap.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -316,17 +326,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/aim_info.html">
+    <entry file="file://$PROJECT_DIR$/static/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        <state relative-caret-position="39872">
+          <caret line="2492" column="24" selection-start-line="2492" selection-start-column="24" selection-end-line="2492" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/main.py">
+    <entry file="file://$PROJECT_DIR$/templates/sign_in.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="21" column="58" lean-forward="true" selection-start-line="21" selection-start-column="58" selection-end-line="21" selection-end-column="58" />
+        <state relative-caret-position="240">
+          <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -340,14 +350,21 @@
     <entry file="file://$PROJECT_DIR$/templates/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
-          <caret line="8" column="54" lean-forward="true" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
+          <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/sign_in.html">
+    <entry file="file://$PROJECT_DIR$/templates/aim_info.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" column="31" lean-forward="true" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+        <state relative-caret-position="160">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
         </state>
       </provider>
     </entry>

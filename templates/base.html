@@ -11,14 +11,25 @@
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3 sticky-top">
         <div class="container-fluid">
-            <a href="#" class="navbar-brand mr-3">Repsol AIM</a>
+
+            <a class="navbar-brand" href="{{ url_for('index') }}">
+                <img src="static/img/logo.png" alt="" class="img-responsive">
+            </a>
+
+            <a href="{{ url_for('index') }}" class="navbar-brand mr-3">Repsol AIM</a>
+
             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav">
+<<<<<<< HEAD
                     <a href="{{ url_for('aim_info') }}" class="nav-item nav-link active">What is AIM?</a>
                     <a href="{{ url_for('fill_incidence')}}" class="nav-item nav-link">Fill in Web Incidence</a>
+=======
+                    <a href="{{ url_for('info') }}" class="nav-item nav-link active">What is AIM?</a>
+                    <a href="#" class="nav-item nav-link">Fill in Web Incidence</a>
+>>>>>>> master
                     <a href="#" class="nav-item nav-link">Upload Incidence</a>
                     <a href="#" class="nav-item nav-link">Get Information</a>
                 </div>

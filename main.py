@@ -6,8 +6,8 @@ app = Flask(__name__)
 
 @app.route('/')
 @app.route('/index')
-def hello():
-	return render_template('index.html', title='AIM')
+def index():
+	return render_template('index.html')
 
 @app.route('/aim_info')
 def aim_info():
@@ -20,3 +20,4 @@ def fill_incidence():
 @app.route('/sign_in')
 def sign_in():
 	return render_template('sign_in.html', title='Log In')
+

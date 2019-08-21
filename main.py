@@ -2,15 +2,18 @@
 import os
 from flask import Flask, render_template, flash, request, redirect, url_for
 from werkzeug.utils import secure_filename
+from lib.forms import WebForm
 
 # Vars
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'xls', 'xlsx'}
+SECRET_KEY = os.urandom(32)
 
+#lib.incident, lib.engine
 # Begin Serving
 app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.secret_key = 'many random bytes'
+app.config['SECRET_KEY'] = SECRET_KEY
+
 
 ## ROUTES ##
 
@@ -28,7 +31,10 @@ def aim_info():
 # Fill incidence form
 @app.route('/fill_incidence')
 def fill_incidence():
-	return render_template('fill_incidence.html', title='Web Form')
+	form = WebForm()
+	if form.validate_on_submit():
+		engine.dealWithWebForm(form)
+	return render_template('fill_incidence.html', title='Web Form', form=form)
 
 # Credentials
 @app.route('/sign_in')

@@ -18,9 +18,9 @@ class Engine:
         self.incidentBase = IncidentBase(self.incidentWrapper, TEXT_DATABASE_PATH, VECTOR_DATABASE_PATH, None)
         self.incidentWrapper.inform('The web engine was initialized!')
 
-    # Pricesses the incoming form
-    def dealWithForm(self, form):
-        incident_entry_df = self.incidentWrapper.parseIncidentFromForm(form)
+    # Processes the incoming form
+    def dealWithWebForm(self, form):
+        incident_entry_df = self.incidentWrapper.parseIncidentFromWebForm(form)
         info = self.deal(incident_entry_df)
         return info
 

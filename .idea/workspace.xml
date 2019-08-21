@@ -2,21 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca6f3bb4-dc6a-4535-8557-92bbe49f19b7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/.ipynb_checkpoints/classifier-checkpoint.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/.ipynb_checkpoints/processor-checkpoint.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/.ipynb_checkpoints/processor_tfidf-checkpoint.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/NOTUSED-wrapper.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/classifier.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/configurator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/engine.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/incident.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/incidentBase.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/processor.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/processor_tfidf.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/info.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bee/bin/python" beforeDir="false" afterPath="$PROJECT_DIR$/bee/bin/python" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bee/include/python3.6m" beforeDir="false" afterPath="$PROJECT_DIR$/bee/include/python3.6m" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bee/lib/python3.6/LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/bee/lib/python3.6/LICENSE.txt" afterDir="false" />
@@ -69,10 +54,7 @@
       <change beforePath="$PROJECT_DIR$/bee/lib/python3.6/types.py" beforeDir="false" afterPath="$PROJECT_DIR$/bee/lib/python3.6/types.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bee/lib/python3.6/warnings.py" beforeDir="false" afterPath="$PROJECT_DIR$/bee/lib/python3.6/warnings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bee/lib/python3.6/weakref.py" beforeDir="false" afterPath="$PROJECT_DIR$/bee/lib/python3.6/weakref.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/aim_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/aim_info.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -145,8 +127,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/templates/base.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="128">
-                  <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
+                <state relative-caret-position="384">
+                  <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
                 </state>
               </provider>
             </entry>
@@ -177,9 +159,9 @@
       <list>
         <option value="$PROJECT_DIR$/static/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/templates/index.html" />
-        <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/templates/sign_in.html" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/templates/base.html" />
       </list>
     </option>
   </component>
@@ -343,14 +325,7 @@
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
-          <caret line="27" column="56" selection-start-line="27" selection-start-column="56" selection-end-line="27" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="8" column="54" selection-start-line="8" selection-start-column="54" selection-end-line="8" selection-end-column="54" />
+          <caret line="27" column="55" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
         </state>
       </provider>
     </entry>
@@ -365,6 +340,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="15" column="29" lean-forward="true" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="24" column="40" selection-start-line="24" selection-start-column="40" selection-end-line="24" selection-end-column="40" />
         </state>
       </provider>
     </entry>

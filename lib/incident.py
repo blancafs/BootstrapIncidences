@@ -49,8 +49,8 @@ class IncidentWrapper:
 
 
     ## Parses the form
-    def parseIncidentFromForm(self, form):
-        df = IncidentParser().parseForm(form)
+    def parseIncidentFromWebForm(self, form):
+        df = IncidentParser().parseWebForm(form)
         return df
 
 
@@ -110,26 +110,32 @@ class IncidentWrapper:
 ### Incidents Parser class used to parse excel files ###############################################
 ####################################################################################################
 class IncidentParser:
+
     ## Returns df from parsed form
-    def parseForm(self, form):
+    def parseWebForm(self, form):
+        aviso_calidad = form.aviso_calidad.data
+        codigo_cliente = form.codigo_cliente.data
+        material_afectado = form.material_afectado.data
+        albaran = form.albaran.data
+        textoSAP = form.textoSAP.data
+        analysis_causa = form.analysis_causa.data
+        causa_raiz = form.causa_raiz.data
 
-        """
-        This is for blanca to fill in
-        -> Must return a df similar to the one parseFiles returns
-        -> Columns: ['aviso_de_calidad', 'codigo_cliente', 'clientes', 'material', 'lote', 'texto_sap', 'investigacion',
-                 'imputable_cip', 'analysis_de_causas', 'acciones']
-        """
-
-        pass
+        # Making entry with all parameters into dataframe
+        entry = [aviso_calidad, codigo_cliente, material_afectado, albaran, textoSAP, analysis_causa, causa_raiz]
+        column_names = ['aviso_de_calidad', 'codigo_cliente', 'material', 'texto_sap', 'analysis_de_causas', 'causa_raiz']
+        df = pd.DataFrame(columns=column_names)
+        df.rename(columns={"aviso_de_calidad": INDEX_COLUMN_NAME}, inplace=True)
+        df.loc[0] = entry
+        return df
 
     ## Returns dataframe with the parsed data of the given file list
     def parseFiles(self, list_of_files):
-        names = ['aviso_de_calidad', 'codigo_cliente', 'clientes', 'material', 'lote', 'texto_sap', 'investigacion',
-                 'imputable_cip', 'analysis_de_causas', 'acciones']
+        names = ['aviso_de_calidad', 'codigo_cliente', 'material', 'texto_sap', 'analysis_de_causas', 'causa_raiz']
         docs = []
+        entries = []
         for name in list_of_files:
             d = pd.read_excel(name, header=None)
-            entries = []
             for elem in names:
                 e = self.getInfo(elem, d)
                 entries.append(e)
@@ -155,7 +161,12 @@ class IncidentParser:
         methods.update({'imputable_cip': ('R', 0, 'Imputable CIP', None)})
         methods.update({'analysis_de_causas': ('B', 1, 'Análisis de causas', 'Acciones')})
         methods.update({'acciones': ('B', 1, 'Acciones', 'Fecha finalización')})
-        return methods.get(string)
+
+        # If not in dictionary, it means the field is not in the original excels and we return 0
+        if string in list(methods.keys()):
+            return methods.get(string)
+        else:
+            return 0,0,0,0
 
     ## Returns x and y coordinates of first encounter of string entered or -1,-1 if it doesn't!
     # REMEMBER TO SEARCH FOR MATERIAL WITH CAPITAL M or wont find it
@@ -172,6 +183,9 @@ class IncidentParser:
     ## GET ENTRY FOR STRING GIVEN WITHIN DATAFRAME - LOOKS UP METHOD AND FINDS IT
     def getInfo(self, string, df):
         u, h, s, n = self.lookUp(string)
+        # If lookup method returned all 0s, field is not in excel and gets value -1
+        if u==0 and h==0 and s==0 and n==0:
+            return -1
         i, j = self.find(s, df)
         if h == 0:
             if u == 'R':

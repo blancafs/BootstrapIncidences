@@ -1,7 +1,7 @@
 # Get application parent dir
 import os
 path = os.path.dirname(os.path.realpath(__file__))
-path += '/../../'
+path += '/../'
 
 
 ########################
@@ -18,6 +18,7 @@ VECTOR_COLUMN_NAME = 'vectorized_texts'
 # Paths
 DATABASE_PATH = 'data/'
 MODELS_PATH = 'models/'
+U_DATABASE_PATH = 'users/'
 
 # File names
 TEXT_DATABASE_NAME = 'training_data.csv'
@@ -25,6 +26,7 @@ VECTOR_DATABASE_NAME = 'training_data_vectors.csv'
 CONFIG_FILE_NAME = 'config.txt'
 GENERAL_DATABASE_NAME = 'general_data.csv'
 MULTILINGUAL_MODEL_NAME = 'multilingual-large'
+USER_DATABASE_NAME = 'user_table.csv'
 
 
 # Final variables
@@ -33,6 +35,7 @@ VECTOR_DATABASE_PATH = path + DATABASE_PATH + VECTOR_DATABASE_NAME
 GENERAL_DATABASE_PATH = path + DATABASE_PATH + GENERAL_DATABASE_NAME
 MODEL_FOLDER_PATH = path + MODELS_PATH + MULTILINGUAL_MODEL_NAME
 CONFIG_FILE_PATH = path + CONFIG_FILE_NAME
+USER_DATABASE_PATH = path + U_DATABASE_PATH + USER_DATABASE_NAME
 
 
 #####################################################################

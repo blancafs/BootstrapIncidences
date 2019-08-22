@@ -14,3 +14,9 @@ class WebForm(FlaskForm):
     analysis_causa = TextAreaField('Analysis de Causas: ', validators=[Length(min=0, max=500), DataRequired()])
     causa_raiz = TextField('Causa Raiz: ', validators=[DataRequired()])
     submit = SubmitField('Submit')
+
+class SignInForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    email = StringField('Email', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    submit = SubmitField('Sign In')

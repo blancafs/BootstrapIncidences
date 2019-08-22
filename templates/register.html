@@ -5,21 +5,31 @@
 
 <head>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+
 </head>
 
 <div class="container">
-    <div class="card card-login mx-auto text-center bg-dark">
-        <div class="card-header mx-auto bg-dark">
-            <span> <img src="static/img/Webp.net-resizeimage.png" class="img-responsive" alt="Logo"> </span><br/>
 
+    <div class="card card-login mx-auto text-center bg-light">
+        <div class="card-header mx-auto bg-light">
+            <span> <img src="static/img/logo.png" class="img-responsive" style="width:100px;height:90px;"> </span>
         </div>
+        <h2 > Welcome to AIM!</h2>
+        <h5> Please fill in the following details to create an account in AIM</h5>
         <div class="card-body">
+
             <form action="" method="post">
                 <div class="input-group form-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                     </div>
-                    <input type="text" name="email" class="form-control" placeholder="Username">
+                    <input type="text" name="username" class="form-control" placeholder="Username">
+                </div>
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input type="text" name="email" class="form-control" placeholder="Email">
                 </div>
 
                 <div class="input-group form-group">
@@ -30,7 +40,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="submit" name="btn" value="Login" class="btn btn-outline-danger float-right login_btn">
+                    <input type="submit" name="submit" value="Login" class="btn btn-outline-warning float-right login_btn">
                 </div>
 
             </form>

@@ -1,6 +1,8 @@
 # Imports
 import os
 from flask import Flask, render_template, flash, request, redirect, url_for
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
 from werkzeug.utils import secure_filename
 from lib.forms import WebForm
 
@@ -14,6 +16,18 @@ SECRET_KEY = os.urandom(32)
 app = Flask(__name__)
 app.config['SECRET_KEY'] = SECRET_KEY
 
+# Database configuration
+basedir = os.path.abspath(os.path.dirname(__file__))
+
+class Config(object):
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
+        'sqlite:///' + os.path.join(basedir, 'app.db')
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
+
+app.config.from_object(Config)
+db = SQLAlchemy(app)
+db.create_all()
+migrate = Migrate(app, db)
 
 ## ROUTES ##
 

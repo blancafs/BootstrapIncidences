@@ -2,7 +2,8 @@ import os
 
 from .incident import IncidentWrapper
 from .incidentBase import IncidentBase
-from .configurator import TEXT_DATABASE_PATH, VECTOR_DATABASE_PATH
+from .configurator import Utils, TEXT_DATABASE_PATH, VECTOR_DATABASE_PATH, GENERAL_DATABASE_PATH
+from .forms import FormBuilder
 
 '''
 Copyrights(R) Blancanator and Vanginous LTD
@@ -15,7 +16,7 @@ the website and the backend
 class Engine:
     def __init__(self):
         self.incidentWrapper = IncidentWrapper(DEBUG=True)
-        self.incidentBase = IncidentBase(self.incidentWrapper, TEXT_DATABASE_PATH, VECTOR_DATABASE_PATH, None)
+        self.incidentBase = IncidentBase(self.incidentWrapper, TEXT_DATABASE_PATH, VECTOR_DATABASE_PATH, GENERAL_DATABASE_PATH)
         self.incidentWrapper.inform('The web engine was initialized!')
 
     # Processes the incoming form
@@ -54,7 +55,22 @@ class Engine:
         return str(info)
 
 
-    ## Return all data for this incident id
-    def retrieveId(self, incident_id):
-        results = self.incidentBase.getEntry(incident_id)
-        pass
+    ## Return all data for this incident id (UNSAFE ID INPUT)
+    def retrieveFormFromId(self, id):
+        # Check if None
+        if id is None:
+            return FormBuilder.buildEmptyForm()
+
+        # Check that id does not contain any illegal characters
+        if Utils.isInteger(id):
+            entry_df = self.incidentBase.getEntry(int(id))
+            form = FormBuilder.buildFromEntry(entry_df)
+
+        # If it does then return an empty result with the same input
+        else:
+            form = FormBuilder.buildEmptyForm()
+
+        form.id = id
+        return form
+
+

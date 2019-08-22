@@ -1,3 +1,4 @@
+import pandas as pd
 from flask_wtf import FlaskForm
 from wtforms import StringField, DateField, PasswordField, RadioField, BooleanField, SelectField, SubmitField, TextAreaField, Form, TextField, TextAreaField, validators
 from flask import Flask, render_template, flash, request
@@ -8,12 +9,48 @@ from wtforms.validators import DataRequired, Length
 class WebForm(FlaskForm):
     aviso_calidad = TextField('Aviso de Calidad: ', validators=[DataRequired()])
     codigo_cliente = TextField('Codigo Cliente: ', validators=[DataRequired()])
-    fecha_registro = DateField('Fecha Registro: ', validators=[DataRequired()], format='%d/%m/%Y')
     material_afectado = TextField('Material Afectado: ', validators=[DataRequired()])
-    fecha_salida = DateField('Fecha Salida: ', format='%d/%m/%Y', validators=[DataRequired()])
     albaran = TextField('Albaran: ', validators=[DataRequired()])
     textoSAP = TextAreaField('Texto SAP: ', validators=[Length(min=0, max=500), DataRequired()])
     analysis_causa = TextAreaField('Analysis de Causas: ', validators=[Length(min=0, max=500), DataRequired()])
     causa_raiz = TextField('Causa Raiz: ', validators=[DataRequired()])
-    fecha_finalizacion_investigacion = DateField('Fecha Finalizacion: ', validators=[DataRequired()], format='%d/%m/%Y')
     submit = SubmitField('Submit')
+
+
+# Classes for holding Incidence information
+class InfoForm:
+    def __init__(self, fields=[]):
+        self.id = 0
+        self.fields = fields
+
+    def setID(self, id):
+        self.id = id
+
+class InfoField:
+    def __init__(self, label, data):
+        self.label = label
+        self.data = data
+
+class FormBuilder:
+    @staticmethod
+    def buildFromEntry(entry_df):
+        # Get columns of dataframe entry
+        cols = entry_df.columns
+
+        # Get values of entry, or if empty then return empty form
+        if(entry_df.shape[0] == 1):
+            vals = list(entry_df.loc[0])
+        else:
+            return FormBuilder.buildEmptyForm()
+
+        # Make fields
+        fields = [InfoField(pair[0], pair[1]) for pair in list(zip(cols,vals))]
+
+        # Return a form object from the constructed fields
+        return InfoForm(fields=fields)
+
+    @staticmethod
+    def buildEmptyForm():
+        infoForm = InfoForm()
+        infoForm.setID('')
+        return infoForm

@@ -116,13 +116,12 @@ class IncidentParser:
         aviso_calidad = form.aviso_calidad.data
         codigo_cliente = form.codigo_cliente.data
         material_afectado = form.material_afectado.data
-        albaran = form.albaran.data
         textoSAP = form.textoSAP.data
         analysis_causa = form.analysis_causa.data
         causa_raiz = form.causa_raiz.data
 
         # Making entry with all parameters into dataframe
-        entry = [aviso_calidad, codigo_cliente, material_afectado, albaran, textoSAP, analysis_causa, causa_raiz]
+        entry = [aviso_calidad, codigo_cliente, material_afectado, textoSAP, analysis_causa, causa_raiz]
         column_names = ['aviso_de_calidad', 'codigo_cliente', 'material', 'texto_sap', 'analysis_de_causas', 'causa_raiz']
         df = pd.DataFrame(columns=column_names)
         df.rename(columns={"aviso_de_calidad": INDEX_COLUMN_NAME}, inplace=True)

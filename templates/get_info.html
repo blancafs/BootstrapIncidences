@@ -1,10 +1,143 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
+
+{% block content %}
+
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 10px 16px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: none;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 5px 10px 5px 0;
+  display: inline-block;
+  margin-left: 15px
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: right;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #ffd88f;
+  padding: 20px;
+}
+
+.container-norm {
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.col-25 {
+  float: left;
+  width: 15%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 85%;
+  margin-top: 6px;
+}
+
+.eighty {
+  height:80%;
+}
+
+.twenty {
+  height:20%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+</style>
 </head>
+
 <body>
 
+  <div class="row">
+
+    <div class="col-sm-6">
+      <div class="container-norm h-100">
+        <div class="d-flex float-left float-vertical-align h-100">
+          <h1>Incidence {{ form.id }}</h1>
+        </div>
+        <div class="d-flex float-left float-vertical-align h-100">
+          <h5>Relevant information is shown below.</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-6">
+      <div class="container-norm h-100">
+        <div class="d-flex float-right h-100">
+          <div class="searchbar">
+            <input class="search_input" type="text" name="" placeholder="Search...">
+              <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+    <div class="container">
+
+        {% for field in form.fields %}
+        <div class="row">
+            <div class="col-25">
+                <label ><b>{{ field.label }}</b></label>
+            </div>
+            <div class="col-75">
+                <p>{{ field.data }}</p>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
 </body>
-</html>
+
+{% endblock %}

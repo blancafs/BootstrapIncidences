@@ -24,13 +24,13 @@ class IncidentBase:
 
         # Find the right index for the new entry
         if occurances == 0:
-            print('Found NO occurance adding it at the end')
+            print('[incidentBase]: updateTrainingData(): Found NO occurance adding it at the end')
             ind = train_df.shape[0]
         elif occurances == 1:
-            print('Found one occurance, replacing it')
+            print('[incidentBase]: updateTrainingData(): Found one occurance, replacing it')
             ind = train_df.loc[train_df[INDEX_COLUMN_NAME] == incidence_id].index[0]
         else:
-            print('Database has multiple occurances of id:', incidence_id)
+            print('[incidentBase]: updateTrainingData(): Database has multiple occurances of id:', incidence_id)
             return False
 
         # Replace the entry at the correct index
@@ -52,5 +52,25 @@ class IncidentBase:
     def updateIncidentData(self, entry_list):
         pass
 
-    def getEntry(self, id):
-        pass
+    def getEntry(self, incidence_id):
+        df = pd.read_csv(self.path_to_incidents).reset_index(drop=True)
+        occurances = df[df[INDEX_COLUMN_NAME] == incidence_id].shape[0]
+        # Find the right index for the entry
+        if occurances == 0:
+            print('[incidentBase]: getEntry(): Found NO occurance of', incidence_id)
+            ind = -1
+        elif occurances == 1:
+            print('[incidentBase]: getEntry(): Found one occurance of' ,incidence_id)
+            ind = df.loc[df[INDEX_COLUMN_NAME] == incidence_id].index[0]
+        else:
+            print('[incidentBase]: getEntry(): Database has multiple occurances of id:', incidence_id)
+            ind = -1
+
+        # If no entry found return an empty df, otherwise return df with single entry
+        if ind == -1:
+            entry = df.loc[df[INDEX_COLUMN_NAME] == -1]
+        else:
+            entry = df.loc[[ind]]
+
+        entry.reset_index(inplace=True, drop=True)
+        return entry

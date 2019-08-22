@@ -1,7 +1,7 @@
 # Get application parent dir
 import os
 path = os.path.dirname(os.path.realpath(__file__))
-path += '/../../'
+path += '/../'
 
 
 ########################
@@ -100,3 +100,20 @@ class ConfigGetter:
     ## Returns parameter dict from config
     def getParamDict(self):
         return self.parser.getParamDict()
+
+
+
+
+#############
+### UTILS ###
+#############
+class Utils:
+
+    # Checks if input variable is integer
+    @staticmethod
+    def isInteger(var):
+        try:
+            num = int(var)
+        except ValueError:
+            return False
+        return True

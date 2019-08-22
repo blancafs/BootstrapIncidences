@@ -13,7 +13,7 @@ SECRET_KEY = os.urandom(32)
 # Begin Serving
 app = Flask(__name__)
 app.config['SECRET_KEY'] = SECRET_KEY
-
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 ## ROUTES ##
 
@@ -59,7 +59,7 @@ def uploadFile():
 			flash('Success')
 			filename = secure_filename(file.filename)
 			file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-			return redirect(url_for('success'))
+			return redirect(url_for('success',  title='bamboucha'))
 	flash('Method was not post')
 	return redirect(url_for('upload_form'))
 
@@ -67,12 +67,22 @@ def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
+# Get information on incident from the database
+@app.route('/get_info', methods =['GET', 'POST'])
+def get_info():
+
+	pass
+
 
 ## TESTING ##
-@app.route('/success')
+@app.route('/success', methods=['GET', 'POST'])
 def success():
-	return '''
-	    <!doctype html>
-	    <title>Success</title>
-	    <h1>Success"</h1>
-	    '''
+	ret_string = '''
+				<!doctype html>
+				<title>Success</title>
+				<h1>Success</h1>
+				'''
+	if request.method == 'POST':
+		return ret_string + '<h1>POST + ' + str(request.form.keys())
+	elif request.method == 'GET':
+		return ret_string + '<h1>GET + ' + str(request.args.get('title'))

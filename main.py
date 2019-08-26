@@ -20,12 +20,10 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = SECRET_KEY
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-# Database configuration (database either creates csv file or reads it)
-user_db = UserDB(path=USER_DATABASE_PATH)
-
 ## ROUTES ##
 
 # Index
+@app.route('/')
 @app.route('/index', methods=['GET', 'POST'])
 def index():
 	return render_template('index.html')
@@ -38,56 +36,15 @@ def aim_info():
 # Fill incidence form
 @app.route('/fill_incidence', methods=['GET', 'POST'])
 def fill_incidence():
-	if session['current_user']=='logout':
-		return render_template('index.html')
-	else:
-		form = WebForm()
-		if form.validate_on_submit():
-			engine.dealWithWebForm(form)
-		return render_template('fill_incidence.html', title='Web Form', form=form)
-
-
-# Credentials
-@app.route('/')
-@app.route('/login', methods=['GET', 'POST'])
-def login():
-	session['current_user'] = 'logout'
-	signin_form = SignInForm()
-	if signin_form.submit.data:
-		print(signin_form.email.data)
-		checked = user_db.checkUser(signin_form.email.data, signin_form.password.data)
-		print('checked ', checked)
-		if checked>0:
-			session['current_user'] = user.getEmail()
-			return redirect('index')
-	return render_template('login.html', title='Log In', form=signin_form)
-
-@app.route('/register', methods=['GET', 'POST'])
-def register():
-	session['current_user'] = 'logout'
-	print(session['current_user'])
-	reg_form = SignInForm()
-	print(reg_form.submit.data)
-	if reg_form.submit.data:
-		user = User(reg_form.username.data, reg_form.email.data, reg_form.password.data)
-		print(reg_form.username.data, reg_form.email.data)
-		successful = user_db.addUser(user)
-		print('successful ', successful)
-		if successful>0:
-			session['current_user'] = user.getEmail()
-			print('added user successfully!!!!!!!!! and logged in')
-			return redirect('index')
-		else:
-			return render_template('register.html')
-	return render_template('register.html', title='Register', form=reg_form)
-
+	form = WebForm()
+	if form.validate_on_submit():
+		engine.dealWithWebForm(form)
+	return render_template('fill_incidence.html', title='Web Form', form=form)
 
 # Upload incident pages
 @app.route('/upload_form', methods=['GET', 'POST'])
 def upload_form():
-	if not session['current_user']=='logout':
-		return render_template('upload_form.html', title='Upload')
-	return render_template('index.html')
+	return render_template('upload_form.html', title='Upload')
 
 @app.route('/uploadFile', methods=['GET', 'POST'])
 def uploadFile():

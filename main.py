@@ -5,9 +5,12 @@ from lib.forms import FormBuilder
 
 # Imports
 import os
-from flask import Flask, render_template, flash, request, redirect, url_for
+
+import pandas as pd
+from flask import Flask, render_template, flash, request, redirect, url_for, session
 from werkzeug.utils import secure_filename
-from lib.forms import WebForm
+from lib.forms import WebForm, SignInForm
+from lib.configurator import USER_DATABASE_PATH
 
 # Vars
 UPLOAD_FOLDER = 'uploads'
@@ -25,27 +28,23 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # Index
 @app.route('/')
-@app.route('/index')
+@app.route('/index', methods=['GET', 'POST'])
 def index():
     return render_template('index.html')
 
 # What is AIM
-@app.route('/aim_info')
+@app.route('/aim_info', methods=['GET', 'POST'])
 def aim_info():
     return render_template('aim_info.html', title='AIM Info')
 
 # Fill incidence form
-@app.route('/fill_incidence')
+@app.route('/fill_incidence', methods=['GET', 'POST'])
 def fill_incidence():
     form = WebForm()
     if form.validate_on_submit():
         engine.dealWithWebForm(form)
     return render_template('fill_incidence.html', title='Web Form', form=form)
 
-# Credentials
-@app.route('/sign_in')
-def sign_in():
-    return render_template('sign_in.html', title='Log In')
 
 # Upload incident pages
 @app.route('/upload_form', methods=['GET', 'POST'])

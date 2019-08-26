@@ -1,5 +1,5 @@
-id,texto_sap,fecha,random col
-12345,test2,test3,d
-4000,this is the text mate,12/2/2009,d
-400055555,the chemical spilled and caused a huge problem and then we all got fucked and that happened again. the chemical spilled and caused a huge problem and then we all got fucked and that happened again. the chemical spilled and caused a huge problem and then we all got fucked and that happened again. the chemical spilled and caused a huge problem and then we all got fucked and that happened again. ,12/1/2770,d
-777,hi,yo mum,yo other mum
+id,codigo_cliente,material,texto_sap,analysis_de_causas,causa_raiz
+12345,test2,test3,d,ff,ff
+4000,this is the text mate,ff,d,ff,ff
+400055555,,ff,d,ff,ff
+777,hi,yo mum,yo other mum,ff,ff

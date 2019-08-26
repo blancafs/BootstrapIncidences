@@ -1,0 +1,8 @@
+# This file is used to determine the model and parameters used in the IncidentWrapper classification
+
+# Model (SVM, Logistic, Gaussian, XGBoost)
+model=Logistic
+
+# Parameters
+C=10
+max_iter=1000

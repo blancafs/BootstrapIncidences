@@ -15,6 +15,7 @@ class IncidentBase:
         self.path_to_vectors = path_to_vectors
         self.path_to_incidents = path_to_incidents
 
+    ## Updates the training databases (both vector and non-vector), by adding or replacing the given incident
     def updateTrainingData(self, entry_list):
         # Construct dataframe, get id and see if there are any previous entries for id
         train_df = pd.read_csv(self.path_to_training).reset_index(drop=True)
@@ -49,9 +50,29 @@ class IncidentBase:
         vector_df.to_csv(self.path_to_vectors, index=False)
         return True
 
+    ## Updates the incident database with the given incident, replacing or adding it at the end
     def updateIncidentData(self, entry_list):
-        pass
+        incident_df = pd.read_csv(self.path_to_incidents).reset_index(drop=True)
+        incidence_id = entry_list[0]
+        occurances = incident_df[incident_df[INDEX_COLUMN_NAME] == incidence_id].shape[0]
 
+        # Find the right index for the new entry
+        if occurances == 0:
+            print('[incidentBase]: updateIncidentData(): Found NO occurance adding it at the end')
+            ind = incident_df.shape[0]
+        elif occurances == 1:
+            print('[incidentBase]: updateIncidentData(): Found one occurance, replacing it')
+            ind = incident_df.loc[incident_df[INDEX_COLUMN_NAME] == incidence_id].index[0]
+        else:
+            print('[incidentBase]: updateIncidentData(): Database has multiple occurances of id:', incidence_id)
+            return False
+
+        # Replace the entry at the correct index and save it back to csv
+        incident_df.loc[ind] = entry_list
+        incident_df.to_csv(self.path_to_incidents, index=False)
+        return True
+
+    ## Returns the required entry from its id (aviso_de_calidad) as a dataframe
     def getEntry(self, incidence_id):
         df = pd.read_csv(self.path_to_incidents).reset_index(drop=True)
         occurances = df[df[INDEX_COLUMN_NAME] == incidence_id].shape[0]

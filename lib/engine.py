@@ -21,15 +21,19 @@ class Engine:
 
     # Processes the incoming form
     def dealWithWebForm(self, form):
+        print('dealing with form')
         incident_entry_df = self.incidentWrapper.parseIncidentFromWebForm(form)
+        print(incident_entry_df)
         info = self.deal(incident_entry_df)
+        self.incidentWrapper.inform('Form was dealt-with!')
         return info
 
     ## Process the file, retrieve required information and delete it
     def dealWithFile(self, file_path):
-        # Extract file info
         incident_entry_df = self.incidentWrapper.parseIncidentFromFile(file_path)
         info = self.deal(incident_entry_df)
+        os.remove(file_path)
+        self.incidentWrapper.inform('File was dealt-with and deleted!')
         return info
 
 
@@ -40,12 +44,12 @@ class Engine:
         training_entry_df = self.incidentWrapper.keepTrainingCols(predicted_incident_entry_df)
 
         # Update general database
-        '''
-        Here update the csv file with all info parsed from excel file
-        '''
+        entry_list = list(predicted_incident_entry_df.loc[0])
+        self.incidentBase.updateIncidentData(entry_list)
+
         # Update vector and training database
-        entry_list = list(training_entry_df.loc[0])
-        self.incidentBase.updateTrainingData(entry_list)
+        training_entry_list = list(training_entry_df.loc[0])
+        self.incidentBase.updateTrainingData(training_entry_list)
 
         # Delete the file
         os.remove(file_path)
@@ -66,7 +70,7 @@ class Engine:
             entry_df = self.incidentBase.getEntry(int(id))
             form = FormBuilder.buildFromEntry(entry_df)
 
-        # If it does then return an empty result with the same input
+        # If id is not a number then return an empty result with the same input
         else:
             form = FormBuilder.buildEmptyForm()
 

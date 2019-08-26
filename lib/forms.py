@@ -52,5 +52,5 @@ class FormBuilder:
     @staticmethod
     def buildEmptyForm():
         infoForm = InfoForm()
-        infoForm.setID('')
+        infoForm.setID('(nothing to show)')
         return infoForm

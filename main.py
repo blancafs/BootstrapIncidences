@@ -5,24 +5,30 @@ from lib.forms import FormBuilder
 
 # Imports
 import os
-
 import pandas as pd
+
+# Custom imports
+from lib.engine import Engine
+from lib.forms import WebForm
+from lib.configurator import USER_DATABASE_PATH
+
+# Web imports
 from flask import Flask, render_template, flash, request, redirect, url_for, session
 from werkzeug.utils import secure_filename
-from lib.forms import WebForm, SignInForm
-from lib.configurator import USER_DATABASE_PATH
+
 
 # Vars
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'xls', 'xlsx'}
 SECRET_KEY = os.urandom(32)
 
-#lib.incident, lib.engine
 # Begin Serving
 app = Flask(__name__)
 app.config['SECRET_KEY'] = SECRET_KEY
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
+# Initialize engine
+engine = Engine()
 
 ## ROUTES ##
 
@@ -41,7 +47,7 @@ def aim_info():
 @app.route('/fill_incidence', methods=['GET', 'POST'])
 def fill_incidence():
     form = WebForm()
-    if form.validate_on_submit():
+    if form.submit.data:
         engine.dealWithWebForm(form)
     return render_template('fill_incidence.html', title='Web Form', form=form)
 
@@ -60,12 +66,20 @@ def uploadFile():
         if file.filename == '':
             flash('File name was empty')
             return redirect(url_for('upload_form'))
+
+        # File is correct, attempt to save it, process it and delete it
         if file and allowed_file(file.filename):
-            flash('Success')
+            # Retrieve and save file
             filename = secure_filename(file.filename)
-            file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            file.save(file_path)
+
+            # Deal with file
+            engine.dealWithFile(file_path)
+
             return redirect(url_for('success'))
-        flash('Method was not post')
+
+    flash('Method was not post')
     return redirect(url_for('upload_form'))
 
 def allowed_file(filename):
@@ -107,3 +121,10 @@ def success():
         return ret_string + '<h1>GET + ' + str(request.args.get('title'))
     else:
         return ret_string
+
+
+### MAIN ###
+if __name__=='__main__':
+    port = 5000
+    app.run(host='0.0.0.0', port=5000)
+    print('[main]: main(): Server is listening on port:', port)

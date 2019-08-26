@@ -1,0 +1,10 @@
+Flask==1.1.1
+Flask-WTF==0.14.2
+pandas==0.24.2
+python-dotenv==0.10.3
+tensorflow==1.13.1
+tensorflow-hub
+sklearn
+sentencepiece
+tf-sentencepiece
+xlrd

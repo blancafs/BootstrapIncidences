@@ -103,7 +103,7 @@ class IncidentWrapper:
     ## DEBUG message method
     def inform(self, text):
         if self.DEBUG:
-            print(text)
+            print('[DEBUG]: inform():',text)
 
 
 ####################################################################################################

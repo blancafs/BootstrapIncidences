@@ -113,10 +113,11 @@ input[type=submit]:hover {
     <div class="col-sm-6">
       <div class="container-norm h-100">
         <div class="d-flex float-right h-100">
-          <div class="searchbar">
-            <input class="search_input" type="text" name="" placeholder="Search...">
-              <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-          </div>
+          <form class="form-inline md-form form-sm mt-0" action="{{ url_for('get_info') }}" method="get">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
+            aria-label="Search" name="id">
+          </form>
         </div>
       </div>
     </div>

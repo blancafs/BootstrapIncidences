@@ -1,9 +1,35 @@
 {% extends "base.html" %}
 
 {% block content %}
+<head>
+    <style>
+        .container-fluid-personal {
+          width: 100%;
+          height: 5%;
+          padding-right: 15px;
+          padding-left: 15px;
+          margin-right: auto;
+          margin-left: auto;
+        }
 
-<div class="container-fluid">
-    <div class="jumbotron">
+        .jumbotron-personal {
+          padding: 2rem 1rem;
+          margin-bottom: 2rem;
+          background-color: #e9ecef;
+          border-radius: 0.3rem;
+        }
+        /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 600px) {
+          .col-25, .col-75, input[type=submit] {
+            width: 100%;
+            margin-top: 0;
+          }
+        }
+    </style>
+</head>
+
+<div class="container-fluid-personal">
+    <div class="jumbotron-personal">
         <h1>What is AIM?</h1>
         <p class="lead"> Automated Incidence Management can help suggest categories for any chemical incident reports and can display similar past reports.</p>
     </div>

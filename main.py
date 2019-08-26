@@ -9,7 +9,7 @@ import os
 import pandas as pd
 from flask import Flask, render_template, flash, request, redirect, url_for, session
 from werkzeug.utils import secure_filename
-from lib.forms import WebForm, SignInForm
+from lib.forms import WebForm
 from lib.configurator import USER_DATABASE_PATH
 
 # Vars

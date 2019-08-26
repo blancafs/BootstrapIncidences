@@ -6,7 +6,8 @@ import numpy as np
 # Custom imports
 from .processor import Processor
 from .classifier import ClassifierBuilder
-from .configurator import DATABASE_PATH, INDEX_COLUMN_NAME, CATEGORY_COLUMN_NAME, SUB_CATEGORY_COLUMN_NAME,\
+from .configurator import DATABASE_PATH, INDEX_COLUMN_NAME, CODIGO_COLUMN_NAME, MATERIAL_COLUMN_NAME,\
+    ANALYSIS_COLUMN_NAME, CAUSA_COLUMN_NAME, CATEGORY_COLUMN_NAME, SUB_CATEGORY_COLUMN_NAME,\
     TEXT_COLUMN_NAME, TEXT_DATABASE_NAME, VECTOR_DATABASE_NAME
 
 
@@ -59,6 +60,12 @@ class IncidentWrapper:
         return entry_df[[INDEX_COLUMN_NAME, TEXT_COLUMN_NAME, CATEGORY_COLUMN_NAME, SUB_CATEGORY_COLUMN_NAME]].copy()
 
 
+    ##Returns given df with columns necessary for general database
+    def keepGeneralCols(self, entry_df):
+        return entry_df[[INDEX_COLUMN_NAME, CODIGO_COLUMN_NAME, MATERIAL_COLUMN_NAME, TEXT_COLUMN_NAME,\
+                         ANALYSIS_COLUMN_NAME, CAUSA_COLUMN_NAME, CATEGORY_COLUMN_NAME, SUB_CATEGORY_COLUMN_NAME]].copy()
+
+
     ### FUNCTIONAL HELPER METHODS ###
 
     ## Returns the best possible initialized Processor object
@@ -101,9 +108,9 @@ class IncidentWrapper:
         return sub_categorized_df[SUB_CATEGORY_COLUMN_NAME][0]
 
     ## DEBUG message method
-    def inform(self, text):
+    def inform(self, *text):
         if self.DEBUG:
-            print('[DEBUG]: inform():',text)
+            print('[DEBUG]: inform():', *text)
 
 
 ####################################################################################################
@@ -140,8 +147,8 @@ class IncidentParser:
                 entries.append(e)
             df = pd.DataFrame(columns=names)
             df.loc[0] = list(entries)
-            filename = name.split('/')[-1]
-            df['filename'] = filename
+            # filename = name.split('/')[-1]
+            # df['filename'] = filename
             docs.append(df)
         THE_DATAFRAME = pd.concat(docs).reset_index(drop=True)
         THE_DATAFRAME.rename(columns={"aviso_de_calidad": INDEX_COLUMN_NAME}, inplace=True)

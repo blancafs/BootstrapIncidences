@@ -10,9 +10,14 @@ path += '/../'
 
 # Column name variables
 INDEX_COLUMN_NAME = 'id'
+CODIGO_COLUMN_NAME = 'codigo_cliente'
+MATERIAL_COLUMN_NAME = 'material'
+TEXT_COLUMN_NAME = 'texto_sap'
+ANALYSIS_COLUMN_NAME = 'analysis_de_causas'
+CAUSA_COLUMN_NAME = 'causa_raiz'
+
 CATEGORY_COLUMN_NAME = 'category'
 SUB_CATEGORY_COLUMN_NAME = 'sub_category'
-TEXT_COLUMN_NAME = 'texto_sap'
 VECTOR_COLUMN_NAME = 'vectorized_texts'
 
 # Paths

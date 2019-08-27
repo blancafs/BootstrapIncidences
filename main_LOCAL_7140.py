@@ -16,6 +16,7 @@ from lib.configurator import USER_DATABASE_PATH
 from flask import Flask, render_template, flash, request, redirect, url_for, session
 from werkzeug.utils import secure_filename
 
+
 # Vars
 UPLOAD_FOLDER = 'uploads'
 ALLOWED_EXTENSIONS = {'xls', 'xlsx'}

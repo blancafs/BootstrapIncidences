@@ -15,6 +15,12 @@ from lib.configurator import USER_DATABASE_PATH
 # Web imports
 from flask import Flask, render_template, flash, request, redirect, url_for, session
 from werkzeug.utils import secure_filename
+<<<<<<< HEAD
+
+=======
+from lib.forms import WebForm
+from lib.configurator import USER_DATABASE_PATH
+>>>>>>> blanca
 
 # Vars
 UPLOAD_FOLDER = 'uploads'

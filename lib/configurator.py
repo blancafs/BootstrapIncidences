@@ -1,5 +1,6 @@
 # Get application parent dir
 import os
+import pandas as pd
 path = os.path.dirname(os.path.realpath(__file__))
 path += '/../'
 
@@ -125,3 +126,7 @@ class Utils:
         except ValueError:
             return False
         return True
+
+    @staticmethod
+    def saveCSV(df, file_path, index=False):
+        df.to_csv(file_path, index=index, encoding='utf-8-sig')

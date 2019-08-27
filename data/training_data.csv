@@ -1,4 +1,5 @@
-id,texto_sap,category,sub_category
+﻿id,texto_sap,category,sub_category
+400014296,"El cliente informa de que mediante el uso del PEAD 5203 – Lote 56004, que las botellas fabricadas tienen pequeñas áreas transparentes. Estas transparencias aparecen al azar en cualquier posición de la botella. Informo que algunas de estas transparencias es fácilmente visible a simples vista, otros solo con un luz de fondo. Informa que el material se utiliza en la fabricación de botellas de detergentes y no se puede correr el Riesgo de una de estas áreas en contacto con el producto ocasione un agujero. ",Producto,Propiedades
 400014302,Entrega de lote AR 03446 del CP121 de nuevo con contaminaciones negras. ,Producto,Contaminacion
 400014303,"El cliente informa que en la entrega de hoy se ha observado una humedad excepcionalmente alta. Se han repetido 3 veces los ensayos y en todos los casos el resultado fue el mismo. Informa que se procede a la descarga condicionada del material, que permanecerá en el silo el máximo tiempo posible para favorecer el secado. Cuando se utilice el material, en caso de detectar incidencias nos comunicara.",Producto,Humedad
 400014305,"Devuelto camión por problemas de calidad. El cliente ha tenido problemas,se detectan zonas débiles e infundidos en las botellas sopladas con este lote. Se adjunta no conformidad enviada por el cliente.",Producto,Propiedades
@@ -22,8 +23,6 @@ Hemos tenido el mismo problema con el pedido 13759776 -  albarán 24127206 aviso
 El GC tiene programada una visita con el técnico del laboratorio el día 16/02 para analizar la situación.
 
 Adjunto correo del cliente en Portugués.",Producto,Propiedades
-400017184,"ENVASADO MAL SELLADO: Quimidroga informa que recibió material con un envasado de mal sellado que ha generado pérdidas del mismo. Informa lo siguiente:
-""4 sacos parcheados y pinchados con pérdida de productos""",Suministro,Fuga Producto
 400014357,"El albaran se facturó conel siguiente peso 23.375 Kgs. Sin embargo, teniamos fundadas sospechas que el cliente recibió 1.375 Kgs mas del mismo material y lote (1 palet de mas). El ticket de pesada así lo confirmaba, tal y como nos aseguró posteriormente el propio cliente, confirmándonoslo dichas sospechas. Haz lo necesario para que se normalice esta situación y al cliente se le facture lo que realmente recibió.",Suministro,Cantidad
 400014360,"La cantidad de aditivo NOR presente en el master es inferior a la especificada. Se realiza un control de aditivo NOR vía FTIR. El resultado debería ser de alrededor de 12000 ppm. Los resultados reales obtenidos son de 9030 ppm. Esto significa que la concentración del master es del 13,9 % de NOR en lugar del 19 % especificado, es decir un 73 % de la especificación. Se ha detectado el error en una saca. No sabemos si el resto del lote tendría el mismo problema. En algún caso hemos detectado problemas de dosificación en nuestros controles, pero no tan altos como en este caso. ",Suministro,Cantidad
 400014365,"El cliente informa que tiene un silo bloqueado con unas 40 toneladas de PE071 donde ha encontrado virutas metálicas de origen desconocido.
@@ -339,7 +338,11 @@ Un saludo",Producto,Propiedades
 400014825,"Cliente no quiere el material entregado PA465 ya que el MFI no esta dentro del su especificación de MFI 363-437. El material hay que retirarlo y mandar nuevo.
 Hay que recoger los 2300 kg que estan en casa del cliente y no puede trabajar.
 Pedido de devolucion 13808290",Producto,Propiedades
-400014828,"Se plantea una reclamación de Sotrafa por corte defectuoso en el concentrado IMB UV H3A, lote BP-04322. La presencia de granos largos está provocando atascos en sus dosificadores y afectando negativamente a la producción de film agrícola. (Ver fotografía en Servicios para Objeto del Aviso)",Producto,Contaminacion
+400014828,"El pasado 27 de Diciembre el cliente recibe los lotes de IMB UVH3A  y al romper los sacos para poder utlizarlos se encuentra con “churros” excesivamente largos que dificultan la aspiración y transporte del concentrado hasta sus dosificadores.
+ También han encontrado variaciones de tonalidad, granos manchados de negro y pelusas (o cabellos de ángel) que han ocasionado atranques y cambios de tonalidad en los materiales, originando 680 Kg de desecho.
+Para poder consumir todo el material han tenido que tamizar saco por saco para eliminar los granos problema.
+
+Solicitan respuesta por escrito evaluando las causas de la no conformidad así como las posibles Acciones Correctivas aplicadas para evitar que dicha no conformidad se repita en el futuro.",Producto,Contaminacion
 400014832,el cliente reclama que se ha encontrado granos negro en el material,Producto,Contaminacion
 400014840,"El cliente informa que al recibir esta cisterna se ha detectado un fuerte olor, nada característico en la misma.
 
@@ -1419,7 +1422,9 @@ Cursados pedidos de devolución 13902563 y 13902562",Producto,Humedad
 400015985,"Material PA538 muestra contaminación con granos más grandes y contaminados.
 Se adjuntan fotos en servicios para objeto.
 ",Producto,Contaminacion
-400016000,,Producto,Contaminacion
+400016000,"El cliente se queja de la existencia de motas en la granza ""puntos sin fundir dentro del mismo pellet que ocasionan burbujas en el producto terminado"". Envia informes de disconformidad adjuntos.
+
+Los lotes afectados son CT14461 y CP29462, de los pedidos 13877965/24296289 y 13876188/24290761.",Producto,Contaminacion
 400016010,el cliente reclama que les ha llegado un saco roto con esta entrega. Adjunto fotos en anexos,Envase,Aspecto
 400016016,"Cliente informa que recibio menos material que aquel que estaba detallado en el albarán.
 Solicita que se haga la devolución correspondiente al material que no fue entregado.
@@ -2362,6 +2367,8 @@ PS NUEVO: 14021975",Producto,Propiedades
 400017173,"Carga previa no permitida: El cliente se ha quejado que le hemos suministrado un material, con una carga previa no autorizada. Carga previa Isopar (parafina)
 
 En anexo adjunto el correo del GC, donde pide la apertura del aviso.",Suministro,Transporte
+400017184,"ENVASADO MAL SELLADO: Quimidroga informa que recibió material con un envasado de mal sellado que ha generado pérdidas del mismo. Informa lo siguiente:
+""4 sacos parcheados y pinchados con pérdida de productos""",Suministro,Fuga Producto
 400017185,1 saco roto en la entrega PA411: el cliente reclama que en un palet hay un saco roto y se derramado entero. Se adjuntan fotos y el CMR firmado en anexos,Envase,Aspecto
 400017186,corte y apariencia del material PA407: el cliente reclama el corte y apariencia del material PA407 en mal estado. Se adjunta documento del cliente y foto en anexos,Producto,Propiedades
 400017188,"Presencia de nivel alto de agua (007):  El cliente ha recibido 12 ton de D2021 (albaran 24487664 desde 02) y 12 ton de D4110 (albaran 24489196 desde 34/01) en una cisterna compartimentada y no quiere descargar porque dice que hay demasiada presencia de agua (007 cuanto el maximo tiene que ser 005).
@@ -2636,14 +2643,13 @@ Adjunto los anexos de la reclamación anterior más el email del cliente quien c
 
 Selinde Failé
 Purchase department",Producto,Propiedades
-400017624,,Envase,Aspecto
 400017625,Material dañado en la entrega: el cliente reclama que en la entrega ha llegado el material dañado. El mismo problema lo han tenido en este albaran y en los albaranes 24540199  y 24539037. Se adjuntan CMR´s y fotos en anexos,Envase,Aspecto
 400017626,El cliente se queja de problemas de partículas grandes en relación a los lotes HV-22441 HV-27441. Se adjunta foto.,Producto,Contaminacion
 400017631,"DIFERENCIAS EN ENTREGA: El cliente nos informa que ha recibido un pallet de menos del material PA461 y un pallet de más del PA411.
 
 Nos adjunta el CMR y parece que se ha emitido por las cantidades que indicaba el cliente en su pedido pero a la hora de la descarga el cliente apunta la diferencia arriba indicada.",Suministro,Cantidad
 400017638,"HUMEDAD EN EXTERIOR SACOS: El PP015G3E del lote KB02404 que se ha enviado en sacos presentan humedad en el exterior de los sacos, como se puede observar en las fotos adjuntas. El cliente ha tenido que pasar un papel seco para quitar el agua y evitar que entre en el silo humedad lo que generaría problemas de producción. Esta situación genera un coste de mano de obra añadido y un riesgo adicional de paradas de producción y generación de mermas. El cliente pide que se presente acciones correctoras de forma a evitar novas ocurrencias en el futuro.",Producto,Humedad
-400017639,,Producto,Propiedades
+400017639,PROBLEMAS POR EL IF:  El cliente se queja que ha tenido problemas de producción con el lote HV 1900202 de PP031G1E y que dados los problemas ocurridos desconfían que puedan estar relacionados con IF por encima del especificado.,Producto,Propiedades
 400017641,"material sucio con color negro: cliente recibe 2 palets del material PA448 lamenta la calidad, tiene color negro y está sucio,
 
 gestor comercial entrega muestra a ATD",Envase,Aspecto

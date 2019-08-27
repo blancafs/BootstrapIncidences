@@ -11,7 +11,7 @@ import tensorflow_hub as hub
 import tf_sentencepiece
 
 # Custom imports
-from .configurator import MODEL_FOLDER_PATH,CATEGORY_COLUMN_NAME,TEXT_COLUMN_NAME,VECTOR_COLUMN_NAME,VECTOR_DATABASE_NAME
+from .configurator import Utils, MODEL_FOLDER_PATH,CATEGORY_COLUMN_NAME,TEXT_COLUMN_NAME,VECTOR_COLUMN_NAME,VECTOR_DATABASE_NAME
 
 
 ####################################################################################################
@@ -66,7 +66,7 @@ class Processor:
             path_to_vector_list = self.path_to_csv.split('/')[:-1]
             path_to_vector = '/'.join(path_to_vector_list)
             path_to_vector = path_to_vector + '/' + VECTOR_DATABASE_NAME
-            self.df.to_csv(path_to_vector, index=False)
+            Utils.saveCSV(df, path_to_vector)
 
         # If the vectors were available and read, then parse them from string into list of floats
         else:

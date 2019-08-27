@@ -85,6 +85,22 @@ input[type=submit]:hover {
   clear: both;
 }
 
+.container-fluid-personal {
+  width: 100%;
+  height: 5%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.jumbotron-personal {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  background-color: #e9ecef;
+  border-radius: 0.3rem;
+}
+
 /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 600px) {
   .col-25, .col-75, input[type=submit] {
@@ -92,27 +108,25 @@ input[type=submit]:hover {
     margin-top: 0;
   }
 }
+}
 </style>
 </head>
 
 <body>
 
-  <div class="row">
-
-    <div class="col-sm-6">
-      <div class="container-norm">
-        <div class="d-flex float-left float-vertical-align h-100">
-          <h1>Incidence {{ form.id }}</h1>
-        </div>
-          <br>
-          <br>
-        <div class="d-flex float-left float-vertical-align h-100">
-          <h5>Relevant information is shown below.</h5>
-        </div>
-      </div>
+<div class="container-fluid-personal">
+    <div class="jumbotron-personal">
+        <img src="static/img/loupe.png" style="width:80px;height:80px;float:right;"/>
+        {% if form.id %}
+        <h1>Incidence {{ form.id }}</h1>
+        {% else %}
+        <h1>Incidence Lookup</h1>
+        {% endif %}
+        <p class="lead"> Search for an incidence to get its information.</p>
     </div>
+</div>
 
-    <div class="col-sm-6">
+    <div class="row">
       <div class="container-norm h-100">
         <div class="d-flex float-right h-100">
           <form class="form-inline md-form form-sm mt-0" action="{{ url_for('get_info') }}" method="get">
@@ -123,8 +137,6 @@ input[type=submit]:hover {
         </div>
       </div>
     </div>
-
-  </div>
 
     <div class="container">
 

@@ -3,6 +3,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, DateField, PasswordField, RadioField, BooleanField, SelectField, SubmitField, TextAreaField, Form, TextField, TextAreaField, validators
 from flask import Flask, render_template, flash, request
 from wtforms.validators import DataRequired, Length
+from lib.configurator import CUTE_NAMES
 
 
 # Holds all fields for an incidence filled in online
@@ -36,6 +37,7 @@ class FormBuilder:
     def buildFromEntry(entry_df):
         # Get columns of dataframe entry
         cols = entry_df.columns
+        labels = CUTE_NAMES
 
         # Get values of entry, or if empty then return empty form
         if(entry_df.shape[0] == 1):
@@ -44,7 +46,7 @@ class FormBuilder:
             return FormBuilder.buildEmptyForm()
 
         # Make fields
-        fields = [InfoField(pair[0], pair[1]) for pair in list(zip(cols,vals))]
+        fields = [InfoField(pair[0], pair[1]) for pair in list(zip(labels,vals))]
 
         # Return a form object from the constructed fields
         return InfoForm(fields=fields)
@@ -52,5 +54,5 @@ class FormBuilder:
     @staticmethod
     def buildEmptyForm():
         infoForm = InfoForm()
-        infoForm.setID('(nothing to show)')
+        #infoForm.setID('(nothing to show)')
         return infoForm

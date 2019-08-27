@@ -46,11 +46,10 @@ def aim_info():
 @app.route('/fill_incidence', methods=['GET', 'POST'])
 def fill_incidence():
     form = WebForm()
-    if request.method=='GET':
-        redirect('index.html')
     if (request.values.get("submit_incidence")=="Submit") and (request.values.get('aviso_calidad') is not None):
         print("In loop!! submit data ", form.submit.data)
         engine.dealWithWebForm(form)
+        flash('Web form submitted!')
     return render_template('fill_incidence.html', title='Web Form', form=form)
 
 
@@ -92,19 +91,20 @@ def allowed_file(filename):
 def get_info():
     id = request.args.get('id')
 
-    #form = engine.retrieveFormFromId(id)
+    form = engine.retrieveFormFromId(id)
     # Testing code, otherwise done by engine
     ###################
-    if id == None:
-        print('[main]: get_info(): id is None')
-        return render_template('get_info.html', form=FormBuilder.buildEmptyForm())
-    else:
-        id = int(id)
-        incidentBase = IncidentBase(None, TEXT_DATABASE_PATH, VECTOR_DATABASE_PATH, GENERAL_DATABASE_PATH)
-        entry_df = incidentBase.getEntry(id)
-        print(entry_df)
-        form = FormBuilder.buildFromEntry(entry_df)
-        form.id = id
+    # if id == None:
+    #     print('[main]: get_info(): id is None')
+    #     return render_template('get_info.html', form=FormBuilder.buildEmptyForm())
+    # else:
+    #
+    #     id = int(id)
+    #     incidentBase = IncidentBase(None, TEXT_DATABASE_PATH, VECTOR_DATABASE_PATH, GENERAL_DATABASE_PATH)
+    #     entry_df = incidentBase.getEntry(id)
+    #     print(entry_df)
+    #     form = FormBuilder.buildFromEntry(entry_df)
+    #     form.id = id
     ####################
     return render_template('get_info.html', form=form)
 

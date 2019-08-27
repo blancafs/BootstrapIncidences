@@ -1,5 +1,5 @@
-id,codigo_cliente,material,texto_sap,analysis_de_causas,causa_raiz
-12345,test2,test3,d,ff,ff
-4000,this is the text mate,ff,d,ff,ff
-400055555,,ff,d,ff,ff
-777,hi,yo mum,yo other mum,ff,ff
+id,codigo_cliente,material,texto_sap,analysis_de_causas,causa_raiz,category,sub-category
+12345,test2,test3,d,ff,ff,ff,ff
+4000,this is the text mate,ff,d,ff,ff,ff,ff
+400055555,,ff,d,ff,ff,ff,ff
+777,hi,yo mum,yo other mum,ff,ff,ff,ff

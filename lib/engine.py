@@ -29,7 +29,10 @@ class Engine:
 
     ## Process the file, retrieve required information and delete it
     def dealWithFile(self, file_path):
+        self.incidentWrapper.inform('Dealing with file')
         incident_entry_df = self.incidentWrapper.parseIncidentFromFile(file_path)
+        self.incidentWrapper.inform('File was parsed to the following entry:')
+        print(incident_entry_df)
         info = self.deal(incident_entry_df)
         os.remove(file_path)
         self.incidentWrapper.inform('File was dealt-with and deleted!')
@@ -41,17 +44,15 @@ class Engine:
         # Deal with data
         predicted_incident_entry_df = self.incidentWrapper.getPredictedIncidentEntry(incident_entry_df)
         training_entry_df = self.incidentWrapper.keepTrainingCols(predicted_incident_entry_df)
+        general_entry_df = self.incidentWrapper.keepGeneralCols(predicted_incident_entry_df)
 
         # Update general database
-        entry_list = list(predicted_incident_entry_df.loc[0])
+        entry_list = list(general_entry_df.loc[0])
         self.incidentBase.updateIncidentData(entry_list)
 
         # Update vector and training database
         training_entry_list = list(training_entry_df.loc[0])
         self.incidentBase.updateTrainingData(training_entry_list)
-
-        # Delete the file
-        os.remove(file_path)
 
         # Return relevant info
         info = list(predicted_incident_entry_df.loc[0])

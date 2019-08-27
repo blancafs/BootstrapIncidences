@@ -55,11 +55,6 @@
       <change beforePath="$PROJECT_DIR$/bee/lib/python3.6/types.py" beforeDir="false" afterPath="$PROJECT_DIR$/bee/lib/python3.6/types.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bee/lib/python3.6/warnings.py" beforeDir="false" afterPath="$PROJECT_DIR$/bee/lib/python3.6/warnings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bee/lib/python3.6/weakref.py" beforeDir="false" afterPath="$PROJECT_DIR$/bee/lib/python3.6/weakref.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/engine.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/incident.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/incident.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/fill_incidence.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/fill_incidence.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FlaskTesting/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../FlaskTesting/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FlaskTesting/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/../FlaskTesting/app.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FlaskTesting/app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FlaskTesting/app/forms.py" afterDir="false" />
@@ -134,7 +129,7 @@
             <entry file="file://$PROJECT_DIR$/templates/index.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="48">
-                  <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+                  <caret line="3" selection-start-line="3" selection-end-line="3" />
                   <folding>
                     <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
                   </folding>
@@ -157,8 +152,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/lib/engine.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="451">
-                  <caret line="41" column="64" selection-start-line="41" selection-start-column="64" selection-end-line="41" selection-end-column="64" />
+                <state relative-caret-position="355">
+                  <caret line="35" column="43" lean-forward="true" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
                   <folding>
                     <element signature="e#0#9#0" expanded="true" />
                   </folding>
@@ -179,7 +174,7 @@
             <entry file="file://$PROJECT_DIR$/data/general_data.csv">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="32">
-                  <caret line="2" column="37" lean-forward="true" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+                  <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
                 </state>
               </provider>
             </entry>
@@ -237,7 +232,7 @@
             <entry file="file://$PROJECT_DIR$/templates/fill_incidence.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="462">
-                  <caret line="134" column="10" lean-forward="true" selection-start-line="134" selection-start-column="10" selection-end-line="134" selection-end-column="10" />
+                  <caret line="134" column="10" selection-start-line="134" selection-start-column="10" selection-end-line="134" selection-end-column="10" />
                   <folding>
                     <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
                     <element signature="n#style#0;n#span#0;n#p#0;n#div#1;n#div#0;n#form#0;n#div#1;n#body#0;n#!!top" expanded="true" />
@@ -249,8 +244,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/lib/incident.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="179">
-                  <caret line="117" column="8" lean-forward="true" selection-start-line="117" selection-start-column="8" selection-end-line="117" selection-end-column="8" />
+                <state relative-caret-position="291">
+                  <caret line="124" column="8" selection-start-line="124" selection-start-column="8" selection-end-line="124" selection-end-column="8" />
                   <folding>
                     <element signature="e#18#27#0" expanded="true" />
                   </folding>
@@ -262,7 +257,7 @@
             <entry file="file://$PROJECT_DIR$/lib/incidentBase.py">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="501">
-                  <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
+                  <caret line="73" selection-start-line="73" selection-end-line="73" />
                   <folding>
                     <element signature="e#0#19#0" expanded="true" />
                     <element signature="e#312#498#0" />
@@ -612,8 +607,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/incident.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="179">
-          <caret line="117" column="8" lean-forward="true" selection-start-line="117" selection-start-column="8" selection-end-line="117" selection-end-column="8" />
+        <state relative-caret-position="291">
+          <caret line="124" column="8" selection-start-line="124" selection-start-column="8" selection-end-line="124" selection-end-column="8" />
           <folding>
             <element signature="e#18#27#0" expanded="true" />
           </folding>
@@ -623,7 +618,7 @@
     <entry file="file://$PROJECT_DIR$/templates/fill_incidence.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
-          <caret line="134" column="10" lean-forward="true" selection-start-line="134" selection-start-column="10" selection-end-line="134" selection-end-column="10" />
+          <caret line="134" column="10" selection-start-line="134" selection-start-column="10" selection-end-line="134" selection-end-column="10" />
           <folding>
             <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#span#0;n#p#0;n#div#1;n#div#0;n#form#0;n#div#1;n#body#0;n#!!top" expanded="true" />
@@ -633,8 +628,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" column="89" selection-start-line="15" selection-start-column="89" selection-end-line="15" selection-end-column="89" />
+        <state relative-caret-position="48">
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -648,14 +646,14 @@
     <entry file="file://$PROJECT_DIR$/data/general_data.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32">
-          <caret line="2" column="37" lean-forward="true" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+          <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/incidentBase.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="501">
-          <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
+          <caret line="73" selection-start-line="73" selection-end-line="73" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
             <element signature="e#312#498#0" />
@@ -665,8 +663,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lib/engine.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="41" column="64" selection-start-line="41" selection-start-column="64" selection-end-line="41" selection-end-column="64" />
+        <state relative-caret-position="355">
+          <caret line="35" column="43" lean-forward="true" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

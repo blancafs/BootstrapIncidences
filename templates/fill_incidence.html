@@ -124,6 +124,18 @@ input[type=submit]:hover {
   </div>
   <div class="row">
     <div class="col-25">
+        <label ><b>{{form.codigo_cliente.label}}</b></label>
+    </div>
+    <div class="col-75">
+      <p> {{ form.codigo_cliente }}
+	    {% for error in form.codigo_cliente.errors %}
+            <span style="color: red;">[{{error}}]</span>
+	    {% endfor %}
+        </p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-25">
         <label ><b>{{ form.material_afectado.label }}</b></label>
     </div>
     <div class="col-75">
@@ -183,7 +195,7 @@ input[type=submit]:hover {
     </div>
   </div>
   <div class="row">
-    <input type="submit" id="submit" value="Submit">
+    <input type="submit" id="submit_incidence" name="submit_incidence" value="Submit">
   </div>
   </form>
 </div>

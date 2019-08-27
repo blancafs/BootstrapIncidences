@@ -21,7 +21,6 @@ class Engine:
 
     # Processes the incoming form
     def dealWithWebForm(self, form):
-        print('dealing with form')
         incident_entry_df = self.incidentWrapper.parseIncidentFromWebForm(form)
         print(incident_entry_df)
         info = self.deal(incident_entry_df)

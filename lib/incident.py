@@ -8,6 +8,7 @@ from .processor import Processor
 from .classifier import ClassifierBuilder
 from .configurator import DATABASE_PATH, INDEX_COLUMN_NAME, CATEGORY_COLUMN_NAME, SUB_CATEGORY_COLUMN_NAME,\
     TEXT_COLUMN_NAME, TEXT_DATABASE_NAME, VECTOR_DATABASE_NAME
+from flask import request
 
 
 ####################################################################################################
@@ -113,12 +114,12 @@ class IncidentParser:
 
     ## Returns df from parsed form
     def parseWebForm(self, form):
-        aviso_calidad = form.aviso_calidad.data
-        codigo_cliente = form.codigo_cliente.data
-        material_afectado = form.material_afectado.data
-        textoSAP = form.textoSAP.data
-        analysis_causa = form.analysis_causa.data
-        causa_raiz = form.causa_raiz.data
+        aviso_calidad = request.values.get("aviso_calidad")
+        codigo_cliente = request.values.get("codigo_cliente")
+        material_afectado = request.values.get("material_afectado")
+        textoSAP = request.values.get("textoSAP")
+        analysis_causa = request.values.get("analysis_causa")
+        causa_raiz = request.values.get("causa_raiz")
 
         # Making entry with all parameters into dataframe
         entry = [aviso_calidad, codigo_cliente, material_afectado, textoSAP, analysis_causa, causa_raiz]

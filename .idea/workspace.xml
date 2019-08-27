@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ca6f3bb4-dc6a-4535-8557-92bbe49f19b7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/static/img/checklist.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/questions.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/to-do-list.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/upload.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bee/bin/python" beforeDir="false" afterPath="$PROJECT_DIR$/bee/bin/python" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bee/include/python3.6m" beforeDir="false" afterPath="$PROJECT_DIR$/bee/include/python3.6m" afterDir="false" />
@@ -59,12 +55,11 @@
       <change beforePath="$PROJECT_DIR$/bee/lib/python3.6/types.py" beforeDir="false" afterPath="$PROJECT_DIR$/bee/lib/python3.6/types.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bee/lib/python3.6/warnings.py" beforeDir="false" afterPath="$PROJECT_DIR$/bee/lib/python3.6/warnings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bee/lib/python3.6/weakref.py" beforeDir="false" afterPath="$PROJECT_DIR$/bee/lib/python3.6/weakref.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/engine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/incident.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/incident.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/aim_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/aim_info.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/fill_incidence.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/fill_incidence.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/get_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/get_info.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/upload_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/upload_form.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FlaskTesting/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../FlaskTesting/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FlaskTesting/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/../FlaskTesting/app.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FlaskTesting/app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FlaskTesting/app/forms.py" afterDir="false" />
@@ -132,91 +127,165 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="15" column="109" selection-start-line="15" selection-start-column="109" selection-end-line="15" selection-end-column="109" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/img/to-do-list.png">
-          <provider selected="true" editor-type-id="images" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="15" column="55" lean-forward="true" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/aim_info.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/get_info.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1472">
-              <caret line="92" column="3" selection-start-line="92" selection-start-column="3" selection-end-line="92" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/fill_incidence.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1568">
-              <caret line="98" column="8" selection-start-line="98" selection-start-column="8" selection-end-line="98" selection-end-column="8" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/upload_form.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="752">
-              <caret line="47" column="54" selection-start-line="47" selection-start-column="54" selection-end-line="47" selection-end-column="54" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="560">
-              <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/css/bootstrap.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="9760">
-              <caret line="610" column="45" selection-start-line="610" selection-start-column="37" selection-end-line="610" selection-end-column="45" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <splitter split-orientation="horizontal" split-proportion="0.5008736">
+      <split-first>
+        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="48">
+                  <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+                  <folding>
+                    <element signature="n#style#0;n#img#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/main.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="235">
+                  <caret line="50" column="61" selection-start-line="50" selection-start-column="61" selection-end-line="50" selection-end-column="61" />
+                  <folding>
+                    <element signature="e#22#63#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/lib/engine.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="451">
+                  <caret line="41" column="64" selection-start-line="41" selection-start-column="64" selection-end-line="41" selection-end-column="64" />
+                  <folding>
+                    <element signature="e#0#9#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/lib/forms.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="64">
+                  <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/data/general_data.csv">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="32">
+                  <caret line="2" column="37" lean-forward="true" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/get_info.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1472">
+                  <caret line="92" column="3" selection-start-line="92" selection-start-column="3" selection-end-line="92" selection-end-column="3" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/upload_form.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="752">
+                  <caret line="47" column="54" selection-start-line="47" selection-start-column="54" selection-end-line="47" selection-end-column="54" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/base.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="560">
+                  <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/static/css/bootstrap.css">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="9760">
+                  <caret line="610" column="45" selection-start-line="610" selection-start-column="37" selection-end-line="610" selection-end-column="45" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="240">
+                  <caret line="15" column="89" selection-start-line="15" selection-start-column="89" selection-end-line="15" selection-end-column="89" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/fill_incidence.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="462">
+                  <caret line="134" column="10" lean-forward="true" selection-start-line="134" selection-start-column="10" selection-end-line="134" selection-end-column="10" />
+                  <folding>
+                    <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
+                    <element signature="n#style#0;n#span#0;n#p#0;n#div#1;n#div#0;n#form#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/lib/incident.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="179">
+                  <caret line="117" column="8" lean-forward="true" selection-start-line="117" selection-start-column="8" selection-end-line="117" selection-end-column="8" />
+                  <folding>
+                    <element signature="e#18#27#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/lib/incidentBase.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="501">
+                  <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
+                  <folding>
+                    <element signature="e#0#19#0" expanded="true" />
+                    <element signature="e#312#498#0" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/templates/aim_info.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="432">
+                  <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
+                  <folding>
+                    <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -247,6 +316,9 @@
       <find>col-xl-3</find>
       <find>col-lg-3</find>
       <find>container-norm h-100</find>
+      <find>incident_df.loc[ind] = entry_list</find>
+      <find>debug</find>
+      <find>DEBUG</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -257,11 +329,9 @@
       <list>
         <option value="$PROJECT_DIR$/static/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/lib/form.py" />
-        <option value="$PROJECT_DIR$/lib/engine.py" />
         <option value="$PROJECT_DIR$/../FlaskTesting/app/routes.py" />
         <option value="$PROJECT_DIR$/../FlaskTesting/app/templates/fill_incidencia.html" />
         <option value="$PROJECT_DIR$/templates/fill_test.html" />
-        <option value="$PROJECT_DIR$/lib/incident.py" />
         <option value="$PROJECT_DIR$/lib/configurator.py" />
         <option value="$PROJECT_DIR$/templates/sign_in.html" />
         <option value="$PROJECT_DIR$/lib/forms.py" />
@@ -270,19 +340,22 @@
         <option value="$PROJECT_DIR$/templates/login.html" />
         <option value="$PROJECT_DIR$/templates/base.html" />
         <option value="$PROJECT_DIR$/templates/get_info.html" />
-        <option value="$PROJECT_DIR$/templates/fill_incidence.html" />
         <option value="$PROJECT_DIR$/templates/upload_form.html" />
         <option value="$PROJECT_DIR$/templates/aim_info.html" />
+        <option value="$PROJECT_DIR$/lib/incidentBase.py" />
+        <option value="$PROJECT_DIR$/lib/engine.py" />
         <option value="$PROJECT_DIR$/templates/index.html" />
         <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/lib/incident.py" />
+        <option value="$PROJECT_DIR$/templates/fill_incidence.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1467" />
-    <option name="y" value="-172" />
-    <option name="width" value="1941" />
-    <option name="height" value="1067" />
+    <option name="x" value="1123" />
+    <option name="y" value="-163" />
+    <option name="width" value="1943" />
+    <option name="height" value="1069" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -301,13 +374,12 @@
             <path>
               <item name="BootstrapIncidences" type="b2602c69:ProjectViewProjectNode" />
               <item name="BootstrapIncidences" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="data" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BootstrapIncidences" type="b2602c69:ProjectViewProjectNode" />
               <item name="BootstrapIncidences" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="img" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BootstrapIncidences" type="b2602c69:ProjectViewProjectNode" />
@@ -359,7 +431,7 @@
     <frame x="1359" y="-156" width="1753" height="962" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.12347117" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11706465" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -411,17 +483,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/incidentBase.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#312#498#0" />
-            <element signature="e#554#2017#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../FlaskTesting/app/templates/fill_incidencia.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1120">
@@ -431,16 +492,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/img/logo.png">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/engine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="23" column="43" selection-start-line="23" selection-start-column="43" selection-end-line="23" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../FlaskTesting/main.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -459,13 +510,6 @@
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/incident.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -514,51 +558,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lib/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="21" column="35" selection-start-line="21" selection-start-column="35" selection-end-line="21" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/login.html" />
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" column="109" selection-start-line="15" selection-start-column="109" selection-end-line="15" selection-end-column="109" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/img/to-do-list.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/aim_info.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/get_info.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1472">
           <caret line="92" column="3" selection-start-line="92" selection-start-column="3" selection-end-line="92" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/fill_incidence.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1568">
-          <caret line="98" column="8" selection-start-line="98" selection-start-column="8" selection-end-line="98" selection-end-column="8" />
-          <folding>
-            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -583,10 +587,89 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/img/to-do-list.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/aim_info.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="55" lean-forward="true" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
+        <state relative-caret-position="235">
+          <caret line="50" column="61" selection-start-line="50" selection-start-column="61" selection-end-line="50" selection-end-column="61" />
+          <folding>
+            <element signature="e#22#63#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/incident.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="117" column="8" lean-forward="true" selection-start-line="117" selection-start-column="8" selection-end-line="117" selection-end-column="8" />
+          <folding>
+            <element signature="e#18#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/fill_incidence.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="134" column="10" lean-forward="true" selection-start-line="134" selection-start-column="10" selection-end-line="134" selection-end-column="10" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#0;n#div#1;n#div#0;n#form#0;n#div#1;n#body#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="15" column="89" selection-start-line="15" selection-start-column="89" selection-end-line="15" selection-end-column="89" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/general_data.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="32">
+          <caret line="2" column="37" lean-forward="true" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/incidentBase.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="501">
+          <caret line="73" lean-forward="true" selection-start-line="73" selection-end-line="73" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#312#498#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/engine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="451">
+          <caret line="41" column="64" selection-start-line="41" selection-start-column="64" selection-end-line="41" selection-end-column="64" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

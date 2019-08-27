@@ -46,7 +46,10 @@ def aim_info():
 @app.route('/fill_incidence', methods=['GET', 'POST'])
 def fill_incidence():
     form = WebForm()
-    if form.submit.data:
+    if request.method=='GET':
+        redirect('index.html')
+    if (request.values.get("submit_incidence")=="Submit") and (request.values.get('aviso_calidad') is not None):
+        print("In loop!! submit data ", form.submit.data)
         engine.dealWithWebForm(form)
     return render_template('fill_incidence.html', title='Web Form', form=form)
 

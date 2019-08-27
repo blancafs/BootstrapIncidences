@@ -16,7 +16,7 @@ MATERIAL_COLUMN_NAME = 'material'
 TEXT_COLUMN_NAME = 'texto_sap'
 ANALYSIS_COLUMN_NAME = 'analysis_de_causas'
 CAUSA_COLUMN_NAME = 'causa_raiz'
-CUTE_NAMES =  ['Aviso de Calidad:', 'Codigo Cliente: ', 'Material Afectado: ','Albaran: ','Texto SAP: ', 'Analysis de Causas: ','Causa Raiz: ']
+CUTE_NAMES =  ['Aviso de Calidad:', 'Codigo Cliente: ', 'Material Afectado: ','Albaran: ','Texto SAP: ', 'Analysis de Causas: ','Causa Raiz: ', 'Category: ', 'Sub-Category: ']
 
 CATEGORY_COLUMN_NAME = 'category'
 SUB_CATEGORY_COLUMN_NAME = 'sub_category'

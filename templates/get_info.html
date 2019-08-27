@@ -53,6 +53,12 @@ input[type=submit]:hover {
   padding: 20px;
 }
 
+.container-white {
+  border-radius: 5px;
+  background-color: #fbfbfb;
+  padding: 10px;
+}
+
 .container-norm {
   border-radius: 5px;
   padding: 20px;
@@ -101,14 +107,17 @@ input[type=submit]:hover {
   border-radius: 0.3rem;
 }
 
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .col-25, .col-75, input[type=submit] {
-    width: 100%;
-    margin-top: 0;
-  }
+
+.form-control-borderless {
+    border: none;
 }
+
+.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
 }
+
 </style>
 </head>
 
@@ -122,36 +131,51 @@ input[type=submit]:hover {
         {% else %}
         <h1>Incidence Lookup</h1>
         {% endif %}
-        <p class="lead"> Search for an incidence to get its information.</p>
+        <p class="lead"> Search for an incidence below to get its information.</p>
     </div>
 </div>
 
+<div class="container-white">
+    <br/>
+	<div class="row justify-content-center">
+                        <div class="col-12 col-md-10 col-lg-8">
+                            <form class="card card-sm">
+                                <div class="card-body row no-gutters align-items-center">
+                                    <div class="col-auto">
+                                        <i class="fas fa-search h6 text-body"></i>
+                                    </div>
+                                    <!--end of col-->
+                                    <div class="col">
+                                        <input class="form-control form-control-lg form-control-borderless" type="search" name="id" placeholder="Search incidence...">
+                                    </div>
+                                    <!--end of col-->
+                                    <div class="col-auto">
+                                        <button class="btn btn-lg btn-warning" type="submit">Search</button>
+                                    </div>
+                                    <!--end of col-->
+                                </div>
+                            </form>
+                        </div>
+                        <!--end of col-->
+                    </div>
+</div>
+
+<br>
+
+<div class="container">
+
+    {% for field in form.fields %}
     <div class="row">
-      <div class="container-norm h-100">
-        <div class="d-flex float-right h-100">
-          <form class="form-inline md-form form-sm mt-0" action="{{ url_for('get_info') }}" method="get">
-            <i class="fas fa-search" aria-hidden="true"></i>
-            <input class="form-control form-control-sm ml-3 w-75" type="text" placeholder="Search"
-            aria-label="Search" name="id">
-          </form>
-        </div>
-      </div>
+    <div class="col-25">
+        <label ><b>{{field.label}}</b></label>
     </div>
-
-    <div class="container">
-
-        {% for field in form.fields %}
-        <div class="row">
-            <div class="col-25">
-                <label ><b>{{ field.label }}</b></label>
-            </div>
-            <div class="col-75">
-                <p>{{ field.data }}</p>
-            </div>
-        </div>
-        {% endfor %}
-
+    <div class="col-75">
+      <p> {{ field.data }}</p>
     </div>
+  </div>
+    {% endfor %}
+
+</div>
 
 </body>
 

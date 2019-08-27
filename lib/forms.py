@@ -36,7 +36,7 @@ class FormBuilder:
     @staticmethod
     def buildFromEntry(entry_df):
         # Get columns of dataframe entry
-        cols = entry_df.columns
+        #cols = entry_df.columns
         labels = CUTE_NAMES
 
         # Get values of entry, or if empty then return empty form

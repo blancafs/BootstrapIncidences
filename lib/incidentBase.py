@@ -1,6 +1,6 @@
 import pandas as pd
 
-from .configurator import INDEX_COLUMN_NAME
+from .configurator import Utils, INDEX_COLUMN_NAME
 
 """
 COPYRIGHT none
@@ -46,8 +46,8 @@ class IncidentBase:
         vector_df.loc[ind] = processed_entry
 
         # Save the new dfs back as csv files
-        train_df.to_csv(self.path_to_training, index=False)
-        vector_df.to_csv(self.path_to_vectors, index=False)
+        Utils.saveCSV(train_df, self.path_to_training)
+        Utils.saveCSV(vector_df, self.path_to_vectors)
         return True
 
     ## Updates the incident database with the given incident, replacing or adding it at the end
@@ -69,7 +69,7 @@ class IncidentBase:
 
         # Replace the entry at the correct index and save it back to csv
         incident_df.loc[ind] = entry_list
-        incident_df.to_csv(self.path_to_incidents, index=False)
+        Utils.saveCSV(incident_df, self.path_to_incidents)
         return True
 
     ## Returns the required entry from its id (aviso_de_calidad) as a dataframe

@@ -19,7 +19,7 @@ class Engine(Debug):
         self.performInitCheck()
         self.incidentWrapper = IncidentWrapper()
         self.incidentBase = IncidentBase(self.incidentWrapper, TEXT_DATABASE_PATH, VECTOR_DATABASE_PATH, GENERAL_DATABASE_PATH)
-        self.inform('[main]: init(): The web engine was initialized!')
+        self.inform('[engine]: init(): The web engine was initialized!')
 
     # Processes the incoming form
     def dealWithWebForm(self, form):

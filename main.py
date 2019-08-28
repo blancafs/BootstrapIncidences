@@ -1,23 +1,17 @@
-# IMPORTS FOR TESTING
-from lib.incidentBase import IncidentBase
-from lib.configurator import TEXT_DATABASE_PATH, VECTOR_DATABASE_PATH, GENERAL_DATABASE_PATH
-from lib.forms import FormBuilder
-
 # Imports
 import os
-import pandas as pd
 
 # Custom imports
 from lib.engine import Engine
 from lib.forms import WebForm
-from lib.configurator import USER_DATABASE_PATH
+from lib.configurator import UPLOADS_PATH
 
 # Web imports
 from flask import Flask, render_template, flash, request, redirect, url_for, session
 from werkzeug.utils import secure_filename
 
 # Vars
-UPLOAD_FOLDER = 'uploads'
+UPLOAD_FOLDER = UPLOADS_PATH[:-1]
 ALLOWED_EXTENSIONS = {'xls', 'xlsx'}
 SECRET_KEY = os.urandom(32)
 
@@ -90,22 +84,7 @@ def allowed_file(filename):
 @app.route('/get_info', methods =['GET', 'POST'])
 def get_info():
     id = request.args.get('id')
-
     form = engine.retrieveFormFromId(id)
-    # Testing code, otherwise done by engine
-    ###################
-    # if id == None:
-    #     print('[main]: get_info(): id is None')
-    #     return render_template('get_info.html', form=FormBuilder.buildEmptyForm())
-    # else:
-    #
-    #     id = int(id)
-    #     incidentBase = IncidentBase(None, TEXT_DATABASE_PATH, VECTOR_DATABASE_PATH, GENERAL_DATABASE_PATH)
-    #     entry_df = incidentBase.getEntry(id)
-    #     print(entry_df)
-    #     form = FormBuilder.buildFromEntry(entry_df)
-    #     form.id = id
-    ####################
     return render_template('get_info.html', form=form)
 
 

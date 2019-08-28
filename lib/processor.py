@@ -11,13 +11,14 @@ import tensorflow_hub as hub
 import tf_sentencepiece
 
 # Custom imports
+from .debug import Debug
 from .configurator import Utils, MODEL_FOLDER_PATH,CATEGORY_COLUMN_NAME,TEXT_COLUMN_NAME,VECTOR_COLUMN_NAME,VECTOR_DATABASE_NAME
 
 
 ####################################################################################################
 ### Processor Class used to embed texts and get data ready #########################################
 ####################################################################################################
-class Processor:
+class Processor(Debug):
 
     ## Constructor
     def __init__(self, path_to_csv, model_url=MODEL_FOLDER_PATH):
@@ -26,17 +27,12 @@ class Processor:
         self.model_url = model_url
 
 
-    ## Resets the private dataframe if it has been changed
-    def reset(self):
-        self.df = pd.read_csv(self.path_to_csv)
-
-
     ## Initializes model and embeds training set if necessary
     def initialize(self, y_col=CATEGORY_COLUMN_NAME, text_col=TEXT_COLUMN_NAME, vec_col=VECTOR_COLUMN_NAME, drop_cols=[], test_ratio=0.2, random_state=0, vectors_available=False):
         # Check Target Column
         if y_col not in self.df.columns:
-            print('Please give a valid target column name (y_col=)')
-            print('Returning Null...')
+            self.inform('Please give a valid target column name (y_col=)')
+            self.inform('Returning Null...')
             return None
 
         # Set up module and initialiize session
@@ -86,7 +82,7 @@ class Processor:
         self.df_test[y_col] = y_valid
 
 
-    ## Process and return new datapoints for classifying
+    ## Process the texts and return new dataframe with the vectors column for classifying
     def processFrame(self, data_frame, text_col=TEXT_COLUMN_NAME, drop_cols=[]):
         # Clean text
         texts = data_frame[text_col].apply(lambda x: self.clean_text(str(x)))

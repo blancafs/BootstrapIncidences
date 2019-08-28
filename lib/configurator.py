@@ -9,6 +9,7 @@ path += '/../'
 ### GLOBAL VARIABLES ###
 ########################
 DEBUG = True
+PORT = 5000
 
 # Column name variables
 INDEX_COLUMN_NAME = 'id'

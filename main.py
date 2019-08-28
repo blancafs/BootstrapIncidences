@@ -4,7 +4,7 @@ import os
 # Custom imports
 from lib.engine import Engine
 from lib.forms import WebForm
-from lib.configurator import UPLOADS_PATH
+from lib.configurator import UPLOADS_PATH, PORT
 
 # Web imports
 from flask import Flask, render_template, flash, request, redirect, url_for, session
@@ -106,6 +106,5 @@ def success():
 
 ### MAIN ###
 if __name__=='__main__':
-    port = 5000
-    app.run(host='0.0.0.0', port=5000)
-    print('[main]: main(): Server is listening on port:', port)
+    app.run(host='0.0.0.0', port=PORT)
+    print('[main]: main(): Server is listening on port:', PORT)

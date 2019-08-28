@@ -1,5 +1,6 @@
 import pandas as pd
 
+from .debug import Debug
 from .configurator import Utils, INDEX_COLUMN_NAME
 
 """
@@ -8,7 +9,7 @@ This module abstracts the updating and pulling from the
 csv database files in the database folder
 """
 
-class IncidentBase:
+class IncidentBase(Debug):
     def __init__(self, incident_wrapper, path_to_training, path_to_vectors, path_to_incidents):
         self.incidentWrapper = incident_wrapper
         self.path_to_training = path_to_training
@@ -63,13 +64,13 @@ class IncidentBase:
         occurances = df[df[INDEX_COLUMN_NAME] == incidence_id].shape[0]
         # Find the right index for the entry
         if occurances == 0:
-            print('[incidentBase]: getEntry(): Found NO occurance of', incidence_id)
+            self.inform('[incidentBase]: getEntry(): Found NO occurance of', incidence_id)
             ind = -1
         elif occurances == 1:
-            print('[incidentBase]: getEntry(): Found one occurance of' ,incidence_id)
+            self.inform('[incidentBase]: getEntry(): Found one occurance of' ,incidence_id)
             ind = df.loc[df[INDEX_COLUMN_NAME] == incidence_id].index[0]
         else:
-            print('[incidentBase]: getEntry(): Database has multiple occurances of id:', incidence_id)
+            self.inform('[incidentBase]: getEntry(): Database has multiple occurances of id:', incidence_id)
             ind = -1
 
         # If no entry found return an empty df, otherwise return df with single entry
@@ -86,24 +87,24 @@ class IncidentBase:
     def getRelavantIndex(self, df_entry, df_database, log=''):
         # Check it has one entry
         if df_entry.shape[0] != 1:
-            print(log, 'The incoming dataframe had more/less than 1 entry, Aborting.')
+            self.inform(log, 'The incoming dataframe had more/less than 1 entry, Aborting.')
             return -1
 
         # Get number of occurances of id in the database
         incidence_id = str(df_entry.loc[0][INDEX_COLUMN_NAME])
         incidence_id = incidence_id.replace(' ', '')
-        print(log, 'Incoming incidence_id is:',incidence_id)
+        self.inform(log, 'Incoming incidence_id is:',incidence_id)
         occurances = df_database.loc[df_database[INDEX_COLUMN_NAME].astype(str).str.contains(incidence_id)].shape[0]
 
         # Find the right index for the new entry
         if occurances == 0:
-            print(log, 'Found NO occurance adding it at the end')
+            self.inform(log, 'Found NO occurance adding it at the end')
             ind = df_database.shape[0]
         elif occurances == 1:
-            print(log, 'Found one occurance, replacing it')
+            self.inform(log, 'Found one occurance, replacing it')
             ind = df_database.loc[df_database[INDEX_COLUMN_NAME].astype(str).str.contains(incidence_id)].index[0]
         else:
-            print(log, 'Database has multiple occurances of id:', incidence_id)
+            self.inform(log, 'Database has multiple occurances of id:', incidence_id)
             ind = -1
 
         return ind

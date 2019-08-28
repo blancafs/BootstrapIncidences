@@ -1,5 +1,6 @@
 import os
 
+from .debug import Debug
 from .incident import IncidentWrapper
 from .incidentBase import IncidentBase
 from .configurator import Utils, TEXT_DATABASE_PATH, VECTOR_DATABASE_PATH, GENERAL_DATABASE_PATH
@@ -13,12 +14,12 @@ the website and the backend
 '''
 
 
-class Engine:
+class Engine(Debug):
     def __init__(self):
         self.performInitCheck()
-        self.incidentWrapper = IncidentWrapper(DEBUG=True)
+        self.incidentWrapper = IncidentWrapper()
         self.incidentBase = IncidentBase(self.incidentWrapper, TEXT_DATABASE_PATH, VECTOR_DATABASE_PATH, GENERAL_DATABASE_PATH)
-        self.incidentWrapper.inform('The web engine was initialized!')
+        self.inform('[main]: init(): The web engine was initialized!')
 
     # Processes the incoming form
     def dealWithWebForm(self, form):
@@ -28,7 +29,7 @@ class Engine:
 
         # Deal with form
         info = self.deal(incident_entry_df)
-        self.incidentWrapper.inform('Form was dealt-with!')
+        self.inform('[main]: dealWithWebForm(): Form was dealt-with!')
         return info
 
     ## Process the file, retrieve required information and delete it
@@ -40,7 +41,7 @@ class Engine:
         # Deal with file
         info = self.deal(incident_entry_df)
         os.remove(file_path)
-        self.incidentWrapper.inform('File was dealt-with and deleted!')
+        self.inform('[main]: dealWithFile(): File was dealt-with and deleted!')
         return info
 
 

@@ -8,6 +8,7 @@ path += '/../'
 ########################
 ### GLOBAL VARIABLES ###
 ########################
+DEBUG = True
 
 # Column name variables
 INDEX_COLUMN_NAME = 'id'

@@ -4,6 +4,7 @@ import pandas as pd
 import numpy as np
 
 # Custom imports
+from .debug import Debug
 from .processor import Processor
 from .classifier import ClassifierBuilder
 from .configurator import DATABASE_PATH, INDEX_COLUMN_NAME, CODIGO_COLUMN_NAME, MATERIAL_COLUMN_NAME,\
@@ -16,10 +17,9 @@ from flask import request
 ### Incidents Class used to wrap functionality of other classes ####################################
 ### -> Classifies category and sub-category                     ####################################
 ####################################################################################################
-class IncidentWrapper:
+class IncidentWrapper(Debug):
     ## Constructor
-    def __init__(self, path_to_database=DATABASE_PATH, DEBUG=False):
-        self.DEBUG = DEBUG
+    def __init__(self, path_to_database=DATABASE_PATH):
         self.data_folder = path_to_database
         self.data_processor = self.getProcessor()
 
@@ -28,15 +28,15 @@ class IncidentWrapper:
     def getPredictedIncidentEntry(self, incident_df):
         # Get dataframe of incident and vectorize it
         processed_incident_df = self.processIncident(incident_df)
-        self.inform('[getPredictedIncidentEntry]: Incident was parsed and preprocessed successfully.')
+        self.inform('[incident]: getPredictedIncidentEntry(): Incident was parsed and preprocessed successfully.')
 
         # Predict the category of the processed incident
         predicted_category = self.predictCategory(processed_incident_df)
-        self.inform('[getPredictedIncidentEntry]: Predicted category is ' + predicted_category)
+        self.inform('[incident]: getPredictedIncidentEntry(): Predicted category is ' + predicted_category)
 
         # Based on the predicted category, predict sub-category
         predicted_sub_category = self.predictSubCategory(processed_incident_df, predicted_category)
-        self.inform('[getPredictedIncidentEntry]: Predicted sub-category is ' + predicted_sub_category)
+        self.inform('[incident]: getPredictedIncidentEntry(): Predicted sub-category is ' + predicted_sub_category)
 
         # Add the category and subcategory to the dataframe
         processed_incident_df[CATEGORY_COLUMN_NAME] = [predicted_category]
@@ -77,15 +77,15 @@ class IncidentWrapper:
         if VECTOR_DATABASE_NAME in available_databases:
             processor = Processor(self.data_folder + VECTOR_DATABASE_NAME)
             processor.initialize(test_ratio=0.00000000001, vectors_available=True)
-            self.inform('Vector database was found and loaded.')
+            self.inform('[incident]: getProcessor():Vector database was found and loaded.')
         elif TEXT_DATABASE_NAME in available_databases:
             processor = Processor(self.data_folder + TEXT_DATABASE_NAME)
-            self.inform('Vector database was not found. Text database was loaded instead. Making embeddings now...')
+            self.inform('[incident]: getProcessor(): Vector database was not found. Text database was loaded instead. Making embeddings now...')
             processor.initialize(test_ratio=0.00000000001, vectors_available=False)
-            self.inform('Vectors were made and loaded.')
+            self.inform('[incident]: getProcessor(): Vectors were made and loaded.')
         else:
-            self.inform('The following files were searched: ' + str(available_databases))
-            self.inform('No valid database was found. Aborting process.')
+            self.inform('[incident]: getProcessor(): The following files were searched: ' + str(available_databases))
+            self.inform('[incident]: getProcessor(): No valid database was found. Aborting process.')
             return None
 
         return processor
@@ -109,9 +109,9 @@ class IncidentWrapper:
         return sub_categorized_df[SUB_CATEGORY_COLUMN_NAME][0]
 
     ## DEBUG message method
-    def inform(self, *text):
-        if self.DEBUG:
-            print('[DEBUG]: inform():', *text)
+    # def inform(self, *text):
+    #     if self.DEBUG:
+    #         print('[DEBUG]: inform():', *text)
 
 
 ####################################################################################################

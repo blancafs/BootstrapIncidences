@@ -25,7 +25,7 @@ VECTOR_COLUMN_NAME = 'vectorized_texts'
 # Paths
 DATABASE_PATH = 'data/'
 MODELS_PATH = 'models/'
-U_DATABASE_PATH = 'users/'
+UPLOADS_PATH = 'uploads/'
 
 # File names
 TEXT_DATABASE_NAME = 'training_data.csv'
@@ -35,15 +35,12 @@ GENERAL_DATABASE_NAME = 'general_data.csv'
 MULTILINGUAL_MODEL_NAME = 'multilingual-large'
 USER_DATABASE_NAME = 'user_table.csv'
 
-
 # Final variables
 TEXT_DATABASE_PATH = path + DATABASE_PATH + TEXT_DATABASE_NAME
 VECTOR_DATABASE_PATH = path + DATABASE_PATH + VECTOR_DATABASE_NAME
 GENERAL_DATABASE_PATH = path + DATABASE_PATH + GENERAL_DATABASE_NAME
 MODEL_FOLDER_PATH = path + MODELS_PATH + MULTILINGUAL_MODEL_NAME
 CONFIG_FILE_PATH = path + CONFIG_FILE_NAME
-USER_DATABASE_PATH = path + U_DATABASE_PATH + USER_DATABASE_NAME
-
 
 #####################################################################
 ### Class to read and parse the config ##############################
@@ -113,15 +110,30 @@ class ConfigGetter:
 
 
 
-
-#############
-### UTILS ###
-#############
+############################################
+################## UTILS ###################
+############################################
 class Utils:
+    @staticmethod
+    def performSystemCheck():
+        # Check static directories
+        directories_to_check = [path+DATABASE_PATH, path+UPLOADS_PATH]
+        for dir in directories_to_check:
+            if not os.path.exists(dir):
+                os.mkdir(dir)
+                print('[configurator]: performSystemCheck():',dir,'not found and was created')
+
+        # Check model directory
+        if not os.path.exists(path+MODELS_PATH):
+            from .. import check_model
+
 
     # Checks if input variable is integer
     @staticmethod
     def isInteger(var):
+        if var is None:
+            return False
+
         try:
             num = int(var)
             return True

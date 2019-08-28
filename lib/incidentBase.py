@@ -16,63 +16,48 @@ class IncidentBase:
         self.path_to_incidents = path_to_incidents
 
     ## Updates the training databases (both vector and non-vector), by adding or replacing the given incident
-    def updateTrainingData(self, entry_list):
+    def updateTrainingData(self, df_entry):
         # Construct dataframe, get id and see if there are any previous entries for id
         train_df = pd.read_csv(self.path_to_training).reset_index(drop=True)
         vector_df = pd.read_csv(self.path_to_vectors).reset_index(drop=True)
-        incidence_id = entry_list[0]
-        occurances = train_df[train_df[INDEX_COLUMN_NAME] == incidence_id].shape[0]
+        ind = self.getRelavantIndex(df_entry, train_df, log='[incidentBase]: updateTrainingData():')
 
-        # Find the right index for the new entry
-        if occurances == 0:
-            print('[incidentBase]: updateTrainingData(): Found NO occurance adding it at the end')
-            ind = train_df.shape[0]
-        elif occurances == 1:
-            print('[incidentBase]: updateTrainingData(): Found one occurance, replacing it')
-            ind = train_df.loc[train_df[INDEX_COLUMN_NAME] == incidence_id].index[0]
-        else:
-            print('[incidentBase]: updateTrainingData(): Database has multiple occurances of id:', incidence_id)
+        if ind == -1:
             return False
+        else:
+            # Replace the entry at the correct index
+            train_df.loc[ind] = list(df_entry.loc[0])
 
-        # Replace the entry at the correct index
-        train_df.loc[ind] = entry_list
+            # Get the new entry as a one-row dataframe and process it for vectors
+            df_to_process = train_df.loc[[ind]].copy()
+            processed_df = self.incidentWrapper.processIncident(df_to_process).reset_index()
+            processed_entry = processed_df.loc[0]
 
-        # Get the new entry as a one-row dataframe and process it for vectors
-        df_to_process = train_df.loc[[ind]].copy()
-        processed_df = self.incidentWrapper.processIncident(df_to_process).reset_index()
-        processed_entry = processed_df.loc[0]
+            # Replace the corresponding index of the vector database
+            vector_df.loc[ind] = processed_entry
 
-        # Replace the corresponding index of the vector database
-        vector_df.loc[ind] = processed_entry
+            # Save the new dfs back as csv files
+            Utils.saveCSV(train_df, self.path_to_training)
+            Utils.saveCSV(vector_df, self.path_to_vectors)
+            return True
 
-        # Save the new dfs back as csv files
-        Utils.saveCSV(train_df, self.path_to_training)
-        Utils.saveCSV(vector_df, self.path_to_vectors)
-        return True
 
     ## Updates the incident database with the given incident, replacing or adding it at the end
-    def updateIncidentData(self, entry_list):
+    def updateIncidentData(self, df_entry):
+        # Retrieve database and index
         incident_df = pd.read_csv(self.path_to_incidents).reset_index(drop=True)
-        incidence_id = entry_list[0]
-        occurances = incident_df[incident_df[INDEX_COLUMN_NAME] == incidence_id].shape[0]
-
-        # Find the right index for the new entry
-        if occurances == 0:
-            print('[incidentBase]: updateIncidentData(): Found NO occurance adding it at the end')
-            ind = incident_df.shape[0]
-        elif occurances == 1:
-            print('[incidentBase]: updateIncidentData(): Found one occurance, replacing it')
-            ind = incident_df.loc[incident_df[INDEX_COLUMN_NAME] == incidence_id].index[0]
-        else:
-            print('[incidentBase]: updateIncidentData(): Database has multiple occurances of id:', incidence_id)
-            return False
+        ind = self.getRelavantIndex(df_entry, incident_df, log='[incidentBase]: updateIncidentData():')
 
         # Replace the entry at the correct index and save it back to csv
-        incident_df.loc[ind] = entry_list
-        Utils.saveCSV(incident_df, self.path_to_incidents)
-        return True
+        if ind == -1:
+            return False
+        else:
+            incident_df.loc[ind] = list(df_entry.loc[0])
+            Utils.saveCSV(incident_df, self.path_to_incidents)
+            return True
 
-    ## Returns the required entry from its id (aviso_de_calidad) as a dataframe
+
+    ## Returns the required entry from its id int(aviso_de_calidad) as a dataframe
     def getEntry(self, incidence_id):
         df = pd.read_csv(self.path_to_incidents).reset_index(drop=True)
         occurances = df[df[INDEX_COLUMN_NAME] == incidence_id].shape[0]
@@ -95,3 +80,30 @@ class IncidentBase:
 
         entry.reset_index(inplace=True, drop=True)
         return entry
+
+
+    ## Common functionality
+    def getRelavantIndex(self, df_entry, df_database, log=''):
+        # Check it has one entry
+        if df_entry.shape[0] != 1:
+            print(log, 'The incoming dataframe had more/less than 1 entry, Aborting.')
+            return -1
+
+        # Get number of occurances of id in the database
+        incidence_id = str(df_entry.loc[0][INDEX_COLUMN_NAME])
+        incidence_id = incidence_id.replace(' ', '')
+        print(log, 'Incoming incidence_id is:',incidence_id)
+        occurances = df_database.loc[df_database[INDEX_COLUMN_NAME].astype(str).str.contains(incidence_id)].shape[0]
+
+        # Find the right index for the new entry
+        if occurances == 0:
+            print(log, 'Found NO occurance adding it at the end')
+            ind = df_database.shape[0]
+        elif occurances == 1:
+            print(log, 'Found one occurance, replacing it')
+            ind = df_database.loc[df_database[INDEX_COLUMN_NAME].astype(str).str.contains(incidence_id)].index[0]
+        else:
+            print(log, 'Database has multiple occurances of id:', incidence_id)
+            ind = -1
+
+        return ind

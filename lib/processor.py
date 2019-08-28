@@ -26,11 +26,6 @@ class Processor:
         self.model_url = model_url
 
 
-    ## Resets the private dataframe if it has been changed
-    def reset(self):
-        self.df = pd.read_csv(self.path_to_csv)
-
-
     ## Initializes model and embeds training set if necessary
     def initialize(self, y_col=CATEGORY_COLUMN_NAME, text_col=TEXT_COLUMN_NAME, vec_col=VECTOR_COLUMN_NAME, drop_cols=[], test_ratio=0.2, random_state=0, vectors_available=False):
         # Check Target Column
@@ -86,7 +81,7 @@ class Processor:
         self.df_test[y_col] = y_valid
 
 
-    ## Process and return new datapoints for classifying
+    ## Process the texts and return new dataframe with the vectors column for classifying
     def processFrame(self, data_frame, text_col=TEXT_COLUMN_NAME, drop_cols=[]):
         # Clean text
         texts = data_frame[text_col].apply(lambda x: self.clean_text(str(x)))

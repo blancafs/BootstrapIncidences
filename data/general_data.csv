@@ -1,5 +1,4 @@
 ﻿id,codigo_cliente,material,texto_sap,analysis_de_causas,causa_raiz,category,sub_category
-400014296,83104,['5203GC'],"El cliente informa de que mediante el uso del PEAD 5203 – Lote 56004, que las botellas fabricadas tienen pequeñas áreas transparentes. Estas transparencias aparecen al azar en cualquier posición de la botella. Informo que algunas de estas transparencias es fácilmente visible a simples vista, otros solo con un luz de fondo. Informa que el material se utiliza en la fabricación de botellas de detergentes y no se puede correr el Riesgo de una de estas áreas en contacto con el producto ocasione un agujero. ","['Todo indica que podría haber interferencias entre el 49070UV (producto duro, de baja fluidez) de la inmediatamente anterior campaña al 5203 (producto sensiblemente de mayor fluidez), con el producto de la reclamación (lote D-560 de 5203). Esta interferencia podría deberse a contaminación en granza o bien extrusión de copo de la transición de baja fluidez poco diluido con copo de fluidez dentro de especificación del 5203. Se comprueba que no es este segundo caso puesto que la transición fue muy corta y además se consumió en la fabricación de concentrado de uso interno, por lo que las mayores probabilidades se centran en la contaminación por granza.', 'Se comprueba que las primeras partidas que pasan por los mezcladores que antes contuvieron 49070UV forman parte del lote D-560 de manera que, de haber quedado algún resto de 49070UV en estos silos debería haber sido arrastrado por dichas partidas contaminándose. Puesto que esta es una transición normal en el mapa de transiciones de PEAD, se pone de manifiesto que se deben extremar las precauciones en este tipo de transiciones que implican cambios de fluidez muy importante. Otra posibilidad de contaminación por granos de granza podría ser la contaminación por fuga de una válvula desviadora en el envío a la línea de silos dedicados a expedición a granel.']",-1,Producto,Propiedades
 400014302,90233,['CP121PD'],Entrega de lote AR 03446 del CP121 de nuevo con contaminaciones negras. ,['Se han encontrado oxidados en el lote reclamado. Se encontraron 4 oxidados en un saco de 25 kg (este muestreo se hace para la concertada que tenemos con Barrain)'],-1,Producto,Contaminacion
 400014303,20874,['PP044W3FGC'],"El cliente informa que en la entrega de hoy se ha observado una humedad excepcionalmente alta. Se han repetido 3 veces los ensayos y en todos los casos el resultado fue el mismo. Informa que se procede a la descarga condicionada del material, que permanecerá en el silo el máximo tiempo posible para favorecer el secado. Cuando se utilice el material, en caso de detectar incidencias nos comunicara.",['Pluviosidad'],-1,Producto,Humedad
 400014305,11487,['5203GC'],"Devuelto camión por problemas de calidad. El cliente ha tenido problemas,se detectan zonas débiles e infundidos en las botellas sopladas con este lote. Se adjunta no conformidad enviada por el cliente.",,-1,Producto,Propiedades
@@ -39,7 +38,7 @@ El lote en cuestión es el BA-5642104.
 400014375,10162,['PA460BP'],El cliente informa que ha recibido 1 camión de big bags donde observa que vienen muy sucios e incluso tienen granza por la parte superior exterior de los big bags.,,-1,Envase,Aspecto
 400014376,11589,['PP034W3FGC'],"PRESENCIA DE PARTÍCULAS METÁLICAS. El cliente nos informa que al consumir nuestro material el detector de metales salta continuamente generando cantidad de recuperado . Descargaron del silo 3 dos sacas del material limpio, pasándolo después por el detector de metales y el resultado obtenido es de dos bolsitas con partículas metálicas. Necesitan saber los motivos de esta incidencia y las acciones correctoras.","['Se ha analizado la situación de los extrusores durante las fechas de fabricación del lote, sin encontrarse ningún problema destacable', 'no se realizaron operaciones de mantenimiento en la planta de homogeneización en los días previos a la fabricación de estos lotes.', 'El material de las líneas desde el extrusor a los silos es acero inoxidable, por lo que es muy difícil que se pueda deteriorar de tal manera para que salga este polvo. Podría venir de la boca de la cisterna, del silo del cliente.']",-1,Producto,Contaminacion
 400014377,84739A,['PA539GC'],El cliente se ha quejado que sigue con el problema de 'Angel Hair' en sus filtros cuando descarga de entregas por Interbulk.,,-1,Producto,Propiedades
-400014382,90714,['PP040G1EP7'],"PROBLEMAS DE CALIDAD. 
+400014382,90714,['PP040G1EP7'],"PROBLEMAS DE CALIDAD.
 La semana pasada recibimos un viaje de resina de la marca Repsol correspondiente al lote BA-02401\08
 Esta Resina no se ha podido trabajar, ya que arrastra muchisima agua, lo que provoca que se rompan los hilos en el horno, lo que genera que se enreden y se rompan todos los hilos que se han tendido.
 Utilizamos cerca de 700 kilos, de los cuales desperdiciamos 200 Kgrs Y lo peor es que no pudimos estabilizar el proceso,  lo que en este momento nos afecta, ya que tenemos parada completamente la Produccion.
@@ -83,7 +82,7 @@ Informa que se llevó a cabo una intervención de mantenimiento preventivo y ha 
 Indica que al transformarlo le sube la presión en el extrusor, se generan obstrucciones de los conductos.
 Cambiaron de lote para comprobar que había problema con la materia prima y se resolvieron estos disfuncionamientos.
 Piden retirar y reemplazar producto restante de este lote: 12.6t, indemnización comercial en cuanto a las 24t que no pudieron realizar y analisis/acciones correctivas del problema occurido.",['Error en el etiquetado big-bag.'],-1,Envase,Etiquetado
-400014466,20287,['F28310GC'],"""Os informamos que hemos detectado en  2 cisternas del poliol  F2831 recepcionadas el 3/04 y 12/04 un comportamiento anómalo. Tiempo de crecida más lenta y espuma mas abierta, provocando colapso y problemas en pieza. 
+400014466,20287,['F28310GC'],"""Os informamos que hemos detectado en  2 cisternas del poliol  F2831 recepcionadas el 3/04 y 12/04 un comportamiento anómalo. Tiempo de crecida más lenta y espuma mas abierta, provocando colapso y problemas en pieza.
 comportamiento anómalo. Material utilizado aplicando las medidas necesaria para ello. Resultado:  aumento de retrabajos, piezas tiradas, suponiendo costes
 comportamiento anómalo. Material bloqueado
 comportamiento OK en proceso de consumo
@@ -300,7 +299,7 @@ Ya solicitamos el envío de muestra a nuestro laboratorio.",,-1,Producto,Contami
 
 Afirma que los sacos de los lotes BR-23321 y  BR-23322 están llenos da agua.
 El resto de los lotes no tienen agua visible pero están humedos y las pruebas de extrusión realizadas no han sido satisfactorias.
-Han mandado al laboratorio dos sacos de los lotes afectados y aportan fotos y detalles de la no conformidad ( ver anexos). 
+Han mandado al laboratorio dos sacos de los lotes afectados y aportan fotos y detalles de la no conformidad ( ver anexos).
 Solicitan la retirada del producto afectado ( pendiente de cuantificar) y el envío de un camión  de sustitución ( enviado para descarga el día 21 de noviembre)","['Alta temperatura en agua de corte, poco tiempo entre fabricación y envasado del producto y envasado en sacos no microperforados.']",-1,Producto,Humedad
 400014788,88475,['PA442P7'],"Se hace retirada del material del cliente (24191624 del grado pa442, lote BR15531) por problemas de calidad con el producto. Pedido de devolución (24191624)a la planta de Puertollano. Posteriormente se enviará muestra del material de planta al laboratorio para su análisis. La  recogida va asociada a una nueva entrega en el cliente. ",,-1,Producto,Propiedades
 400014797,12259,['IMBTACPD'],"El cliente nos informa que:
@@ -653,7 +652,7 @@ En adjunto, fotos y la reclamación oficial del cliente. (Ver en Servicios para 
 La granza es más opaca y brillante que lo habitual.
 
 En adjunto, foto de granza natural (encima) y de granza reclamada (debajo).",,-1,Producto,Propiedades
-400015107,10302,['PP030G1EP7'],"De: Juan Ruiz [mailto:jm.ruiz@cyklop.es] 
+400015107,10302,['PP030G1EP7'],"De: Juan Ruiz [mailto:jm.ruiz@cyklop.es]
 Enviado el: martes, 07 de mayo de 2013 11:02
 Para: ZORRILLA SERRA, ENRIQUE
 Asunto: Problemas con PP030 recibido
@@ -859,7 +858,7 @@ Han enviado muestra de granza y de los residuos encontrados en los filtros y la 
 ",,-1,Producto,Propiedades
 400015311,89318,['PE071P7'],"Los resultados de los análisis realizados por el cliente no coinciden con nuestra ficha técnica y certificado de análisis.
 Los valores no son aptos para sus productos.
-Se adjunta reclamación del cliente con la explicación completa. 
+Se adjunta reclamación del cliente con la explicación completa.
                                                                                                                                                                                                                                                                                                                             Los datos de IF medidos por el cliente van de 9,27 a 12,5 (fuera del rango de especificación. Asimismo, se queja también de geles en el producto.",,-1,Producto,Propiedades
 400015318,87179,['PP020G3EP7'],"el PP020G3E que ha recibido, tiene un IF = 0,78 g/10’, mientras que en el certificado de análisis se especifica que el IF es de 0,9 g/10’. El lote es el CE-09505.",,-1,Producto,Propiedades
 400015323,12380,['4810P7'],"El cliente nos informa de que no pueden coger los sacos con el manipulador automático, por lo que tienen que cogerlos y echarlos manualmente en la tolva de alimentación por parte de los maquinistas.Nos piden las causas del suceso y las medidas correctoras que vamos a tomar.",,-1,Envase,Inclinacion
@@ -1599,7 +1598,7 @@ En anexo adjunto el correo enviado al departamento de transporte, informando del
 El pedido será desviado al cliente Sintochem, pedido 13927109.",,-1,Suministro,Transporte
 400016234,89457,['PP044W3FGC'],"El cliente informa que para material de las 3 entregas abajo informadas han detectado los parámetros de humedad por encima de su especificación (>3%).
 
-Este mes, se ha presentado el mismo problema a dos otras entregas del mismo sumi 
+Este mes, se ha presentado el mismo problema a dos otras entregas del mismo sumi
 ",,-1,Producto,Humedad
 400016236,20900,['PA430P7'],"El cliente informa que en el albarán 24361676 ha recibido un pallet de PA439 (lote EA-06462) en lugar del pallet de PA430 (EA-06542)solicitado.
 
@@ -1877,7 +1876,7 @@ transporte: 400 euros
 gastos administrativos : 100 euros
 Total  14.660 euros
 Ver ficha no conformidad en adjunto.  Ver más información en Servicios para objeto de SAP",,-1,Producto,Propiedades
-400016445,88942,['C220NOC']," mayor IF que el especificado 
+400016445,88942,['C220NOC']," mayor IF que el especificado
 
 El cliente puede utilizar  el material pero quiere saber porque esas entregas se presentan  con un mayor IF que el especificado.
 Ver mails adjuntos en servicios para Objeto de SAP",,-1,Producto,Propiedades
@@ -2132,7 +2131,7 @@ Lo que le ha llegado realidad son sacas de PA444CI. El número de albarán, 2442
 MAPROL SOLICITA RESOLUCIÓN INCIDENCIA PARA PRESENTAR ADEMÁS DOCUMENTACIÓN EN SU ASEGURADORA SOBRE RECONOCIMIENTO DE LOS DAÑOS OCURRIDOS.
 SE ADJUNTAN FOTOGRAFIAS Y MODELO CUMPPLIMENTADO PARA PRESENTAR AL SEGURO DEL CLIENTE(ALLIANZ).",,-1,Envase,Aspecto
 400016883,10411,['PSIL210EXP1P7'],CONTAMINACION.  Impurezas al vaciar la mezcladora.      El cliente de QUIMIDROGA (CEUCABLE) se queja porque ha encontrado unas impureza al vaciar su mezcladora con el grado PSIL210 de Repsol.,['Posible insuficiencia en la limpieza/purga de la unidad antes del comienzo de la formación de la tanda que conforma el lote reclamado. '],-1,Producto,Contaminacion
-400016896,91138,['PA465P7'],"ROTURA SACOS AL MANIPULARLOS.  El cliente nos informa que su almacén le ha indicado que en el momento de mover los sacos, éstos se rompen por la parte sellada de abajo. Les está causando problemas ya que el producto cae al suelo y se desperdicia. Esto le está pasando igualmente con los demás productos servidos en este albarán PA443P7 con lote HA-16532 y el PA410P7 con lotes EV-14533 y EV-15531. 
+400016896,91138,['PA465P7'],"ROTURA SACOS AL MANIPULARLOS.  El cliente nos informa que su almacén le ha indicado que en el momento de mover los sacos, éstos se rompen por la parte sellada de abajo. Les está causando problemas ya que el producto cae al suelo y se desperdicia. Esto le está pasando igualmente con los demás productos servidos en este albarán PA443P7 con lote HA-16532 y el PA410P7 con lotes EV-14533 y EV-15531.
 Nos indica que por favor abramos una investigación.
 
 Mail del cliente y foto de uno de los sacos rotos en servicios para objeto de SAP.",['Fallo en la banda de soldadura de la payper 3'],-1,Envase,Aspecto
@@ -2841,7 +2840,7 @@ HEMOS AÑADIDO FOTOGRAFIAS DE LOS SACOS ROTOS.",,-1,Envase,Aspecto
 Les ha ocurrido en otras ocasiones: granos que no funden y provocan fallos y rayas en la lámina de extrusionado.",['Contaminación del producto'],-1,Producto,Propiedades
 400017926,83827,['P33045P7'],"1 saco roto P33045: el cliente reclama que con esta entrega ha llegado un saco roto. Segun el cliente ya estaba el material derramado antes de tocar el palet. Al parecer al cargar el camion se metio el palet con fuerza contra la pared del camion.
 Se adjunta CMR firmado y fotos en anexos",,-1,Envase,Aspecto
-400017928,83827,['P28150P7'],"El cliente reclama que les ha llegado un saco roto del P28150. 
+400017928,83827,['P28150P7'],"El cliente reclama que les ha llegado un saco roto del P28150.
 Se adjunta fotos y CMR ",,-1,Envase,Aspecto
 400017929,83827,['P2870P7'],"El cliente reclama un saco roto en la entrega de este albaran.
 
@@ -2917,7 +2916,7 @@ El agente comercial inicia una búsqueda y al solicitar una fotografía de la ca
 Se adjunta documento del cliente con foto en anexos
 Ademas de que se queja que ya no se les entrega el packing list con los envios.",['Contaminación con polímero degradado tras cambio de filtro'],-1,Producto,Contaminacion
 400018019,12455,['PE041GC'],El cliente no puede descargar la cisterna por problemas con hilazas.,,-1,Producto,Contaminacion
-400018027,12768,"['P33015CBP', 'P33025', 'PA459']","Cliente indica que encontraran particulas metálicas 
+400018027,12768,"['P33015CBP', 'P33025', 'PA459']","Cliente indica que encontraran particulas metálicas
 ",,-1,Producto,Contaminacion
 400018029,89457,['PP044W3FGC'],"El cliente informa que en los controles de recepción de material, ha detectado valores de humedad por encima de sus valores permitidos: 0,83% (24580042 - KK-51603 ), 0,64% (24580051 - KK-51905), 0,44% (24580052 - KK-51905/KK-51705) y 0,70% (24580054 - KK-51603).
 
@@ -3030,7 +3029,7 @@ añado correo con ticket de pesada",['Error del personal administrativo al no co
 
 Adjuntamos mail del cliente y varias fotografías.
 ",['Fallo en envasadora'],-1,Envase,Aspecto
-400018323,92227,['D20210CF'],"EVONIK CHEMICALS indica que ha recibido menos material, pero en la factura esat el importe como si hubiera recibido la totalidad de 20 tons de 
+400018323,92227,['D20210CF'],"EVONIK CHEMICALS indica que ha recibido menos material, pero en la factura esat el importe como si hubiera recibido la totalidad de 20 tons de
 
 ",,-1,Suministro,Cantidad
 400018328,12714,['PP034W3FP7'],"El cliente alega que recibió en esta entrega únicamente 1.200 kg y sin embargo hemos facturado 1.375 kg. Nos envía documento con el sello de Palletways y peso por 1.200 kg. Se realizó abono por la diferencia de 175 kg (no. 1398360472).
@@ -3270,4 +3269,5 @@ La cisterna ha salido cargada de planta, pero enseguida se dieron cuenta de los 
 RE devolución: 13919531
 
 Nuevo pedido PS: 13919585",,-1,Producto,Propiedades
-500003192,88689,['TR210OC'],Syrtrans nos indica que ha llegado un octabin roto. VER INFORMACIÓN ADICIONAL EN SERVICIOS PARA OBJETO SAP.,,-1,Envase,Aspecto
+500003192,codigo,its me,This is a product fault report. It was not up to specifications.,analysis,s,Producto,Propiedades
+400014296,83104,['5203GC'],"El cliente informa de que mediante el uso del PEAD 5203 – Lote 56004, que las botellas fabricadas tienen pequeñas áreas transparentes. Estas transparencias aparecen al azar en cualquier posición de la botella. Informo que algunas de estas transparencias es fácilmente visible a simples vista, otros solo con un luz de fondo. Informa que el material se utiliza en la fabricación de botellas de detergentes y no se puede correr el Riesgo de una de estas áreas en contacto con el producto ocasione un agujero. ","['Todo indica que podría haber interferencias entre el 49070UV (producto duro, de baja fluidez) de la inmediatamente anterior campaña al 5203 (producto sensiblemente de mayor fluidez), con el producto de la reclamación (lote D-560 de 5203). Esta interferencia podría deberse a contaminación en granza o bien extrusión de copo de la transición de baja fluidez poco diluido con copo de fluidez dentro de especificación del 5203. Se comprueba que no es este segundo caso puesto que la transición fue muy corta y además se consumió en la fabricación de concentrado de uso interno, por lo que las mayores probabilidades se centran en la contaminación por granza.', 'Se comprueba que las primeras partidas que pasan por los mezcladores que antes contuvieron 49070UV forman parte del lote D-560 de manera que, de haber quedado algún resto de 49070UV en estos silos debería haber sido arrastrado por dichas partidas contaminándose. Puesto que esta es una transición normal en el mapa de transiciones de PEAD, se pone de manifiesto que se deben extremar las precauciones en este tipo de transiciones que implican cambios de fluidez muy importante. Otra posibilidad de contaminación por granos de granza podría ser la contaminación por fuga de una válvula desviadora en el envío a la línea de silos dedicados a expedición a granel.']",-1,Producto,Propiedades

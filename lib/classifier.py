@@ -23,9 +23,19 @@ from .configurator import ConfigGetter, CATEGORY_COLUMN_NAME, VECTOR_COLUMN_NAME
 #### Classifier class used to classify categories of saps ##########################################
 ####################################################################################################
 class Classifier:
+    """
+    Class used to classify the category and sub-category of a given SAP text.
+    """
 
     ### CONSTRUCTOR ###
     def __init__(self, training_df, y_col=CATEGORY_COLUMN_NAME, vec_col=VECTOR_COLUMN_NAME, params={}):
+        """
+        Establishes the training dataframe, the goal column, and any params necessary
+        :param training_df: the dataframe containing all the datapoints that will help train the classifier
+        :param y_col: the name of the column the classifier wants to predict, from the training dataframe
+        :param vec_col: the name of the vector column in the training dataframe
+        :param params: any necessary params, depending on what classifier is wanted
+        """
         self.train_df = training_df
         self.vec_col = vec_col
         self.y_col = y_col

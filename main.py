@@ -31,27 +31,38 @@ engine = Engine()
 
 ## ROUTES ##
 
+
 # Index
 @app.route('/')
 @app.route('/index', methods=['GET', 'POST'])
 def index():
+    """
+    Renders the initial page with the options for actions on the website.
+    :return: initial html page
+    """
     return render_template('index.html')
 
 # What is AIM
 @app.route('/aim_info', methods=['GET', 'POST'])
 def aim_info():
+    """
+    This method returns the page that describes the website's purpose.
+    :return: information html page
+    """
     return render_template('aim_info.html', title='AIM Info')
 
 # Fill incidence form
 @app.route('/fill_incidence', methods=['GET', 'POST'])
 def fill_incidence():
+    """
+    This method creates a web form for the user to fill in an incidence, once the information is submitted
+    the engine will handle the information, add it to the database and so on.
+    :return: html page for filling in web form
+    """
     form = WebForm()
     if (request.values.get("submit_incidence")=="Submit") and (request.values.get('aviso_calidad') is not None):
-        print("In loop!! submit data ", form.submit.data)
         engine.dealWithWebForm(form)
-        flash('Web form submitted!')
     return render_template('fill_incidence.html', title='Web Form', form=form)
-
 
 # Upload incident pages
 @app.route('/upload_form', methods=['GET', 'POST'])
@@ -108,7 +119,6 @@ def get_info():
     ####################
     return render_template('get_info.html', form=form)
 
-
 ## TESTING ##
 @app.route('/success', methods=['GET', 'POST'])
 def success():
@@ -123,7 +133,6 @@ def success():
         return ret_string + '<h1>GET + ' + str(request.args.get('title'))
     else:
         return ret_string
-
 
 ### MAIN ###
 if __name__=='__main__':

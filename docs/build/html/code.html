@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Code Documentation &#8212; Incidences  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Project Summary" href="project.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-lib">
+<span id="code-documentation"></span><h1>Code Documentation<a class="headerlink" href="#module-lib" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-main"></span><div class="section" id="module-lib.classifier">
+<span id="classifier"></span><h2>Classifier<a class="headerlink" href="#module-lib.classifier" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lib.classifier.Classifier">
+<em class="property">class </em><code class="sig-prename descclassname">lib.classifier.</code><code class="sig-name descname">Classifier</code><span class="sig-paren">(</span><em class="sig-param">training_df</em>, <em class="sig-param">y_col='category'</em>, <em class="sig-param">vec_col='vectorized_texts'</em>, <em class="sig-param">params={}</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.classifier.Classifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class used to classify the category and sub-category of a given SAP text.</p>
+<dl class="method">
+<dt id="lib.classifier.Classifier.giveClassification">
+<code class="sig-name descname">giveClassification</code><span class="sig-paren">(</span><em class="sig-param">test_df</em>, <em class="sig-param">model</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.classifier.Classifier.giveClassification" title="Permalink to this definition">¶</a></dt>
+<dd><p>‘Classifies input dataframe given the current model.’
+:param test_df:
+:param model:
+:return:</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.classifier.ClassifierGaussian">
+<em class="property">class </em><code class="sig-prename descclassname">lib.classifier.</code><code class="sig-name descname">ClassifierGaussian</code><span class="sig-paren">(</span><em class="sig-param">training_df</em>, <em class="sig-param">y_col='category'</em>, <em class="sig-param">vec_col='vectorized_texts'</em>, <em class="sig-param">params={}</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.classifier.ClassifierGaussian" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="lib.classifier.ClassifierLogistic">
+<em class="property">class </em><code class="sig-prename descclassname">lib.classifier.</code><code class="sig-name descname">ClassifierLogistic</code><span class="sig-paren">(</span><em class="sig-param">training_df</em>, <em class="sig-param">y_col='category'</em>, <em class="sig-param">vec_col='vectorized_texts'</em>, <em class="sig-param">params={}</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.classifier.ClassifierLogistic" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="lib.classifier.ClassifierSVM">
+<em class="property">class </em><code class="sig-prename descclassname">lib.classifier.</code><code class="sig-name descname">ClassifierSVM</code><span class="sig-paren">(</span><em class="sig-param">training_df</em>, <em class="sig-param">y_col='category'</em>, <em class="sig-param">vec_col='vectorized_texts'</em>, <em class="sig-param">params={}</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.classifier.ClassifierSVM" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="lib.classifier.ClassifierXGBoost">
+<em class="property">class </em><code class="sig-prename descclassname">lib.classifier.</code><code class="sig-name descname">ClassifierXGBoost</code><span class="sig-paren">(</span><em class="sig-param">training_df</em>, <em class="sig-param">y_col='category'</em>, <em class="sig-param">vec_col='vectorized_texts'</em>, <em class="sig-param">params={}</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.classifier.ClassifierXGBoost" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="lib.classifier.ClassifierXGBoost.giveClassification">
+<code class="sig-name descname">giveClassification</code><span class="sig-paren">(</span><em class="sig-param">test_df</em>, <em class="sig-param">model</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.classifier.ClassifierXGBoost.giveClassification" title="Permalink to this definition">¶</a></dt>
+<dd><p>‘Classifies input dataframe given the current model.’
+:param test_df:
+:param model:
+:return:</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lib.incident">
+<span id="incidence"></span><h2>Incidence<a class="headerlink" href="#module-lib.incident" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lib.incident.IncidentWrapper">
+<em class="property">class </em><code class="sig-prename descclassname">lib.incident.</code><code class="sig-name descname">IncidentWrapper</code><span class="sig-paren">(</span><em class="sig-param">path_to_database='data/'</em>, <em class="sig-param">DEBUG=False</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incident.IncidentWrapper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Incidents Class used to wrap functionality of other classes. Adds the classification of category and sub-category.</p>
+<dl class="method">
+<dt id="lib.incident.IncidentWrapper.getPredictedIncidentEntry">
+<code class="sig-name descname">getPredictedIncidentEntry</code><span class="sig-paren">(</span><em class="sig-param">incident_df</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incident.IncidentWrapper.getPredictedIncidentEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>”
+Given incidence dataframe, returns the processed incidence along with its predicted category and sub category.
+:parameter: incident_df</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.incident.IncidentWrapper.parseIncidentFromFile">
+<code class="sig-name descname">parseIncidentFromFile</code><span class="sig-paren">(</span><em class="sig-param">path_to_file</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incident.IncidentWrapper.parseIncidentFromFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given a path to a file, will parse it obtaining the wanted sections and return a panda dataframe for that data file
+:param path_to_file:
+:return:</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lib.incidentBase">
+<span id="incidence-base"></span><h2>Incidence Base<a class="headerlink" href="#module-lib.incidentBase" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-lib.engine">
+<span id="engine"></span><h2>Engine<a class="headerlink" href="#module-lib.engine" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lib.engine.Engine">
+<em class="property">class </em><code class="sig-prename descclassname">lib.engine.</code><code class="sig-name descname">Engine</code><a class="headerlink" href="#lib.engine.Engine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class used to manage processing of incidences.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-lib.processor">
+<span id="processor"></span><h2>Processor<a class="headerlink" href="#module-lib.processor" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-lib.processor_tfidf">
+<span id="processor-tfidf"></span><h2>Processor-TfIdf<a class="headerlink" href="#module-lib.processor_tfidf" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Incidences</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Project Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project.html">Project Summary</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Code Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-lib.classifier">Classifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lib.incident">Incidence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lib.incidentBase">Incidence Base</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lib.engine">Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lib.processor">Processor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lib.processor_tfidf">Processor-TfIdf</a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="project.html" title="previous chapter">Project Summary</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Blanca Fernandez Salamanca, Evangelos Dimitriou.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/code.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

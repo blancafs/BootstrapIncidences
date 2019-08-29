@@ -49,6 +49,12 @@ class Classifier:
 
     ## Classifies input dataframe given model and sets
     def giveClassification(self, test_df, model):
+        """
+        'Classifies input dataframe given the current model.'
+        :param test_df:
+        :param model:
+        :return:
+        """
         # Get training set
         X_train, y_train = self.getSplittedVectorsFrame(self.train_df)
         # Preprocess dataframe input

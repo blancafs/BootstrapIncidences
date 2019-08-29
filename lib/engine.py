@@ -14,6 +14,9 @@ the website and the backend
 
 
 class Engine:
+    """
+        Class used to manage processing of incidences.
+        """
     def __init__(self):
         self.incidentWrapper = IncidentWrapper(DEBUG=True)
         self.incidentBase = IncidentBase(self.incidentWrapper, TEXT_DATABASE_PATH, VECTOR_DATABASE_PATH, GENERAL_DATABASE_PATH)

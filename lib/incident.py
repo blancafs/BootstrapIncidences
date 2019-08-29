@@ -17,6 +17,9 @@ from flask import request
 ### -> Classifies category and sub-category                     ####################################
 ####################################################################################################
 class IncidentWrapper:
+    """
+    Incidents Class used to wrap functionality of other classes. Adds the classification of category and sub-category.
+    """
     ## Constructor
     def __init__(self, path_to_database=DATABASE_PATH, DEBUG=False):
         self.DEBUG = DEBUG
@@ -26,6 +29,11 @@ class IncidentWrapper:
 
     ## Returns predicted incident entry
     def getPredictedIncidentEntry(self, incident_df):
+        """"
+        Given incidence dataframe, returns the processed incidence along with its predicted category and sub category.
+        :parameter: incident_df
+        """
+
         # Get dataframe of incident and vectorize it
         processed_incident_df = self.processIncident(incident_df)
         self.inform('[getPredictedIncidentEntry]: Incident was parsed and preprocessed successfully.')
@@ -46,6 +54,11 @@ class IncidentWrapper:
 
     ## Parses excel file and returns dataframe with useful data
     def parseIncidentFromFile(self, path_to_file):
+        """
+        Given a path to a file, will parse it obtaining the wanted sections and return a panda dataframe for that data file
+        :param path_to_file:
+        :return:
+        """
         _, _, df = IncidentParser().parseFiles([path_to_file])
         return df
 

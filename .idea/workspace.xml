@@ -3,6 +3,53 @@
   <component name="ChangeListManager">
     <list default="true" id="ca6f3bb4-dc6a-4535-8557-92bbe49f19b7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/doctrees/bee/lib/python3.6/site-packages/Flask-1.1.1.dist-info/LICENSE.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/doctrees/bee/lib/python3.6/site-packages/Flask_WTF-0.14.2.dist-info/DESCRIPTION.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/doctrees/bee/lib/python3.6/site-packages/Werkzeug-0.15.5.dist-info/LICENSE.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/doctrees/bee/lib/python3.6/site-packages/itsdangerous-1.1.0.dist-info/LICENSE.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/doctrees/code.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/doctrees/environment.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/doctrees/index.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/doctrees/project.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/doctrees/tutorial.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/.buildinfo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_sources/bee/lib/python3.6/site-packages/Flask-1.1.1.dist-info/LICENSE.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_sources/bee/lib/python3.6/site-packages/Flask_WTF-0.14.2.dist-info/DESCRIPTION.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_sources/bee/lib/python3.6/site-packages/Werkzeug-0.15.5.dist-info/LICENSE.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_sources/bee/lib/python3.6/site-packages/itsdangerous-1.1.0.dist-info/LICENSE.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_sources/code.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_sources/index.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_sources/project.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_sources/tutorial.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/alabaster.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/basic.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/custom.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/doctools.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/documentation_options.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/file.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/jquery-3.4.1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/language_data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/minus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/plus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/pygments.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/searchtools.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/underscore-1.3.1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/_static/underscore.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/bee/lib/python3.6/site-packages/Flask-1.1.1.dist-info/LICENSE.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/bee/lib/python3.6/site-packages/Flask_WTF-0.14.2.dist-info/DESCRIPTION.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/bee/lib/python3.6/site-packages/Werkzeug-0.15.5.dist-info/LICENSE.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/bee/lib/python3.6/site-packages/itsdangerous-1.1.0.dist-info/LICENSE.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/code.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/genindex.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/objects.inv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/project.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/py-modindex.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/search.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/searchindex.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_build/html/tutorial.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/bee/bin/python" beforeDir="false" afterPath="$PROJECT_DIR$/bee/bin/python" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bee/include/python3.6m" beforeDir="false" afterPath="$PROJECT_DIR$/bee/include/python3.6m" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bee/lib/python3.6/LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/bee/lib/python3.6/LICENSE.txt" afterDir="false" />
@@ -55,8 +102,14 @@
       <change beforePath="$PROJECT_DIR$/bee/lib/python3.6/types.py" beforeDir="false" afterPath="$PROJECT_DIR$/bee/lib/python3.6/types.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bee/lib/python3.6/warnings.py" beforeDir="false" afterPath="$PROJECT_DIR$/bee/lib/python3.6/warnings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/bee/lib/python3.6/weakref.py" beforeDir="false" afterPath="$PROJECT_DIR$/bee/lib/python3.6/weakref.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/get_info.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/get_info.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/classifier.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/classifier.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/engine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/incident.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/incident.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/make.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/project.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tutorial.rst" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../FlaskTesting/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../FlaskTesting/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FlaskTesting/app.db" beforeDir="false" afterPath="$PROJECT_DIR$/../FlaskTesting/app.db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../FlaskTesting/app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/../FlaskTesting/app/forms.py" afterDir="false" />
@@ -123,6 +176,69 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docs/source/index.rst">
+          <provider selected="true" editor-type-id="restructured-text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docs/source/project.rst">
+          <provider selected="true" editor-type-id="restructured-text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docs/source/tutorial.rst">
+          <provider selected="true" editor-type-id="restructured-text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docs/source/code.rst">
+          <provider selected="true" editor-type-id="restructured-text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/lib/incident.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="513">
+              <caret line="177" column="63" lean-forward="true" selection-start-line="177" selection-start-column="63" selection-end-line="177" selection-end-column="63" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/classifier.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="36" column="83" selection-start-line="36" selection-start-column="83" selection-end-line="36" selection-end-column="83" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lib/engine.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="368">
+              <caret line="28" column="41" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/docs/source/conf.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -157,19 +273,69 @@
       <find>inform</find>
       <find>FormBuilder</find>
       <find>input-group-text</find>
+      <find>napoleon</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/lib/engine.py" />
+        <option value="$PROJECT_DIR$/docs/source/code.rst" />
+        <option value="$PROJECT_DIR$/lib/classifier.py" />
+        <option value="$PROJECT_DIR$/docs/source/conf.py" />
+        <option value="$PROJECT_DIR$/lib/incident.py" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1116" />
+    <option name="y" value="-169" />
+    <option name="width" value="1949" />
+    <option name="height" value="1076" />
+  </component>
   <component name="ProjectId" id="1Q2yEG7xLMpmbtOBE79KhZmU4qM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="BootstrapIncidences" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BootstrapIncidences" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BootstrapIncidences" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BootstrapIncidences" type="462c0819:PsiDirectoryNode" />
+              <item name="docs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BootstrapIncidences" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BootstrapIncidences" type="462c0819:PsiDirectoryNode" />
+              <item name="lib" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\SE71839\Desktop\BootstrapIncidences\docs" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\SE71839\Desktop\BootstrapIncidences\static\img" />
     </key>
@@ -199,17 +365,115 @@
     </task>
     <servers />
   </component>
+  <component name="ToolWindowManager">
+    <frame x="1359" y="-156" width="1753" height="962" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2498544" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Version Control" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Python Console" order="10" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
             <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/lib/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/main.py" />
+    <entry file="file://$PROJECT_DIR$/docs/source/index.rst">
+      <provider selected="true" editor-type-id="restructured-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/source/project.rst">
+      <provider selected="true" editor-type-id="restructured-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/source/tutorial.rst">
+      <provider selected="true" editor-type-id="restructured-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/source/code.rst">
+      <provider selected="true" editor-type-id="restructured-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/engine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="28" column="41" selection-start-line="28" selection-start-column="41" selection-end-line="28" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docs/source/conf.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/classifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="36" column="83" selection-start-line="36" selection-start-column="83" selection-end-line="36" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/incident.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="177" column="63" lean-forward="true" selection-start-line="177" selection-start-column="63" selection-end-line="177" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>

@@ -3,7 +3,7 @@ import os
 from .debug import Debug
 from .incident import IncidentWrapper
 from .incidentBase import IncidentBase
-from .configurator import Utils, TEXT_DATABASE_PATH, VECTOR_DATABASE_PATH, GENERAL_DATABASE_PATH
+from .configurator import Utils, TEXT_DATABASE_PATH, VECTOR_DATABASE_PATH, GENERAL_DATABASE_PATH, INDEX_COLUMN_NAME
 from .forms import FormBuilder
 
 '''
@@ -28,9 +28,9 @@ class Engine(Debug):
         print(incident_entry_df)
 
         # Deal with form
-        info = self.deal(incident_entry_df)
+        id = self.deal(incident_entry_df)
         self.inform('[main]: dealWithWebForm(): Form was dealt-with!')
-        return info
+        return id
 
     ## Process the file, retrieve required information and delete it
     def dealWithFile(self, file_path):
@@ -39,10 +39,10 @@ class Engine(Debug):
         print(incident_entry_df)
 
         # Deal with file
-        info = self.deal(incident_entry_df)
+        id = self.deal(incident_entry_df)
         os.remove(file_path)
         self.inform('[main]: dealWithFile(): File was dealt-with and deleted!')
-        return info
+        return id
 
 
     ## Return all data for this incident id
@@ -70,7 +70,8 @@ class Engine(Debug):
         self.incidentBase.updateIncidentData(general_entry_df)
         self.incidentBase.updateTrainingData(training_entry_df)
 
-        return True
+        id = general_entry_df.loc[0][INDEX_COLUMN_NAME]
+        return id
 
     ## Performs initialization checks
     def performInitCheck(self):

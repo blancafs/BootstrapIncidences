@@ -1,6 +1,5 @@
 # Get application parent dir
 import os
-import pandas as pd
 path = os.path.dirname(os.path.realpath(__file__))
 path += '/../'
 

@@ -94,7 +94,7 @@ class IncidentBase(Debug):
         incidence_id = str(df_entry.loc[0][INDEX_COLUMN_NAME])
         incidence_id = incidence_id.replace(' ', '')
         self.inform(log, 'Incoming incidence_id is:',incidence_id)
-        occurances = df_database.loc[df_database[INDEX_COLUMN_NAME].astype(str).str.contains(incidence_id)].shape[0]
+        occurances = df_database.loc[df_database[INDEX_COLUMN_NAME].astype(str) == incidence_id].shape[0]
 
         # Find the right index for the new entry
         if occurances == 0:
@@ -102,7 +102,7 @@ class IncidentBase(Debug):
             ind = df_database.shape[0]
         elif occurances == 1:
             self.inform(log, 'Found one occurance, replacing it')
-            ind = df_database.loc[df_database[INDEX_COLUMN_NAME].astype(str).str.contains(incidence_id)].index[0]
+            ind = df_database.loc[df_database[INDEX_COLUMN_NAME].astype(str) == incidence_id].index[0]
         else:
             self.inform(log, 'Database has multiple occurances of id:', incidence_id)
             ind = -1

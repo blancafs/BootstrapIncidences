@@ -40,10 +40,12 @@ def aim_info():
 @app.route('/fill_incidence', methods=['GET', 'POST'])
 def fill_incidence():
     form = WebForm()
+    # If form filled correctly then save, and redirect to the information page
     if (request.values.get("submit_incidence")=="Submit") and (request.values.get('aviso_calidad') is not None):
         print("In loop!! submit data ", form.submit.data)
-        engine.dealWithWebForm(form)
+        id = engine.dealWithWebForm(form)
         flash('Web form submitted!')
+        return redirect(url_for('get_info', id=id))
     return render_template('fill_incidence.html', title='Web Form', form=form)
 
 
@@ -70,9 +72,8 @@ def uploadFile():
             file.save(file_path)
 
             # Deal with file
-            engine.dealWithFile(file_path)
-
-            return redirect(url_for('success'))
+            id = engine.dealWithFile(file_path)
+            return redirect(url_for('get_info', id=id))
 
     flash('Method was not post')
     return redirect(url_for('upload_form'))

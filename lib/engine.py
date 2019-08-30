@@ -58,6 +58,12 @@ class Engine(Debug):
         form.id = id
         return form
 
+    ## Changes the classes of the incoming incident id
+    def configureIncident(self, id, category, sub_category):
+        if Utils.isInteger(id):
+            self.incidentBase.changeIncidentClass(int(id), category, sub_category)
+        return
+
 
     ## Deals with the incoming dataframe entry
     def deal(self, incident_entry_df):

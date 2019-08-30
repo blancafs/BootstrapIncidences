@@ -82,11 +82,20 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 # Get information on incident from the database
-@app.route('/get_info', methods =['GET', 'POST'])
+@app.route('/get_info', methods=['GET', 'POST'])
 def get_info():
+    # If no category or sub category, then just display the requested id
+        id = request.args.get('id')
+        form = engine.retrieveFormFromId(id)
+        return render_template('get_info.html', form=form)
+
+@app.route('/get_info/configure', methods=['GET',"POST"])
+def configure():
     id = request.args.get('id')
-    form = engine.retrieveFormFromId(id)
-    return render_template('get_info.html', form=form)
+    category = request.args.get('category')
+    sub_category = request.args.get('sub-category')
+    engine.configureIncident(id,category,sub_category)
+    return redirect(url_for('get_info', id=id))
 
 
 ## TESTING ##

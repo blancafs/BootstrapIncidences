@@ -1,7 +1,7 @@
 import pandas as pd
 
 from .debug import Debug
-from .configurator import Utils, INDEX_COLUMN_NAME
+from .configurator import Utils, INDEX_COLUMN_NAME, CATEGORY_COLUMN_NAME, SUB_CATEGORY_COLUMN_NAME
 
 """
 COPYRIGHT none
@@ -81,6 +81,31 @@ class IncidentBase(Debug):
 
         entry.reset_index(inplace=True, drop=True)
         return entry
+
+
+    ## Changes the classification of the incident id
+    def changeIncidentClass(self, id, category, sub_category):
+            entry = self.getEntry(id)
+            # Check its not empty
+            if entry.shape[0] != 1:
+                self.inform('[incidentBase]: changeIncidentClass(): No occurances of :',id,'found. Aborting the configuration')
+            else:
+                p_cat = entry.loc[0][CATEGORY_COLUMN_NAME]
+                p_sub_cat = entry.loc[0][SUB_CATEGORY_COLUMN_NAME]
+                self.inform('[incidentBase]: changeIncidentClass():',id,'category was:',p_cat,p_sub_cat)
+                entry.loc[0, CATEGORY_COLUMN_NAME] = category
+                entry.loc[0, SUB_CATEGORY_COLUMN_NAME] = sub_category
+                n_cat = entry.loc[0, CATEGORY_COLUMN_NAME]
+                n_sub_cat = entry.loc[0, SUB_CATEGORY_COLUMN_NAME]
+
+
+                # Update the database
+                incident_df = self.incidentWrapper.keepGeneralCols(entry)
+                training_df = self.incidentWrapper.keepTrainingCols(entry)
+                self.updateIncidentData(incident_df)
+                self.updateTrainingData(training_df)
+                self.inform('[incidentBase]: changeIncidentClass(): Change of :',id,'to',n_cat,n_sub_cat,'was successful!')
+
 
 
     ## Common functionality

@@ -6,18 +6,18 @@
 Welcome to Project Incidences's documentation!
 ==============================================
 
-Introduction to project
-
-Requirements:
-xyz
-
+.. image:: ../../static/img/websiteshot.PNG
+   :width: 800
+   :height: 250
+Requirements
++++++++++++++
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-   tutorial
    project
+   tutorial
    code
 
 

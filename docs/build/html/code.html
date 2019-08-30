@@ -14,7 +14,7 @@
     <script type="text/javascript" src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Project Summary" href="project.html" />
+    <link rel="prev" title="Project Tutorial" href="tutorial.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -31,21 +31,204 @@
 
           <div class="body" role="main">
             
-  <div class="section" id="module-lib">
-<span id="code-documentation"></span><h1>Code Documentation<a class="headerlink" href="#module-lib" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="module-main"></span><div class="section" id="module-lib.classifier">
+  <div class="section" id="code-documentation">
+<h1>Code Documentation<a class="headerlink" href="#code-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-lib.forms">
+<span id="forms"></span><h2>Forms<a class="headerlink" href="#module-lib.forms" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lib.forms.FormBuilder">
+<em class="property">class </em><code class="sig-prename descclassname">lib.forms.</code><code class="sig-name descname">FormBuilder</code><a class="headerlink" href="#lib.forms.FormBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class allows a form to be created from a dataframe, a premade incidence, or an empty form when no incidence is looked up.</p>
+<dl class="method">
+<dt id="lib.forms.FormBuilder.buildEmptyForm">
+<em class="property">static </em><code class="sig-name descname">buildEmptyForm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lib.forms.FormBuilder.buildEmptyForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method returns a simple Info form with no filled fields.
+:returns: Simple empty information form</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.forms.FormBuilder.buildFromEntry">
+<em class="property">static </em><code class="sig-name descname">buildFromEntry</code><span class="sig-paren">(</span><em class="sig-param">entry_df</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.forms.FormBuilder.buildFromEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>This methods creates an Information form from a given dataframe, giving it the fields necessary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>entry_df</strong> – the dataframe of the incidence to show on the form</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The web form to display with the searched incidence</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.forms.InfoForm">
+<em class="property">class </em><code class="sig-prename descclassname">lib.forms.</code><code class="sig-name descname">InfoForm</code><span class="sig-paren">(</span><em class="sig-param">fields=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.forms.InfoForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class is used to create an Incidence Form , for when an incidence is checked for its category or changed.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.forms.WebForm">
+<em class="property">class </em><code class="sig-prename descclassname">lib.forms.</code><code class="sig-name descname">WebForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.forms.WebForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Web Form class establishes the fields necessary in the WebForm to fill an incidence, so to change the form these fields must be changed.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-lib.configurator">
+<span id="configurator"></span><h2>Configurator<a class="headerlink" href="#module-lib.configurator" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lib.configurator.ConfigGetter">
+<em class="property">class </em><code class="sig-prename descclassname">lib.configurator.</code><code class="sig-name descname">ConfigGetter</code><a class="headerlink" href="#lib.configurator.ConfigGetter" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class returns the model string and parameter dictionary, the getter method for the class above.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.configurator.ConfigParser">
+<em class="property">class </em><code class="sig-prename descclassname">lib.configurator.</code><code class="sig-name descname">ConfigParser</code><span class="sig-paren">(</span><em class="sig-param">path_to_config</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.configurator.ConfigParser" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class reads and parses the config file to set important variables such as paths to models.</p>
+<dl class="method">
+<dt id="lib.configurator.ConfigParser.extractInfo">
+<code class="sig-name descname">extractInfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lib.configurator.ConfigParser.extractInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given the clean file, this method extracts the model and dictionary information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The name of the model to use and the dictionary of parameters to use for the session.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.configurator.ConfigParser.parseFile">
+<code class="sig-name descname">parseFile</code><span class="sig-paren">(</span><em class="sig-param">path_to_config</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.configurator.ConfigParser.parseFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Strips the file of spaces and commas.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path_to_config</strong> – passed in the constructor</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The clean file</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.configurator.Utils">
+<em class="property">class </em><code class="sig-prename descclassname">lib.configurator.</code><code class="sig-name descname">Utils</code><a class="headerlink" href="#lib.configurator.Utils" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class with useful methods used when python-provided ones did not suffice.</p>
+<dl class="method">
+<dt id="lib.configurator.Utils.saveCSV">
+<em class="property">static </em><code class="sig-name descname">saveCSV</code><span class="sig-paren">(</span><em class="sig-param">df</em>, <em class="sig-param">file_path</em>, <em class="sig-param">index=False</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.configurator.Utils.saveCSV" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method was created for compatability - you can set a specific encoding for the spanish language, or any other encoding/os necessary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> – pandas dataframe to save to the file</p></li>
+<li><p><strong>file_path</strong> – where the file should be saved</p></li>
+<li><p><strong>index</strong> – if an index column is wanted in the dataframe saved in the csv file, set to true</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Automatically saves the file, does not return anything</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-lib.classifier">
 <span id="classifier"></span><h2>Classifier<a class="headerlink" href="#module-lib.classifier" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="lib.classifier.Classifier">
 <em class="property">class </em><code class="sig-prename descclassname">lib.classifier.</code><code class="sig-name descname">Classifier</code><span class="sig-paren">(</span><em class="sig-param">training_df</em>, <em class="sig-param">y_col='category'</em>, <em class="sig-param">vec_col='vectorized_texts'</em>, <em class="sig-param">params={}</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.classifier.Classifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class used to classify the category and sub-category of a given SAP text.</p>
+<dd><p>Abstract class used to classify the category and sub-category of a given SAP text.</p>
+<p>The constructor method establishes the training dataframe, the goal column, and any params necessary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>training_df</strong> – the dataframe containing all the datapoints that will help train the classifier</p></li>
+<li><p><strong>y_col</strong> – the name of the column the classifier wants to predict, from the training dataframe</p></li>
+<li><p><strong>vec_col</strong> – the name of the vector column in the training dataframe</p></li>
+<li><p><strong>params</strong> – any necessary params, depending on what classifier is wanted</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="lib.classifier.Classifier.getAccuracy">
+<code class="sig-name descname">getAccuracy</code><span class="sig-paren">(</span><em class="sig-param">predictions_df</em>, <em class="sig-param">actual_df</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.classifier.Classifier.getAccuracy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns accuracy of predictions vs the real categories. This method was used in the testing period.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>predictions_df</strong> – the dataframe with the datapoints and their predicted categories</p></li>
+<li><p><strong>actual_df</strong> – the real categories for the datapoints</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The accuracy of the current model with the given dataframe.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.classifier.Classifier.getSplittedVectorsFrame">
+<code class="sig-name descname">getSplittedVectorsFrame</code><span class="sig-paren">(</span><em class="sig-param">df</em>, <em class="sig-param">for_training=True</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.classifier.Classifier.getSplittedVectorsFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method builds the Xtrain and ytrain sets for the ML models by splitting the given dataframe. This method is more useful than the typical
+train test split python function as it takes into account the size of the vector encodings for each datapoint.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> – the dataframe with datapoints to be split up</p></li>
+<li><p><strong>for_training</strong> – if for training the category column will be added to the returned dataframe, if its for testing it won’t</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The split training sets for training our model.</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="method">
 <dt id="lib.classifier.Classifier.giveClassification">
 <code class="sig-name descname">giveClassification</code><span class="sig-paren">(</span><em class="sig-param">test_df</em>, <em class="sig-param">model</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.classifier.Classifier.giveClassification" title="Permalink to this definition">¶</a></dt>
-<dd><p>‘Classifies input dataframe given the current model.’
-:param test_df:
-:param model:
-:return:</p>
+<dd><p>Classifies input dataframe given the input model. As it is an abstract class, depending on the model a different subclass will be used to classify the dataframe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>test_df</strong> – the dataframe containing the dataframe to classify</p></li>
+<li><p><strong>model</strong> – the model to be used for the classification</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The new classified dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.classifier.ClassifierBuilder">
+<em class="property">class </em><code class="sig-prename descclassname">lib.classifier.</code><code class="sig-name descname">ClassifierBuilder</code><a class="headerlink" href="#lib.classifier.ClassifierBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the correct classifier depending on the values given by the pre-made configuration class/file (check Configuration class)</p>
+<dl class="method">
+<dt id="lib.classifier.ClassifierBuilder.getClassifier">
+<code class="sig-name descname">getClassifier</code><span class="sig-paren">(</span><em class="sig-param">y_col='category'</em>, <em class="sig-param">vec_col='vectorized_texts'</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.classifier.ClassifierBuilder.getClassifier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given the column that is to be predicted and the column holding the vector encodings, it will return the wanted classifier object with all its parameters done.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_col</strong> – the name of the column to predict, set in configuration</p></li>
+<li><p><strong>vec_col</strong> – the name of the column holding the vector encodings, set in configuration</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The new classifier with the y col, vec_col, and parameters set.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -53,28 +236,44 @@
 <dl class="class">
 <dt id="lib.classifier.ClassifierGaussian">
 <em class="property">class </em><code class="sig-prename descclassname">lib.classifier.</code><code class="sig-name descname">ClassifierGaussian</code><span class="sig-paren">(</span><em class="sig-param">training_df</em>, <em class="sig-param">y_col='category'</em>, <em class="sig-param">vec_col='vectorized_texts'</em>, <em class="sig-param">params={}</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.classifier.ClassifierGaussian" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Creates Gaussian Naive Bayes classifier. This was for the testing period and was not used in the final website.</p>
+<p>Has one method to classify a given test dataframe, using the params set by the super class, and returns the classified dataframe.</p>
+</dd></dl>
 
 <dl class="class">
 <dt id="lib.classifier.ClassifierLogistic">
 <em class="property">class </em><code class="sig-prename descclassname">lib.classifier.</code><code class="sig-name descname">ClassifierLogistic</code><span class="sig-paren">(</span><em class="sig-param">training_df</em>, <em class="sig-param">y_col='category'</em>, <em class="sig-param">vec_col='vectorized_texts'</em>, <em class="sig-param">params={}</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.classifier.ClassifierLogistic" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Creates Logistic Regression classifier. This was for the testing period and was not used in the final website.</p>
+<p>Has one method to classify a given test dataframe, using the params set by the super class, and returns the classified dataframe.</p>
+</dd></dl>
 
 <dl class="class">
 <dt id="lib.classifier.ClassifierSVM">
 <em class="property">class </em><code class="sig-prename descclassname">lib.classifier.</code><code class="sig-name descname">ClassifierSVM</code><span class="sig-paren">(</span><em class="sig-param">training_df</em>, <em class="sig-param">y_col='category'</em>, <em class="sig-param">vec_col='vectorized_texts'</em>, <em class="sig-param">params={}</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.classifier.ClassifierSVM" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Creates SVM classifier. This was for the testing period and was not used in the final website.</p>
+<p>Has one method to classify a given test dataframe, using the params set by the super class, and returns the classified dataframe.</p>
+</dd></dl>
 
 <dl class="class">
 <dt id="lib.classifier.ClassifierXGBoost">
 <em class="property">class </em><code class="sig-prename descclassname">lib.classifier.</code><code class="sig-name descname">ClassifierXGBoost</code><span class="sig-paren">(</span><em class="sig-param">training_df</em>, <em class="sig-param">y_col='category'</em>, <em class="sig-param">vec_col='vectorized_texts'</em>, <em class="sig-param">params={}</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.classifier.ClassifierXGBoost" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
+<dd><p>Creates XGBoost classifier. This is the final model that was used.</p>
+<p>Has one method to classify a given test dataframe, using the params set by the super class, and returns the classified dataframe.</p>
+<dl class="method">
 <dt id="lib.classifier.ClassifierXGBoost.giveClassification">
 <code class="sig-name descname">giveClassification</code><span class="sig-paren">(</span><em class="sig-param">test_df</em>, <em class="sig-param">model</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.classifier.ClassifierXGBoost.giveClassification" title="Permalink to this definition">¶</a></dt>
-<dd><p>‘Classifies input dataframe given the current model.’
-:param test_df:
-:param model:
-:return:</p>
+<dd><p>This method overrides the giveClassification method in the super class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>test_df</strong> – dataframe to classify, given without the category column</p></li>
+<li><p><strong>model</strong> – the model to use, in this case the XGboost</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The classified dataframe.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -90,16 +289,81 @@
 <dt id="lib.incident.IncidentWrapper.getPredictedIncidentEntry">
 <code class="sig-name descname">getPredictedIncidentEntry</code><span class="sig-paren">(</span><em class="sig-param">incident_df</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incident.IncidentWrapper.getPredictedIncidentEntry" title="Permalink to this definition">¶</a></dt>
 <dd><p>”
-Given incidence dataframe, returns the processed incidence along with its predicted category and sub category.
-:parameter: incident_df</p>
+Given incidence dataframe, returns the processed incidence along with its predicted category and sub category.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>incident_df</strong> – the dataframe holding the datapoint to classify</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The processed indicence with the categories attached.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.incident.IncidentWrapper.getProcessor">
+<code class="sig-name descname">getProcessor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lib.incident.IncidentWrapper.getProcessor" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.incident.IncidentWrapper.keepGeneralCols">
+<code class="sig-name descname">keepGeneralCols</code><span class="sig-paren">(</span><em class="sig-param">entry_df</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incident.IncidentWrapper.keepGeneralCols" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the columns wanted to save the entry in the general database in the given dataframe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>entry_df</strong> – the dataframe of the incidence to change depending on columns wanted for the general database</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The dataframe given but only with the wanted columns.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.incident.IncidentWrapper.keepTrainingCols">
+<code class="sig-name descname">keepTrainingCols</code><span class="sig-paren">(</span><em class="sig-param">entry_df</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incident.IncidentWrapper.keepTrainingCols" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds the columns wanted for training and keeps only those from the given dataframe. The column names wanted are set in the configuration file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>entry_df</strong> – the dataframe of the incidence to change depending on the wanted columns for training</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The dataframe given but only with the wanted columns.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="lib.incident.IncidentWrapper.parseIncidentFromFile">
 <code class="sig-name descname">parseIncidentFromFile</code><span class="sig-paren">(</span><em class="sig-param">path_to_file</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incident.IncidentWrapper.parseIncidentFromFile" title="Permalink to this definition">¶</a></dt>
-<dd><p>Given a path to a file, will parse it obtaining the wanted sections and return a panda dataframe for that data file
-:param path_to_file:
-:return:</p>
+<dd><p>Given a path to a file, will parse it obtaining the wanted sections and return a panda dataframe for that data file</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path_to_file</strong> – path to the file holding the incidence, in the case of an uploaded incidence for example</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The parsed and processed dataframe found in the file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.incident.IncidentWrapper.parseIncidentFromWebForm">
+<code class="sig-name descname">parseIncidentFromWebForm</code><span class="sig-paren">(</span><em class="sig-param">form</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incident.IncidentWrapper.parseIncidentFromWebForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses an incidence when given through the web form.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>form</strong> – the web form to be processed</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A datframe holding all relevant information of the incidence uploaded.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -107,6 +371,31 @@ Given incidence dataframe, returns the processed incidence along with its predic
 </div>
 <div class="section" id="module-lib.incidentBase">
 <span id="incidence-base"></span><h2>Incidence Base<a class="headerlink" href="#module-lib.incidentBase" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="lib.incidentBase.IncidentBase">
+<em class="property">class </em><code class="sig-prename descclassname">lib.incidentBase.</code><code class="sig-name descname">IncidentBase</code><span class="sig-paren">(</span><em class="sig-param">incident_wrapper</em>, <em class="sig-param">path_to_training</em>, <em class="sig-param">path_to_vectors</em>, <em class="sig-param">path_to_incidents</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incidentBase.IncidentBase" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="lib.incidentBase.IncidentBase.updateTrainingData">
+<code class="sig-name descname">updateTrainingData</code><span class="sig-paren">(</span><em class="sig-param">entry_list</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incidentBase.IncidentBase.updateTrainingData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Connects to the next available port.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>minimum</strong> – A port value greater or equal to 1024.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ValueError</strong> – If the minimum port specified is less than 1024.</p></li>
+<li><p><strong>ConnectionError</strong> – If no available port is found.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The new minimum port.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 <div class="section" id="module-lib.engine">
 <span id="engine"></span><h2>Engine<a class="headerlink" href="#module-lib.engine" title="Permalink to this headline">¶</a></h2>
@@ -144,9 +433,11 @@ Given incidence dataframe, returns the processed incidence along with its predic
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Project Tutorial</a></li>
 <li class="toctree-l1"><a class="reference internal" href="project.html">Project Summary</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Project Tutorial</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Code Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-lib.forms">Forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lib.configurator">Configurator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-lib.classifier">Classifier</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-lib.incident">Incidence</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-lib.incidentBase">Incidence Base</a></li>
@@ -161,7 +452,7 @@ Given incidence dataframe, returns the processed incidence along with its predic
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="project.html" title="previous chapter">Project Summary</a></li>
+      <li>Previous: <a href="tutorial.html" title="previous chapter">Project Tutorial</a></li>
   </ul></li>
 </ul>
 </div>

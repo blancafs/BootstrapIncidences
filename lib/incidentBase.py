@@ -9,6 +9,9 @@ csv database files in the database folder
 """
 
 class IncidentBase:
+    """
+
+    """
     def __init__(self, incident_wrapper, path_to_training, path_to_vectors, path_to_incidents):
         self.incidentWrapper = incident_wrapper
         self.path_to_training = path_to_training
@@ -17,6 +20,16 @@ class IncidentBase:
 
     ## Updates the training databases (both vector and non-vector), by adding or replacing the given incident
     def updateTrainingData(self, entry_list):
+        """Connects to the next available port.
+
+        Args:
+          minimum: A port value greater or equal to 1024.
+        Raises:
+          ValueError: If the minimum port specified is less than 1024.
+          ConnectionError: If no available port is found.
+        Returns:
+          The new minimum port.
+        """
         # Construct dataframe, get id and see if there are any previous entries for id
         train_df = pd.read_csv(self.path_to_training).reset_index(drop=True)
         vector_df = pd.read_csv(self.path_to_vectors).reset_index(drop=True)

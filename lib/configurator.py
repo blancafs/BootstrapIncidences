@@ -49,12 +49,31 @@ USER_DATABASE_PATH = path + U_DATABASE_PATH + USER_DATABASE_NAME
 ### Class to read and parse the config ##############################
 #####################################################################
 class ConfigParser:
+    """
+
+    This class reads and parses the config file to set important variables such as paths to models.
+    """
+
     def __init__(self, path_to_config):
+        """
+        Takes the path to the configuration file in the constructor.
+
+        Args:
+            path_to_config: path to config file
+        """
         self.info = self.parseFile(path_to_config)
         self.model_name, self.param_dict = self.extractInfo()
 
     ## Parses file and returns only usefull lines
     def parseFile(self, path_to_config):
+        """
+        Strips the file of spaces and commas.
+
+        Args:
+            path_to_config: passed in the constructor
+        Returns:
+            The clean file
+        """
         ## Read lines with no comment
         f = open(path_to_config)
         no_comms = [x.rstrip('\n') for x in f.readlines() if ('#' not in x)]
@@ -65,6 +84,12 @@ class ConfigParser:
 
     ## Exctracts model and dict from info
     def extractInfo(self):
+        """
+        Given the clean file, this method extracts the model and dictionary information.
+
+        Returns:
+          The name of the model to use and the dictionary of parameters to use for the session.
+        """
         lines = self.info.copy()
         model_name = ''
         param_dict = {}
@@ -99,8 +124,15 @@ class ConfigParser:
 ### Class to return the model string, and the parameter dictionary ###
 ######################################################################
 class ConfigGetter:
+    """
+    This class returns the model string and parameter dictionary, the getter method for the class above.
+    """
 
     def __init__(self):
+        """
+        The constructor creates a ConfigParser object by giving it the established config file path, any getter method thereafter returns the model and parameter dictionary
+        using methods from the class ConfigParser.
+        """
         self.parser = ConfigParser(CONFIG_FILE_PATH)
 
     ## Returns model string from config file
@@ -119,6 +151,10 @@ class ConfigGetter:
 #############
 class Utils:
 
+    """
+    A class with useful methods used when python-provided ones did not suffice.
+    """
+
     # Checks if input variable is integer
     @staticmethod
     def isInteger(var):
@@ -130,4 +166,15 @@ class Utils:
 
     @staticmethod
     def saveCSV(df, file_path, index=False):
+        """
+        This method was created for compatability - you can set a specific encoding for the spanish language, or any other encoding/os necessary.
+
+        Args:
+            df: pandas dataframe to save to the file
+            file_path: where the file should be saved
+            index: if an index column is wanted in the dataframe saved in the csv file, set to true
+
+        Returns:
+            Automatically saves the file, does not return anything
+        """
         df.to_csv(file_path, index=index, encoding='utf-8-sig')

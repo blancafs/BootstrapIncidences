@@ -1,8 +1,17 @@
 Code Documentation
 ==================
 
-.. module:: lib
-.. module:: main
+Forms
++++++
+
+.. automodule:: lib.forms
+    :members:
+
+Configurator
+++++++++++++
+
+.. automodule:: lib.configurator
+    :members:
 
 Classifier
 ++++++++++

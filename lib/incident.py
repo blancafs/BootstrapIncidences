@@ -31,7 +31,12 @@ class IncidentWrapper:
     def getPredictedIncidentEntry(self, incident_df):
         """"
         Given incidence dataframe, returns the processed incidence along with its predicted category and sub category.
-        :parameter: incident_df
+
+        Args:
+            incident_df: the dataframe holding the datapoint to classify
+
+        Returns:
+            The processed indicence with the categories attached.
         """
 
         # Get dataframe of incident and vectorize it
@@ -56,8 +61,12 @@ class IncidentWrapper:
     def parseIncidentFromFile(self, path_to_file):
         """
         Given a path to a file, will parse it obtaining the wanted sections and return a panda dataframe for that data file
-        :param path_to_file:
-        :return:
+
+        Args:
+            path_to_file: path to the file holding the incidence, in the case of an uploaded incidence for example
+
+        Returns:
+            The parsed and processed dataframe found in the file.
         """
         _, _, df = IncidentParser().parseFiles([path_to_file])
         return df
@@ -65,17 +74,44 @@ class IncidentWrapper:
 
     ## Parses the form
     def parseIncidentFromWebForm(self, form):
+        """
+        Parses an incidence when given through the web form.
+
+        Args:
+            form: the web form to be processed
+
+        Returns:
+            A datframe holding all relevant information of the incidence uploaded.
+        """
         df = IncidentParser().parseWebForm(form)
         return df
 
 
     ## Returns given df with columns necessary for training
     def keepTrainingCols(self, entry_df):
+        """
+        Finds the columns wanted for training and keeps only those from the given dataframe. The column names wanted are set in the configuration file.
+
+        Args:
+            entry_df: the dataframe of the incidence to change depending on the wanted columns for training
+
+        Returns:
+            The dataframe given but only with the wanted columns.
+        """
         return entry_df[[INDEX_COLUMN_NAME, TEXT_COLUMN_NAME, CATEGORY_COLUMN_NAME, SUB_CATEGORY_COLUMN_NAME]].copy()
 
 
     ##Returns given df with columns necessary for general database
     def keepGeneralCols(self, entry_df):
+        """
+        Finds the columns wanted to save the entry in the general database in the given dataframe.
+
+        Args:
+            entry_df: the dataframe of the incidence to change depending on columns wanted for the general database
+
+        Returns:
+            The dataframe given but only with the wanted columns.
+        """
         return entry_df[[INDEX_COLUMN_NAME, CODIGO_COLUMN_NAME, MATERIAL_COLUMN_NAME, TEXT_COLUMN_NAME,\
                          ANALYSIS_COLUMN_NAME, CAUSA_COLUMN_NAME, CATEGORY_COLUMN_NAME, SUB_CATEGORY_COLUMN_NAME]].copy()
 
@@ -84,6 +120,10 @@ class IncidentWrapper:
 
     ## Returns the best possible initialized Processor object
     def getProcessor(self):
+        """
+
+        :return:
+        """
         available_databases = os.listdir(self.data_folder)
 
         # Check if pre-calculated vectors are available

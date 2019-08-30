@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<head>
+<head xmlns="http://www.w3.org/1999/html">
 <style>
 * {
   box-sizing: border-box;
@@ -60,8 +60,8 @@ input[type=submit]:hover {
 }
 
 .container-norm {
-  border-radius: 5px;
-  padding: 20px;
+    width: 60%
+    padding: 10px;
 }
 
 .col-25 {
@@ -73,6 +73,12 @@ input[type=submit]:hover {
 .col-75 {
   float: left;
   width: 85%;
+  margin-top: 6px;
+}
+
+.col-30 {
+  float: left;
+  width: 20%;
   margin-top: 6px;
 }
 
@@ -123,59 +129,101 @@ input[type=submit]:hover {
 
 <body>
 
-<div class="container-fluid-personal">
-    <div class="jumbotron-personal">
-        <img src="static/img/loupe.png" style="width:80px;height:80px;float:right;"/>
-        {% if form.id %}
-        <h1>Incidence {{ form.id }}</h1>
-        {% else %}
-        <h1>Incidence Lookup</h1>
-        {% endif %}
-        <p class="lead"> Search for an incidence below to get its information.</p>
+    <div class="container-fluid-personal">
+        <div class="jumbotron-personal">
+            <img src="static/img/loupe.png" style="width:80px;height:80px;float:right;"/>
+            {% if form.id %}
+            <h1>Incidence {{ form.id }}</h1>
+            {% else %}
+            <h1>Incidence Lookup</h1>
+            {% endif %}
+            <p class="lead"> Search for an incidence below to get its information.</p>
+        </div>
     </div>
-</div>
 
-<div class="container-white">
-    <br/>
-	<div class="row justify-content-center">
-                        <div class="col-12 col-md-10 col-lg-8">
-                            <form class="card card-sm">
-                                <div class="card-body row no-gutters align-items-center">
-                                    <div class="col-auto">
-                                        <i class="fas fa-search h6 text-body"></i>
-                                    </div>
-                                    <!--end of col-->
-                                    <div class="col">
-                                        <input class="form-control form-control-lg form-control-borderless" type="search" name="id" placeholder="Search incidence...">
-                                    </div>
-                                    <!--end of col-->
-                                    <div class="col-auto">
-                                        <button class="btn btn-lg btn-warning" type="submit">Search</button>
-                                    </div>
-                                    <!--end of col-->
-                                </div>
-                            </form>
+    <div class="container-white">
+        <br/>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
+                <form class="card card-sm">
+                    <div class="card-body row no-gutters align-items-center">
+                        <div class="col-auto">
+                            <i class="fas fa-search h6 text-body"></i>
+                        </div>
+                        <!--end of col-->
+                        <div class="col">
+                            <input class="form-control form-control-lg form-control-borderless" type="search" name="id" placeholder="Search incidence...">
+                        </div>
+                        <!--end of col-->
+                        <div class="col-auto">
+                            <button class="btn btn-lg btn-warning" type="submit">Search</button>
                         </div>
                         <!--end of col-->
                     </div>
-</div>
-
-<br>
-
-<div class="container">
-
-    {% for field in form.fields %}
-    <div class="row">
-    <div class="col-25">
-        <label ><b>{{field.label}}</b></label>
+                </form>
+            </div>
+            <!--end of col-->
+        </div>
     </div>
-    <div class="col-75">
-      <p> {{ field.data }}</p>
-    </div>
-  </div>
-    {% endfor %}
 
-</div>
+    <br>
+
+    {% if form.fields %}
+    <div class="container">
+        {% for field in form.fields %}
+        <div class="row">
+            <div class="col-25">
+                <label ><b>{{field.label}}</b></label>
+            </div>
+            <div class="col-75">
+              <p> {{ field.data }}</p>
+            </div>
+        </div>
+        {% endfor %}
+        <hr>
+        <div class="row">
+            <div class="col-25">
+                <label >Set Category</label>
+                <label>Set Sub-Category</label>
+            </div>
+            <div class="col-30">
+                <form action="{{ url_for('configure') }}" method="get">
+                    <input type="hidden" value="{{ form.id }}" name="id" />
+                    <select name="category">
+                        <option value="Producto">Producto</option>
+                        <option value="Envase">Envase</option>
+                        <option value="Suministro">Suministro</option>
+                        <option value="Documentacion">Documentacion</option>
+                    </select>
+                    <select name="sub-category">
+                        <option value="Propiedades">Propiedades</option>
+                        <option value="Contaminacion">Contaminacion</option>
+                        <option value="Humedad">Humedad</option>
+                        <option value="Aspecto">Aspecto</option>
+                        <option value="Inclinacion">Inclinacion</option>
+                        <option value="Cantidad">Cantidad</option>
+                        <option value="Etiquetado">Etiquetado</option>
+                        <option value="Carga erronea">Carga erronea</option>
+                        <option value="Temperatura">Temperatura</option>
+                        <option value="Puntualidad">Puntualidad</option>
+                        <option value="Comercial">Comercial</option>
+                        <option value="Docs Entrega">Docs Entrega</option>
+                        <option value="Factura">Factura</option>
+                        <option value="Transporte">Transporte</option>
+                        <option value="Fuga Producto">Fuga Producto</option>
+                    </select>
+                    <br>
+                    <br>
+                    <div>
+                        <input type="submit"/>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
 
 </body>
 

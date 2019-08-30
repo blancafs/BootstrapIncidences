@@ -1,23 +1,17 @@
-# IMPORTS FOR TESTING
-from lib.incidentBase import IncidentBase
-from lib.configurator import TEXT_DATABASE_PATH, VECTOR_DATABASE_PATH, GENERAL_DATABASE_PATH
-from lib.forms import FormBuilder
-
 # Imports
 import os
-import pandas as pd
 
 # Custom imports
 from lib.engine import Engine
 from lib.forms import WebForm
-from lib.configurator import USER_DATABASE_PATH
+from lib.configurator import UPLOADS_PATH, PORT
 
 # Web imports
 from flask import Flask, render_template, flash, request, redirect, url_for, session
 from werkzeug.utils import secure_filename
 
 # Vars
-UPLOAD_FOLDER = 'uploads'
+UPLOAD_FOLDER = UPLOADS_PATH[:-1]
 ALLOWED_EXTENSIONS = {'xls', 'xlsx'}
 SECRET_KEY = os.urandom(32)
 
@@ -60,8 +54,10 @@ def fill_incidence():
     :return: html page for filling in web form
     """
     form = WebForm()
+    # If form filled correctly then save, and redirect to the information page
     if (request.values.get("submit_incidence")=="Submit") and (request.values.get('aviso_calidad') is not None):
-        engine.dealWithWebForm(form)
+        id = engine.dealWithWebForm(form)
+        return redirect(url_for('get_info', id=id))
     return render_template('fill_incidence.html', title='Web Form', form=form)
 
 # Upload incident pages
@@ -87,9 +83,8 @@ def uploadFile():
             file.save(file_path)
 
             # Deal with file
-            engine.dealWithFile(file_path)
-
-            return redirect(url_for('success'))
+            id = engine.dealWithFile(file_path)
+            return redirect(url_for('get_info', id=id))
 
     flash('Method was not post')
     return redirect(url_for('upload_form'))
@@ -98,26 +93,20 @@ def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 # Get information on incident from the database
-@app.route('/get_info', methods =['GET', 'POST'])
+@app.route('/get_info', methods=['GET', 'POST'])
 def get_info():
-    id = request.args.get('id')
+    # If no category or sub category, then just display the requested id
+        id = request.args.get('id')
+        form = engine.retrieveFormFromId(id)
+        return render_template('get_info.html', form=form)
 
-    form = engine.retrieveFormFromId(id)
-    # Testing code, otherwise done by engine
-    ###################
-    # if id == None:
-    #     print('[main]: get_info(): id is None')
-    #     return render_template('get_info.html', form=FormBuilder.buildEmptyForm())
-    # else:
-    #
-    #     id = int(id)
-    #     incidentBase = IncidentBase(None, TEXT_DATABASE_PATH, VECTOR_DATABASE_PATH, GENERAL_DATABASE_PATH)
-    #     entry_df = incidentBase.getEntry(id)
-    #     print(entry_df)
-    #     form = FormBuilder.buildFromEntry(entry_df)
-    #     form.id = id
-    ####################
-    return render_template('get_info.html', form=form)
+@app.route('/get_info/configure', methods=['GET',"POST"])
+def configure():
+    id = request.args.get('id')
+    category = request.args.get('category')
+    sub_category = request.args.get('sub-category')
+    engine.configureIncident(id,category,sub_category)
+    return redirect(url_for('get_info', id=id))
 
 ## TESTING ##
 @app.route('/success', methods=['GET', 'POST'])
@@ -136,6 +125,5 @@ def success():
 
 ### MAIN ###
 if __name__=='__main__':
-    port = 5000
-    app.run(host='0.0.0.0', port=5000)
-    print('[main]: main(): Server is listening on port:', port)
+    app.run(host='0.0.0.0', port=PORT)
+    print('[main]: main(): Server is listening on port:', PORT)

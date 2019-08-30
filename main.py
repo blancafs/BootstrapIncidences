@@ -42,9 +42,7 @@ def fill_incidence():
     form = WebForm()
     # If form filled correctly then save, and redirect to the information page
     if (request.values.get("submit_incidence")=="Submit") and (request.values.get('aviso_calidad') is not None):
-        print("In loop!! submit data ", form.submit.data)
         id = engine.dealWithWebForm(form)
-        flash('Web form submitted!')
         return redirect(url_for('get_info', id=id))
     return render_template('fill_incidence.html', title='Web Form', form=form)
 

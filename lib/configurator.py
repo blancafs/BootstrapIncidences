@@ -57,7 +57,7 @@ class ConfigParser:
         Takes the path to the configuration file in the constructor.
 
         Args:
-            path_to_config: path to config file
+            path_to_config: Path to config file
         """
         self.info = self.parseFile(path_to_config)
         self.model_name, self.param_dict = self.extractInfo()
@@ -68,9 +68,9 @@ class ConfigParser:
         Strips the file of spaces and commas.
 
         Args:
-            path_to_config: passed in the constructor
+            path_to_config: Passed in the constructor
         Returns:
-            The clean file
+            string: The clean text from the file
         """
         ## Read lines with no comment
         f = open(path_to_config)
@@ -86,7 +86,8 @@ class ConfigParser:
         Given the clean file, this method extracts the model and dictionary information.
 
         Returns:
-          The name of the model to use and the dictionary of parameters to use for the session.
+          string: The name of the model to use
+          dictionary: The dictionary of parameters to use for the session.
         """
         lines = self.info.copy()
         model_name = ''
@@ -147,6 +148,9 @@ class ConfigGetter:
 ################## UTILS ###################
 ############################################
 class Utils:
+    """
+    A class with useful methods used when python-provided ones did not suffice.
+    """
     @staticmethod
     def performSystemCheck():
         # Check static directories
@@ -159,11 +163,6 @@ class Utils:
         # Check model directory
         if not os.path.exists(path+MODELS_PATH):
             from .. import check_model
-
-
-    """
-    A class with useful methods used when python-provided ones did not suffice.
-    """
 
     # Checks if input variable is integer
     @staticmethod
@@ -183,11 +182,11 @@ class Utils:
         This method was created for compatability - you can set a specific encoding for the spanish language, or any other encoding/os necessary.
 
         Args:
-            df: pandas dataframe to save to the file
-            file_path: where the file should be saved
-            index: if an index column is wanted in the dataframe saved in the csv file, set to true
+            df: Pandas dataframe to save to the file
+            file_path: Where the file should be saved
+            index: If an index column is wanted in the dataframe saved in the csv file, set to true
 
         Returns:
-            Automatically saves the file, does not return anything
+            Automatically saves the file, does not return anything.
         """
         df.to_csv(file_path, index=index, encoding='utf-8-sig')

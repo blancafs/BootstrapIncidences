@@ -27,19 +27,20 @@ class Classifier:
 
     Abstract class used to classify the category and sub-category of a given SAP text.
 
-    The constructor method establishes the training dataframe, the goal column, and any params necessary.
-
-    Args:
-      training_df: the dataframe containing all the datapoints that will help train the classifier
-      y_col: the name of the column the classifier wants to predict, from the training dataframe
-      vec_col: the name of the vector column in the training dataframe
-      params: any necessary params, depending on what classifier is wanted
-
     """
 
     ### CONSTRUCTOR ###
     def __init__(self, training_df, y_col=CATEGORY_COLUMN_NAME, vec_col=VECTOR_COLUMN_NAME, params={}):
+        """
+        The constructor method establishes the training dataframe, the goal column, and any params necessary.
 
+        Args:
+          training_df: The dataframe containing all the datapoints that will help train the classifier
+          y_col: The name of the column the classifier wants to predict, from the training dataframe
+          vec_col: The name of the vector column in the training dataframe
+          params: Any necessary params, depending on what classifier is wanted
+
+        """
         self.train_df = training_df
         self.vec_col = vec_col
         self.y_col = y_col
@@ -57,11 +58,11 @@ class Classifier:
         Classifies input dataframe given the input model. As it is an abstract class, depending on the model a different subclass will be used to classify the dataframe.
 
         Args:
-          test_df: the dataframe containing the dataframe to classify
-          model: the model to be used for the classification
+          test_df: The dataframe containing the dataframe to classify
+          model: The model to be used for the classification
 
         Returns:
-          The new classified dataframe
+          dataframe: The new classified dataframe
         """
         # Get training set
         X_train, y_train = self.getSplittedVectorsFrame(self.train_df)
@@ -89,11 +90,11 @@ class Classifier:
         Returns accuracy of predictions vs the real categories. This method was used in the testing period.
 
         Args:
-          predictions_df: the dataframe with the datapoints and their predicted categories
-          actual_df: the real categories for the datapoints
+          predictions_df: The dataframe with the datapoints and their predicted categories
+          actual_df: The real categories for the datapoints
 
         Returns:
-          The accuracy of the current model with the given dataframe.
+          float: The accuracy of the current model with the given dataframe.
         """
         wrong = predictions_df[predictions_df[self.y_col]!=actual_df[self.y_col]].shape[0]
         acc = (1 - (wrong / predictions_df.shape[0])) * 100
@@ -107,11 +108,11 @@ class Classifier:
         train test split python function as it takes into account the size of the vector encodings for each datapoint.
 
         Args:
-          df: the dataframe with datapoints to be split up
-          for_training: if for training the category column will be added to the returned dataframe, if its for testing it won't
+          df: The dataframe with datapoints to be split up
+          for_training: If for the training set, the category column will be added to the returned dataframe, if its for testing it won't
 
         Returns:
-          The split training sets for training our model.
+          dataframe: The split training sets for training our model.
         """
         # Create an X_train dataframe with the right dimensions
         vector_dim = list(df[self.vec_col])[0].shape[0]
@@ -178,11 +179,11 @@ class ClassifierXGBoost(Classifier):
         This method overrides the giveClassification method in the super class.
 
         Args:
-          test_df: dataframe to classify, given without the category column
-          model: the model to use, in this case the XGboost
+          test_df: Dataframe to classify, given without the category column
+          model: The model to use, in this case the XGboost
 
         Returns:
-          The classified dataframe.
+          dataframe: The classified dataframe.
         """
         # Get sets
         X_train, y_train = self.getSplittedVectorsFrame(self.train_df)
@@ -216,11 +217,11 @@ class ClassifierBuilder:
         Given the column that is to be predicted and the column holding the vector encodings, it will return the wanted classifier object with all its parameters done.
 
         Args:
-           y_col: the name of the column to predict, set in configuration
-           vec_col: the name of the column holding the vector encodings, set in configuration
+           y_col: The name of the column to predict, set in configuration
+           vec_col: The name of the column holding the vector encodings, set in configuration
 
         Returns:
-          The new classifier with the y col, vec_col, and parameters set.
+          classifier: The new classifier with the y col, vec_col, and parameters set.
         """
         # Get the model name and parameters from config file
         configGetter = ConfigGetter()

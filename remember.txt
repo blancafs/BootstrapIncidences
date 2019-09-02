@@ -1,0 +1,10 @@
+1. Document code in Sphinx, all classes and methods
+2. Outline of presentation:
+        1. Intro
+        2. Software Used
+        3. Classification algorithm
+        4. Bootstrap website
+        5. Things we havent done
+        6. Things we tried and didnt use
+a. uml diagram for high level case and for class interaction
+b. 

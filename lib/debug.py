@@ -1,13 +1,14 @@
 '''
 Copyrights(R) Blancanator and Vanginous LTD
 
-This class helps with debug messages. All relevant classes sublclass it
-to inherit inform method
 '''
 
 from .configurator import DEBUG
 
 class Debug:
+    """
+    Class to help with debug messages, all relevant classes subclass it to inherit the inform method.
+    """
 
     ## DEBUG message method
     def inform(self, *text):

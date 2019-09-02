@@ -33,10 +33,10 @@ class IncidentWrapper(Debug):
         Given incidence dataframe, returns the processed incidence along with its predicted category and sub category.
 
         Args:
-            incident_df: the dataframe holding the datapoint to classify
+            incident_df: The dataframe holding the datapoint to classify
 
         Returns:
-            The processed indicence with the categories attached.
+            dataframe: The processed indicence with the categories attached.
         """
 
         # Get dataframe of incident and vectorize it
@@ -63,10 +63,10 @@ class IncidentWrapper(Debug):
         Given a path to a file, will parse it obtaining the wanted sections and return a panda dataframe for that data file
 
         Args:
-            path_to_file: path to the file holding the incidence, in the case of an uploaded incidence for example
+            path_to_file: Path to the file holding the incidence, in the case of an uploaded incidence for example
 
         Returns:
-            The parsed and processed dataframe found in the file.
+            dataframe: The parsed and processed dataframe found in the file.
         """
         _, _, df = IncidentParser().parseFiles([path_to_file])
         return df
@@ -78,10 +78,10 @@ class IncidentWrapper(Debug):
         Parses an incidence when given through the web form.
 
         Args:
-            form: the web form to be processed
+            form: The web form to be processed
 
         Returns:
-            A datframe holding all relevant information of the incidence uploaded.
+            dataframe: A dataframe holding all relevant information of the incidence uploaded.
         """
         df = IncidentParser().parseWebForm(form)
         return df
@@ -93,10 +93,10 @@ class IncidentWrapper(Debug):
         Finds the columns wanted for training and keeps only those from the given dataframe. The column names wanted are set in the configuration file.
 
         Args:
-            entry_df: the dataframe of the incidence to change depending on the wanted columns for training
+            entry_df: The dataframe of the incidence to change depending on the wanted columns for training
 
         Returns:
-            The dataframe given but only with the wanted columns.
+            dataframe: The dataframe given but only with the wanted columns.
         """
         return entry_df[[INDEX_COLUMN_NAME, TEXT_COLUMN_NAME, CATEGORY_COLUMN_NAME, SUB_CATEGORY_COLUMN_NAME]].copy()
 
@@ -107,10 +107,10 @@ class IncidentWrapper(Debug):
         Finds the columns wanted to save the entry in the general database in the given dataframe.
 
         Args:
-            entry_df: the dataframe of the incidence to change depending on columns wanted for the general database
+            entry_df: The dataframe of the incidence to change depending on columns wanted for the general database
 
         Returns:
-            The dataframe given but only with the wanted columns.
+            dataframe: The dataframe given but only with the wanted columns.
         """
         return entry_df[[INDEX_COLUMN_NAME, CODIGO_COLUMN_NAME, MATERIAL_COLUMN_NAME, TEXT_COLUMN_NAME,\
                          ANALYSIS_COLUMN_NAME, CAUSA_COLUMN_NAME, CATEGORY_COLUMN_NAME, SUB_CATEGORY_COLUMN_NAME]].copy()
@@ -121,8 +121,10 @@ class IncidentWrapper(Debug):
     ## Returns the best possible initialized Processor object
     def getProcessor(self):
         """
+        Gets the best possible initialized Processor object.
 
-        :return:
+        Returns:
+            processor: The best found processor
         """
         available_databases = os.listdir(self.data_folder)
 
@@ -145,16 +147,41 @@ class IncidentWrapper(Debug):
 
     ## Vectorizes the incident entry
     def processIncident(self, incident_df):
+        """
+        Vectorises the incident entry given
+
+        Args:
+            incident_df: The dataframe of the incidence to process
+        Returns:
+            dataframe: The processed dataframe
+        """
         return self.data_processor.processFrame(incident_df)
 
     ## Predicts category of processed incident
     def predictCategory(self, processed_incident_df):
+        """
+        Predicts the category of the processed indicent given.
+
+        Args:
+            processed_incident_df: Incidence to classify
+        Returns:
+            dataframe: Same incidence given but with a new column for its category
+        """
         classifier_category = ClassifierBuilder.getClassifier(self.data_processor.getTrainingSet())
         categorized_df = classifier_category.classify(processed_incident_df)
         return categorized_df[CATEGORY_COLUMN_NAME][0]
 
     ## Predicts sub-category
     def predictSubCategory(self, processed_incident_df, predicted_category):
+        """
+        Predicts the sub-category of the processed indicent given.
+
+        Args:
+            processed_incident_df: Incidence to classify
+            predicted_category: The given incident's category classification
+        Returns:
+            dataframe: Same incidence given but with a new column for its sub-category
+        """
         training_set = self.data_processor.getTrainingSet()
         training_set = training_set[training_set[CATEGORY_COLUMN_NAME] == predicted_category]
         classifier_subcategory = ClassifierBuilder.getClassifier(training_set, y_col=SUB_CATEGORY_COLUMN_NAME)
@@ -171,9 +198,20 @@ class IncidentWrapper(Debug):
 ### Incidents Parser class used to parse excel files and forms #####################################
 ####################################################################################################
 class IncidentParser:
+    """
+    This class parses excel files and forms that are uploaded in the website to be added to the database.
+    """
 
     ## Returns df from parsed form
     def parseWebForm(self, form):
+        """
+        Parses a given web form, an incidence filled in on the website.
+
+        Args:
+            form: The form to be processed
+        Returns:
+            dataframe: The dataframe with the correct columns and values taken from the form
+        """
         aviso_calidad = request.values.get("aviso_calidad")
         codigo_cliente = request.values.get("codigo_cliente")
         material_afectado = request.values.get("material_afectado")
@@ -191,6 +229,16 @@ class IncidentParser:
 
     ## Returns dataframe with the parsed data of the given file list
     def parseFiles(self, list_of_files):
+        """
+        Parses files given and extracts the necessary information.
+
+        Args:
+            list_of_files: The list of file names to retrieve
+        Returns:
+            list: A list of the dataframes made from the list of files given
+            list: A list of the information of the list of files
+            dataframe: A final dataframe holding all the new incidents
+        """
         names = ['aviso_de_calidad', 'codigo_cliente', 'material', 'texto_sap', 'analysis_de_causas', 'causa_raiz']
         docs = []
         entries = []
@@ -210,6 +258,16 @@ class IncidentParser:
 
     ## Input string with name of field desired to find methods to use
     def lookUp(self, string):
+        """
+        A method to find the way to retrieve information for a given field from an excel file. This was pre-set based on the previously
+        given excel files of incidences. The format for the dictionary is:
+        <<FIELD NAME, whether the value is to its Right or Below, whether there is 1 value or more than 1 possible value, the real FIELD NAME, and the next field's name.>>
+
+        Args:
+            string: The field name for which we want to find the parsing method
+        Returns:
+            dictionary_element: Right/Below, 1 or 1+ values, Proper name in excel file, Next field name in file. If not in dictionary returns all 0s.
+        """
         methods = {}
         methods.update({'aviso_de_calidad': ('R', 0, 'Aviso de calidad', None)})
         methods.update({'codigo_cliente': ('R', 0, 'Cód cliente', None)})
@@ -231,6 +289,16 @@ class IncidentParser:
     ## Returns x and y coordinates of first encounter of string entered or -1,-1 if it doesn't!
     # REMEMBER TO SEARCH FOR MATERIAL WITH CAPITAL M or wont find it
     def find(self, string, df):
+        """
+        Returns x and y coordinates of the first encounter of the string entered in a file, or -1, -1, if it doesn't.
+
+        Args:
+            string: The name of the wanted field
+            df: The raw dataframe of the excel file
+
+        Returns:
+            index tuple: Coordinates or -1 if not found
+        """
         for i in range(df.shape[0]):
             for j in range(df.shape[1]):
                 cell = df.iloc[i, j]
@@ -242,10 +310,22 @@ class IncidentParser:
 
     ## GET ENTRY FOR STRING GIVEN WITHIN DATAFRAME - LOOKS UP METHOD AND FINDS IT
     def getInfo(self, string, df):
+        """
+        Method that uses the look up and find methods to get the final information for a specific field in the given dataframe.
+
+        Args:
+            string: The name of the wanted field
+            df: The raw dataframe of the excel file
+
+        Returns:
+            list: Values for that specific variable name found in the excel file
+        """
         u, h, s, n = self.lookUp(string)
+
         # If lookup method returned all 0s, field is not in excel and gets value -1
         if u==0 and h==0 and s==0 and n==0:
             return -1
+
         i, j = self.find(s, df)
         if h == 0:
             if u == 'R':

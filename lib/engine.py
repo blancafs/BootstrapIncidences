@@ -15,8 +15,13 @@ the website and the backend
 
 class Engine(Debug):
     """
-        Class used to manage processing of incidences.
-        """
+    Class used to manage processing of incidences.
+
+    When the engine is started no parameters are necessary, it automatically creates an
+            - Incident Wrapper
+            - Incident Base
+            - Performs system check
+    """
     def __init__(self):
         self.performInitCheck()
         self.incidentWrapper = IncidentWrapper()
@@ -25,6 +30,15 @@ class Engine(Debug):
 
     # Processes the incoming form
     def dealWithWebForm(self, form):
+        """
+        This method parses a given form and deals with the incidence within it.
+
+        Args:
+            form: The form to parse and add to the database
+
+        Returns:
+            int: The id of the newly added web form that will indicate success or not
+        """
         # Parse form
         incident_entry_df = self.incidentWrapper.parseIncidentFromWebForm(form)
         print(incident_entry_df)
@@ -36,6 +50,16 @@ class Engine(Debug):
 
     ## Process the file, retrieve required information and delete it
     def dealWithFile(self, file_path):
+        """
+        Processes a file at the given path and retrieves necessary information from it for the database, before deleting it
+
+        Args:
+            file_path: The local path to the new incidence file
+
+        Returns:
+            int: The id of the newly added incidence in the database, if successful
+
+        """
         # Parse file
         incident_entry_df = self.incidentWrapper.parseIncidentFromFile(file_path)
         print(incident_entry_df)
@@ -49,6 +73,15 @@ class Engine(Debug):
 
     ## Return all data for this incident id
     def retrieveFormFromId(self, id):
+        """
+        Returns all data for this incident id.
+
+        Args:
+            id: The id of the incidence to retrieve
+
+        Returns:
+            form: The form of the incidence with all its information filled in
+        """
         # Check that id does not contain any illegal characters, otherwise return empty form
         if Utils.isInteger(id):
             entry_df = self.incidentBase.getEntry(int(id))
@@ -62,6 +95,15 @@ class Engine(Debug):
 
     ## Changes the classes of the incoming incident id
     def configureIncident(self, id, category, sub_category):
+        """
+        Changes the classes of the incoming incident id
+
+        Args:
+            id: The incidence id
+            category: The new category assigned to the incidence
+            sub_category: The new sub-category assigned to the incidence
+
+        """
         if Utils.isInteger(id):
             self.incidentBase.changeIncidentClass(int(id), category, sub_category)
         return
@@ -69,6 +111,15 @@ class Engine(Debug):
 
     ## Deals with the incoming dataframe entry
     def deal(self, incident_entry_df):
+        """
+        Deals with the incoming dataframe entry as necessary.
+
+        Args:
+            incident_entry_df: The dataframe version of the incidence to deal with
+
+        Returns:
+            int: The id of the incidence to deal with in the database it has been added to
+        """
         # Deal with data
         predicted_incident_entry_df = self.incidentWrapper.getPredictedIncidentEntry(incident_entry_df)
         training_entry_df = self.incidentWrapper.keepTrainingCols(predicted_incident_entry_df)
@@ -83,4 +134,7 @@ class Engine(Debug):
 
     ## Performs initialization checks
     def performInitCheck(self):
+        """
+        Performs initialization checks.
+        """
         Utils.performSystemCheck()

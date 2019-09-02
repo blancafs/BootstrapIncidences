@@ -48,9 +48,9 @@ class FormBuilder:
         This methods creates an Information form from a given dataframe, giving it the fields necessary.
 
         Args:
-          entry_df: the dataframe of the incidence to show on the form
+          entry_df: The dataframe of the incidence to show on the form
         Returns:
-          The web form to display with the searched incidence
+          form: The web form to display with the searched incidence
         """
         # Get columns of dataframe entry
         #cols = entry_df.columns
@@ -73,7 +73,7 @@ class FormBuilder:
         """
         This method returns a simple Info form with no filled fields.
         Returns:
-            Simple empty information form
+            form: Simple empty information form
         """
         infoForm = InfoForm()
         #infoForm.setID('(nothing to show)')

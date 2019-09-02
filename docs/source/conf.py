@@ -13,7 +13,12 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('.'))
-sys.path.append(os.path.abspath('/home/blancafs/Desktop/BootstrapIncidences'))
+
+# If working from blanca's home laptop uncomment below
+# sys.path.append(os.path.abspath('/home/blancafs/Desktop/BootstrapIncidences'))
+
+# If at office laptop uncomment below
+sys.path.append(os.path.abspath('/home/bee/Desktop/BootstrapIncidences'))
 
 # -- Project information -----------------------------------------------------
 

@@ -33,45 +33,203 @@
             
   <div class="section" id="code-documentation">
 <h1>Code Documentation<a class="headerlink" href="#code-documentation" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="module-lib.forms">
-<span id="forms"></span><h2>Forms<a class="headerlink" href="#module-lib.forms" title="Permalink to this headline">¶</a></h2>
+<p>Find below the description of all the classes and methods used to build the AIM (Automated Incidence Management) system.</p>
+<div class="section" id="module-lib.engine">
+<span id="engine"></span><h2>Engine<a class="headerlink" href="#module-lib.engine" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="lib.forms.FormBuilder">
-<em class="property">class </em><code class="sig-prename descclassname">lib.forms.</code><code class="sig-name descname">FormBuilder</code><a class="headerlink" href="#lib.forms.FormBuilder" title="Permalink to this definition">¶</a></dt>
-<dd><p>This class allows a form to be created from a dataframe, a premade incidence, or an empty form when no incidence is looked up.</p>
+<dt id="lib.engine.Engine">
+<em class="property">class </em><code class="sig-prename descclassname">lib.engine.</code><code class="sig-name descname">Engine</code><a class="headerlink" href="#lib.engine.Engine" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class used to manage processing of incidences.</p>
+<dl class="simple">
+<dt>When the engine is started no parameters are necessary, it automatically creates an</dt><dd><ul class="simple">
+<li><p>Incident Wrapper</p></li>
+<li><p>Incident Base</p></li>
+<li><p>Performs system check</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="method">
-<dt id="lib.forms.FormBuilder.buildEmptyForm">
-<em class="property">static </em><code class="sig-name descname">buildEmptyForm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lib.forms.FormBuilder.buildEmptyForm" title="Permalink to this definition">¶</a></dt>
-<dd><p>This method returns a simple Info form with no filled fields.
-:returns: Simple empty information form</p>
+<dt id="lib.engine.Engine.configureIncident">
+<code class="sig-name descname">configureIncident</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">category</em>, <em class="sig-param">sub_category</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.engine.Engine.configureIncident" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes the classes of the incoming incident id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> – The incidence id</p></li>
+<li><p><strong>category</strong> – The new category assigned to the incidence</p></li>
+<li><p><strong>sub_category</strong> – The new sub-category assigned to the incidence</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
-<dt id="lib.forms.FormBuilder.buildFromEntry">
-<em class="property">static </em><code class="sig-name descname">buildFromEntry</code><span class="sig-paren">(</span><em class="sig-param">entry_df</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.forms.FormBuilder.buildFromEntry" title="Permalink to this definition">¶</a></dt>
-<dd><p>This methods creates an Information form from a given dataframe, giving it the fields necessary.</p>
+<dt id="lib.engine.Engine.deal">
+<code class="sig-name descname">deal</code><span class="sig-paren">(</span><em class="sig-param">incident_entry_df</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.engine.Engine.deal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deals with the incoming dataframe entry as necessary.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>entry_df</strong> – the dataframe of the incidence to show on the form</p>
+<dd class="field-odd"><p><strong>incident_entry_df</strong> – The dataframe version of the incidence to deal with</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The web form to display with the searched incidence</p>
+<dd class="field-even"><p>The id of the incidence to deal with in the database it has been added to</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.engine.Engine.dealWithFile">
+<code class="sig-name descname">dealWithFile</code><span class="sig-paren">(</span><em class="sig-param">file_path</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.engine.Engine.dealWithFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Processes a file at the given path and retrieves necessary information from it for the database, before deleting it</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>file_path</strong> – The local path to the new incidence file</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The id of the newly added incidence in the database, if successful</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.engine.Engine.dealWithWebForm">
+<code class="sig-name descname">dealWithWebForm</code><span class="sig-paren">(</span><em class="sig-param">form</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.engine.Engine.dealWithWebForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method parses a given form and deals with the incidence within it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>form</strong> – The form to parse and add to the database</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The id of the newly added web form that will indicate success or not</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.engine.Engine.performInitCheck">
+<code class="sig-name descname">performInitCheck</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lib.engine.Engine.performInitCheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Performs initialization checks.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.engine.Engine.retrieveFormFromId">
+<code class="sig-name descname">retrieveFormFromId</code><span class="sig-paren">(</span><em class="sig-param">id</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.engine.Engine.retrieveFormFromId" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all data for this incident id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>id</strong> – The id of the incidence to retrieve</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The form of the incidence with all its information filled in</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>form</p>
 </dd>
 </dl>
 </dd></dl>
 
 </dd></dl>
 
+</div>
+<div class="section" id="module-lib.processor">
+<span id="processor"></span><h2>Processor<a class="headerlink" href="#module-lib.processor" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="lib.forms.InfoForm">
-<em class="property">class </em><code class="sig-prename descclassname">lib.forms.</code><code class="sig-name descname">InfoForm</code><span class="sig-paren">(</span><em class="sig-param">fields=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.forms.InfoForm" title="Permalink to this definition">¶</a></dt>
-<dd><p>This class is used to create an Incidence Form , for when an incidence is checked for its category or changed.</p>
+<dt id="lib.processor.Processor">
+<em class="property">class </em><code class="sig-prename descclassname">lib.processor.</code><code class="sig-name descname">Processor</code><span class="sig-paren">(</span><em class="sig-param">path_to_csv</em>, <em class="sig-param">model_url='/mnt/c/Users/SE71839/Desktop/BootstrapIncidences/lib/../models/multilingual-large'</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.processor.Processor" title="Permalink to this definition">¶</a></dt>
+<dd><p>”
+The processor class is used to embed the texts using the google multilingual embedder and get the text ready
+for the classification algorithm.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>Debug</strong> – The abstract super class Debug includes a debug log method which is inherited by all classes in the system to make debugging efficient.</p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="lib.processor.Processor.clean_text">
+<code class="sig-name descname">clean_text</code><span class="sig-paren">(</span><em class="sig-param">text</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.processor.Processor.clean_text" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method used to clean the basic text of commas, punctuation, capital letters and other unwanted symbols.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>text</strong> – The individual text paragraph to process</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The same text but cleaned</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>text</p>
+</dd>
+</dl>
 </dd></dl>
 
-<dl class="class">
-<dt id="lib.forms.WebForm">
-<em class="property">class </em><code class="sig-prename descclassname">lib.forms.</code><code class="sig-name descname">WebForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.forms.WebForm" title="Permalink to this definition">¶</a></dt>
-<dd><p>The Web Form class establishes the fields necessary in the WebForm to fill an incidence, so to change the form these fields must be changed.</p>
+<dl class="method">
+<dt id="lib.processor.Processor.initialize">
+<code class="sig-name descname">initialize</code><span class="sig-paren">(</span><em class="sig-param">y_col='category'</em>, <em class="sig-param">text_col='texto_sap'</em>, <em class="sig-param">vec_col='vectorized_texts'</em>, <em class="sig-param">drop_cols=[]</em>, <em class="sig-param">test_ratio=0.2</em>, <em class="sig-param">random_state=0</em>, <em class="sig-param">vectors_available=False</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.processor.Processor.initialize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initializes model and embeds the training set if necessary, aka if model hasn’t been downloaded before.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>y_col</strong> – The name of the column with categories</p></li>
+<li><p><strong>text_col</strong> – The name of the column holding the text complaints</p></li>
+<li><p><strong>vec_col</strong> – The name of the column holding the vectorized texts</p></li>
+<li><p><strong>drop_cols</strong> – The names of any columns we wish to drop from the database</p></li>
+<li><p><strong>test_ratio</strong> – The ratio of train to test data</p></li>
+<li><p><strong>random_state</strong> – The seed for the randomization algorithm, keep the same to recreate fair trials</p></li>
+<li><p><strong>vectors_available</strong> – Set to True if the vectorized database already exists to avoid re-creating the vectorizations</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Sets the self variables of text_input, embedded_text, session, df, train and test sets.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.processor.Processor.processFrame">
+<code class="sig-name descname">processFrame</code><span class="sig-paren">(</span><em class="sig-param">data_frame</em>, <em class="sig-param">text_col='texto_sap'</em>, <em class="sig-param">drop_cols=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.processor.Processor.processFrame" title="Permalink to this definition">¶</a></dt>
+<dd><p>If vectors are not available, this method is called to process the texts and return a dataframe with a new vectors column for classifying.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_frame</strong> – The name of the column with categories</p></li>
+<li><p><strong>text_col</strong> – The name of the column holding the text complaints</p></li>
+<li><p><strong>drop_cols</strong> – The names of any columns we wish to drop from the database</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The cleaned dataframe with the vectors column</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>df</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.processor.Processor.readVector">
+<code class="sig-name descname">readVector</code><span class="sig-paren">(</span><em class="sig-param">text_vector</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.processor.Processor.readVector" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reads a string of vectors, as the model returns them, and returns an array of floats.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>text_vector</strong> – The string to read</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An array of floats</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>vec</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -93,7 +251,11 @@
 <dd><p>Given the clean file, this method extracts the model and dictionary information.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The name of the model to use and the dictionary of parameters to use for the session.</p>
+<dd class="field-odd"><p>The name of the model to use
+dictionary: The dictionary of parameters to use for the session.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>string</p>
 </dd>
 </dl>
 </dd></dl>
@@ -104,10 +266,13 @@
 <dd><p>Strips the file of spaces and commas.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>path_to_config</strong> – passed in the constructor</p>
+<dd class="field-odd"><p><strong>path_to_config</strong> – Passed in the constructor</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The clean file</p>
+<dd class="field-even"><p>The clean text from the file</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>string</p>
 </dd>
 </dl>
 </dd></dl>
@@ -125,13 +290,13 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>df</strong> – pandas dataframe to save to the file</p></li>
-<li><p><strong>file_path</strong> – where the file should be saved</p></li>
-<li><p><strong>index</strong> – if an index column is wanted in the dataframe saved in the csv file, set to true</p></li>
+<li><p><strong>df</strong> – Pandas dataframe to save to the file</p></li>
+<li><p><strong>file_path</strong> – Where the file should be saved</p></li>
+<li><p><strong>index</strong> – If an index column is wanted in the dataframe saved in the csv file, set to true</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Automatically saves the file, does not return anything</p>
+<dd class="field-even"><p>Automatically saves the file, does not return anything.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -145,17 +310,6 @@
 <dt id="lib.classifier.Classifier">
 <em class="property">class </em><code class="sig-prename descclassname">lib.classifier.</code><code class="sig-name descname">Classifier</code><span class="sig-paren">(</span><em class="sig-param">training_df</em>, <em class="sig-param">y_col='category'</em>, <em class="sig-param">vec_col='vectorized_texts'</em>, <em class="sig-param">params={}</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.classifier.Classifier" title="Permalink to this definition">¶</a></dt>
 <dd><p>Abstract class used to classify the category and sub-category of a given SAP text.</p>
-<p>The constructor method establishes the training dataframe, the goal column, and any params necessary.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>training_df</strong> – the dataframe containing all the datapoints that will help train the classifier</p></li>
-<li><p><strong>y_col</strong> – the name of the column the classifier wants to predict, from the training dataframe</p></li>
-<li><p><strong>vec_col</strong> – the name of the vector column in the training dataframe</p></li>
-<li><p><strong>params</strong> – any necessary params, depending on what classifier is wanted</p></li>
-</ul>
-</dd>
-</dl>
 <dl class="method">
 <dt id="lib.classifier.Classifier.getAccuracy">
 <code class="sig-name descname">getAccuracy</code><span class="sig-paren">(</span><em class="sig-param">predictions_df</em>, <em class="sig-param">actual_df</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.classifier.Classifier.getAccuracy" title="Permalink to this definition">¶</a></dt>
@@ -163,12 +317,15 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>predictions_df</strong> – the dataframe with the datapoints and their predicted categories</p></li>
-<li><p><strong>actual_df</strong> – the real categories for the datapoints</p></li>
+<li><p><strong>predictions_df</strong> – The dataframe with the datapoints and their predicted categories</p></li>
+<li><p><strong>actual_df</strong> – The real categories for the datapoints</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The accuracy of the current model with the given dataframe.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
 </dd>
 </dl>
 </dd></dl>
@@ -181,12 +338,15 @@ train test split python function as it takes into account the size of the vector
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>df</strong> – the dataframe with datapoints to be split up</p></li>
-<li><p><strong>for_training</strong> – if for training the category column will be added to the returned dataframe, if its for testing it won’t</p></li>
+<li><p><strong>df</strong> – The dataframe with datapoints to be split up</p></li>
+<li><p><strong>for_training</strong> – If for the training set, the category column will be added to the returned dataframe, if its for testing it won’t</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The split training sets for training our model.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dataframe</p>
 </dd>
 </dl>
 </dd></dl>
@@ -198,12 +358,15 @@ train test split python function as it takes into account the size of the vector
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>test_df</strong> – the dataframe containing the dataframe to classify</p></li>
-<li><p><strong>model</strong> – the model to be used for the classification</p></li>
+<li><p><strong>test_df</strong> – The dataframe containing the dataframe to classify</p></li>
+<li><p><strong>model</strong> – The model to be used for the classification</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The new classified dataframe</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dataframe</p>
 </dd>
 </dl>
 </dd></dl>
@@ -221,12 +384,15 @@ train test split python function as it takes into account the size of the vector
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>y_col</strong> – the name of the column to predict, set in configuration</p></li>
-<li><p><strong>vec_col</strong> – the name of the column holding the vector encodings, set in configuration</p></li>
+<li><p><strong>y_col</strong> – The name of the column to predict, set in configuration</p></li>
+<li><p><strong>vec_col</strong> – The name of the column holding the vector encodings, set in configuration</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The new classifier with the y col, vec_col, and parameters set.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>classifier</p>
 </dd>
 </dl>
 </dd></dl>
@@ -266,12 +432,15 @@ train test split python function as it takes into account the size of the vector
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>test_df</strong> – dataframe to classify, given without the category column</p></li>
-<li><p><strong>model</strong> – the model to use, in this case the XGboost</p></li>
+<li><p><strong>test_df</strong> – Dataframe to classify, given without the category column</p></li>
+<li><p><strong>model</strong> – The model to use, in this case the XGboost</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The classified dataframe.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dataframe</p>
 </dd>
 </dl>
 </dd></dl>
@@ -282,8 +451,109 @@ train test split python function as it takes into account the size of the vector
 <div class="section" id="module-lib.incident">
 <span id="incidence"></span><h2>Incidence<a class="headerlink" href="#module-lib.incident" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
+<dt id="lib.incident.IncidentParser">
+<em class="property">class </em><code class="sig-prename descclassname">lib.incident.</code><code class="sig-name descname">IncidentParser</code><a class="headerlink" href="#lib.incident.IncidentParser" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class parses excel files and forms that are uploaded in the website to be added to the database.</p>
+<dl class="method">
+<dt id="lib.incident.IncidentParser.find">
+<code class="sig-name descname">find</code><span class="sig-paren">(</span><em class="sig-param">string</em>, <em class="sig-param">df</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incident.IncidentParser.find" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns x and y coordinates of the first encounter of the string entered in a file, or -1, -1, if it doesn’t.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>string</strong> – The name of the wanted field</p></li>
+<li><p><strong>df</strong> – The raw dataframe of the excel file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Coordinates or -1 if not found</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>index tuple</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.incident.IncidentParser.getInfo">
+<code class="sig-name descname">getInfo</code><span class="sig-paren">(</span><em class="sig-param">string</em>, <em class="sig-param">df</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incident.IncidentParser.getInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method that uses the look up and find methods to get the final information for a specific field in the given dataframe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>string</strong> – The name of the wanted field</p></li>
+<li><p><strong>df</strong> – The raw dataframe of the excel file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Values for that specific variable name found in the excel file</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.incident.IncidentParser.lookUp">
+<code class="sig-name descname">lookUp</code><span class="sig-paren">(</span><em class="sig-param">string</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incident.IncidentParser.lookUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>A method to find the way to retrieve information for a given field from an excel file. This was pre-set based on the previously
+given excel files of incidences. The format for the dictionary is:
+&lt;&lt;FIELD NAME, whether the value is to its Right or Below, whether there is 1 value or more than 1 possible value, the real FIELD NAME, and the next field’s name.&gt;&gt;</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>string</strong> – The field name for which we want to find the parsing method</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Right/Below, 1 or 1+ values, Proper name in excel file, Next field name in file. If not in dictionary returns all 0s.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dictionary_element</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.incident.IncidentParser.parseFiles">
+<code class="sig-name descname">parseFiles</code><span class="sig-paren">(</span><em class="sig-param">list_of_files</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incident.IncidentParser.parseFiles" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses files given and extracts the necessary information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>list_of_files</strong> – The list of file names to retrieve</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A list of the dataframes made from the list of files given
+list: A list of the information of the list of files
+dataframe: A final dataframe holding all the new incidents</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.incident.IncidentParser.parseWebForm">
+<code class="sig-name descname">parseWebForm</code><span class="sig-paren">(</span><em class="sig-param">form</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incident.IncidentParser.parseWebForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Parses a given web form, an incidence filled in on the website.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>form</strong> – The form to be processed</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The dataframe with the correct columns and values taken from the form</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="lib.incident.IncidentWrapper">
-<em class="property">class </em><code class="sig-prename descclassname">lib.incident.</code><code class="sig-name descname">IncidentWrapper</code><span class="sig-paren">(</span><em class="sig-param">path_to_database='data/'</em>, <em class="sig-param">DEBUG=False</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incident.IncidentWrapper" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">lib.incident.</code><code class="sig-name descname">IncidentWrapper</code><span class="sig-paren">(</span><em class="sig-param">path_to_database='data/'</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incident.IncidentWrapper" title="Permalink to this definition">¶</a></dt>
 <dd><p>Incidents Class used to wrap functionality of other classes. Adds the classification of category and sub-category.</p>
 <dl class="method">
 <dt id="lib.incident.IncidentWrapper.getPredictedIncidentEntry">
@@ -292,10 +562,13 @@ train test split python function as it takes into account the size of the vector
 Given incidence dataframe, returns the processed incidence along with its predicted category and sub category.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>incident_df</strong> – the dataframe holding the datapoint to classify</p>
+<dd class="field-odd"><p><strong>incident_df</strong> – The dataframe holding the datapoint to classify</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The processed indicence with the categories attached.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dataframe</p>
 </dd>
 </dl>
 </dd></dl>
@@ -303,9 +576,13 @@ Given incidence dataframe, returns the processed incidence along with its predic
 <dl class="method">
 <dt id="lib.incident.IncidentWrapper.getProcessor">
 <code class="sig-name descname">getProcessor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lib.incident.IncidentWrapper.getProcessor" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Gets the best possible initialized Processor object.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p></p>
+<dd class="field-odd"><p>The best found processor</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>processor</p>
 </dd>
 </dl>
 </dd></dl>
@@ -316,10 +593,13 @@ Given incidence dataframe, returns the processed incidence along with its predic
 <dd><p>Finds the columns wanted to save the entry in the general database in the given dataframe.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>entry_df</strong> – the dataframe of the incidence to change depending on columns wanted for the general database</p>
+<dd class="field-odd"><p><strong>entry_df</strong> – The dataframe of the incidence to change depending on columns wanted for the general database</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The dataframe given but only with the wanted columns.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dataframe</p>
 </dd>
 </dl>
 </dd></dl>
@@ -330,10 +610,13 @@ Given incidence dataframe, returns the processed incidence along with its predic
 <dd><p>Finds the columns wanted for training and keeps only those from the given dataframe. The column names wanted are set in the configuration file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>entry_df</strong> – the dataframe of the incidence to change depending on the wanted columns for training</p>
+<dd class="field-odd"><p><strong>entry_df</strong> – The dataframe of the incidence to change depending on the wanted columns for training</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The dataframe given but only with the wanted columns.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dataframe</p>
 </dd>
 </dl>
 </dd></dl>
@@ -344,10 +627,13 @@ Given incidence dataframe, returns the processed incidence along with its predic
 <dd><p>Given a path to a file, will parse it obtaining the wanted sections and return a panda dataframe for that data file</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>path_to_file</strong> – path to the file holding the incidence, in the case of an uploaded incidence for example</p>
+<dd class="field-odd"><p><strong>path_to_file</strong> – Path to the file holding the incidence, in the case of an uploaded incidence for example</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The parsed and processed dataframe found in the file.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dataframe</p>
 </dd>
 </dl>
 </dd></dl>
@@ -358,10 +644,67 @@ Given incidence dataframe, returns the processed incidence along with its predic
 <dd><p>Parses an incidence when given through the web form.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>form</strong> – the web form to be processed</p>
+<dd class="field-odd"><p><strong>form</strong> – The web form to be processed</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A datframe holding all relevant information of the incidence uploaded.</p>
+<dd class="field-even"><p>A dataframe holding all relevant information of the incidence uploaded.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.incident.IncidentWrapper.predictCategory">
+<code class="sig-name descname">predictCategory</code><span class="sig-paren">(</span><em class="sig-param">processed_incident_df</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incident.IncidentWrapper.predictCategory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predicts the category of the processed indicent given.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>processed_incident_df</strong> – Incidence to classify</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Same incidence given but with a new column for its category</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.incident.IncidentWrapper.predictSubCategory">
+<code class="sig-name descname">predictSubCategory</code><span class="sig-paren">(</span><em class="sig-param">processed_incident_df</em>, <em class="sig-param">predicted_category</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incident.IncidentWrapper.predictSubCategory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Predicts the sub-category of the processed indicent given.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>processed_incident_df</strong> – Incidence to classify</p></li>
+<li><p><strong>predicted_category</strong> – The given incident’s category classification</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Same incidence given but with a new column for its sub-category</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.incident.IncidentWrapper.processIncident">
+<code class="sig-name descname">processIncident</code><span class="sig-paren">(</span><em class="sig-param">incident_df</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incident.IncidentWrapper.processIncident" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vectorises the incident entry given</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>incident_df</strong> – The dataframe of the incidence to process</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The processed dataframe</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dataframe</p>
 </dd>
 </dl>
 </dd></dl>
@@ -374,22 +717,93 @@ Given incidence dataframe, returns the processed incidence along with its predic
 <dl class="class">
 <dt id="lib.incidentBase.IncidentBase">
 <em class="property">class </em><code class="sig-prename descclassname">lib.incidentBase.</code><code class="sig-name descname">IncidentBase</code><span class="sig-paren">(</span><em class="sig-param">incident_wrapper</em>, <em class="sig-param">path_to_training</em>, <em class="sig-param">path_to_vectors</em>, <em class="sig-param">path_to_incidents</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incidentBase.IncidentBase" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
-<dt id="lib.incidentBase.IncidentBase.updateTrainingData">
-<code class="sig-name descname">updateTrainingData</code><span class="sig-paren">(</span><em class="sig-param">entry_list</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incidentBase.IncidentBase.updateTrainingData" title="Permalink to this definition">¶</a></dt>
-<dd><p>Connects to the next available port.</p>
+<dd><p>The interface to handle the incidence database. If the database changes, only this class has to be adapted.</p>
+<dl class="method">
+<dt id="lib.incidentBase.IncidentBase.changeIncidentClass">
+<code class="sig-name descname">changeIncidentClass</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">category</em>, <em class="sig-param">sub_category</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incidentBase.IncidentBase.changeIncidentClass" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes the classification of an entry, finding it in the database by its id.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>minimum</strong> – A port value greater or equal to 1024.</p>
-</dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>ValueError</strong> – If the minimum port specified is less than 1024.</p></li>
-<li><p><strong>ConnectionError</strong> – If no available port is found.</p></li>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> – The int id identifying the incidence</p></li>
+<li><p><strong>category</strong> – The new category assigned to the incidence</p></li>
+<li><p><strong>sub_category</strong> – The new sub-category assigned to the incidence</p></li>
 </ul>
 </dd>
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The new minimum port.</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Passes the changed incidences to appropriate methods to update everything.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.incidentBase.IncidentBase.getEntry">
+<code class="sig-name descname">getEntry</code><span class="sig-paren">(</span><em class="sig-param">incidence_id</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incidentBase.IncidentBase.getEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Finds and returns the required entry by its id, the aviso_de_Calidad, as a dataframe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>incidence_id</strong> – The id that identifies the incidence</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The found entry in the database</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.incidentBase.IncidentBase.getRelevantIndex">
+<code class="sig-name descname">getRelevantIndex</code><span class="sig-paren">(</span><em class="sig-param">df_entry</em>, <em class="sig-param">df_database</em>, <em class="sig-param">log=''</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incidentBase.IncidentBase.getRelevantIndex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Given an entry and a database, this method find the id of that incidence within the given database.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df_entry</strong> – The index being searched for in the database as a pandas dataframe</p></li>
+<li><p><strong>df_database</strong> – The incidence database as a pandas dataframe</p></li>
+<li><p><strong>log</strong> – Log type</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Index of the incidence in the database</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.incidentBase.IncidentBase.updateIncidentData">
+<code class="sig-name descname">updateIncidentData</code><span class="sig-paren">(</span><em class="sig-param">df_entry</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incidentBase.IncidentBase.updateIncidentData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the incident database with the given incident, replacing or adding it at the end.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>df_entry</strong> – The incidence entry to be added to the database</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Whether successful or not</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>boolean</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.incidentBase.IncidentBase.updateTrainingData">
+<code class="sig-name descname">updateTrainingData</code><span class="sig-paren">(</span><em class="sig-param">df_entry</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incidentBase.IncidentBase.updateTrainingData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Updates the training databases, both vector and non-vector, by adding or replacing a given incident.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>df_entry</strong> – The incidence entry to add to the database</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Whether the addition was successful or not</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>boolean</p>
 </dd>
 </dl>
 </dd></dl>
@@ -397,20 +811,51 @@ Given incidence dataframe, returns the processed incidence along with its predic
 </dd></dl>
 
 </div>
-<div class="section" id="module-lib.engine">
-<span id="engine"></span><h2>Engine<a class="headerlink" href="#module-lib.engine" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-lib.forms">
+<span id="forms"></span><h2>Forms<a class="headerlink" href="#module-lib.forms" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
-<dt id="lib.engine.Engine">
-<em class="property">class </em><code class="sig-prename descclassname">lib.engine.</code><code class="sig-name descname">Engine</code><a class="headerlink" href="#lib.engine.Engine" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class used to manage processing of incidences.</p>
+<dt id="lib.forms.FormBuilder">
+<em class="property">class </em><code class="sig-prename descclassname">lib.forms.</code><code class="sig-name descname">FormBuilder</code><a class="headerlink" href="#lib.forms.FormBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class allows a form to be created from a dataframe, a premade incidence, or an empty form when no incidence is looked up.</p>
+<dl class="method">
+<dt id="lib.forms.FormBuilder.buildEmptyForm">
+<em class="property">static </em><code class="sig-name descname">buildEmptyForm</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lib.forms.FormBuilder.buildEmptyForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method returns a simple Info form with no filled fields.
+:returns: Simple empty information form
+:rtype: form</p>
 </dd></dl>
 
-</div>
-<div class="section" id="module-lib.processor">
-<span id="processor"></span><h2>Processor<a class="headerlink" href="#module-lib.processor" title="Permalink to this headline">¶</a></h2>
-</div>
-<div class="section" id="module-lib.processor_tfidf">
-<span id="processor-tfidf"></span><h2>Processor-TfIdf<a class="headerlink" href="#module-lib.processor_tfidf" title="Permalink to this headline">¶</a></h2>
+<dl class="method">
+<dt id="lib.forms.FormBuilder.buildFromEntry">
+<em class="property">static </em><code class="sig-name descname">buildFromEntry</code><span class="sig-paren">(</span><em class="sig-param">entry_df</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.forms.FormBuilder.buildFromEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>This methods creates an Information form from a given dataframe, giving it the fields necessary.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>entry_df</strong> – The dataframe of the incidence to show on the form</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The web form to display with the searched incidence</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>form</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.forms.InfoForm">
+<em class="property">class </em><code class="sig-prename descclassname">lib.forms.</code><code class="sig-name descname">InfoForm</code><span class="sig-paren">(</span><em class="sig-param">fields=[]</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.forms.InfoForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class is used to create an Incidence Form , for when an incidence is checked for its category or changed.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.forms.WebForm">
+<em class="property">class </em><code class="sig-prename descclassname">lib.forms.</code><code class="sig-name descname">WebForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.forms.WebForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>The Web Form class establishes the fields necessary in the WebForm to fill an incidence, so to change the form these fields must be changed.</p>
+</dd></dl>
+
 </div>
 </div>
 
@@ -436,14 +881,13 @@ Given incidence dataframe, returns the processed incidence along with its predic
 <li class="toctree-l1"><a class="reference internal" href="project.html">Project Summary</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Project Tutorial</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Code Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#module-lib.forms">Forms</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lib.engine">Engine</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lib.processor">Processor</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-lib.configurator">Configurator</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-lib.classifier">Classifier</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-lib.incident">Incidence</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#module-lib.incidentBase">Incidence Base</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-lib.engine">Engine</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-lib.processor">Processor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-lib.processor_tfidf">Processor-TfIdf</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-lib.forms">Forms</a></li>
 </ul>
 </li>
 </ul>

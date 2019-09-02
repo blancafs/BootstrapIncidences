@@ -1,10 +1,18 @@
 Code Documentation
 ==================
 
-Forms
-+++++
+Find below the description of all the classes and methods used to build the AIM (Automated Incidence Management) system.
 
-.. automodule:: lib.forms
+Engine
+++++++
+
+.. automodule:: lib.engine
+    :members:
+
+Processor
++++++++++
+
+.. automodule:: lib.processor
     :members:
 
 Configurator
@@ -31,21 +39,9 @@ Incidence Base
 .. automodule:: lib.incidentBase
     :members:
 
-Engine
-++++++
+Forms
++++++
 
-.. automodule:: lib.engine
-    :members:
-
-Processor
-+++++++++
-
-.. automodule:: lib.processor
-    :members:
-
-Processor-TfIdf
-+++++++++++++++
-
-.. automodule:: lib.processor_tfidf
+.. automodule:: lib.forms
     :members:
 

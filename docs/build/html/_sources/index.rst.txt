@@ -7,10 +7,11 @@ Welcome to Project Incidences's documentation!
 ==============================================
 
 .. image:: ../../static/img/websiteshot.PNG
-   :width: 800
+   :width: 600
    :height: 250
+
 Requirements
-+++++++++++++
+------------
 
 .. toctree::
    :maxdepth: 2

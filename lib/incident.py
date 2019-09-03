@@ -9,8 +9,10 @@ from .processor import Processor
 from .classifier import ClassifierBuilder
 from .configurator import DATABASE_PATH, INDEX_COLUMN_NAME, CODIGO_COLUMN_NAME, MATERIAL_COLUMN_NAME,\
     ANALYSIS_COLUMN_NAME, CAUSA_COLUMN_NAME, CATEGORY_COLUMN_NAME, SUB_CATEGORY_COLUMN_NAME,\
-    TEXT_COLUMN_NAME, TEXT_DATABASE_NAME, VECTOR_DATABASE_NAME
+    TEXT_COLUMN_NAME, TEXT_DATABASE_NAME, VECTOR_DATABASE_NAME, VECTOR_COLUMN_NAME, SIMILARITY_COLUMN_NAME
+
 from flask import request
+from sklearn.metrics.pairwise import cosine_similarity
 
 
 ####################################################################################################
@@ -21,7 +23,12 @@ class IncidentWrapper(Debug):
     ## Constructor
     def __init__(self, path_to_database=DATABASE_PATH):
         self.data_folder = path_to_database
-        self.data_processor = self.getProcessor()
+        self.data_processor = self.__getProcessor()
+
+
+    ## Vectorizes the incident entry
+    def processIncident(self, incident_df):
+        return self.data_processor.processFrame(incident_df)
 
 
     ## Returns predicted incident entry
@@ -31,17 +38,31 @@ class IncidentWrapper(Debug):
         self.inform('[incident]: getPredictedIncidentEntry(): Incident was parsed and preprocessed successfully.')
 
         # Predict the category of the processed incident
-        predicted_category = self.predictCategory(processed_incident_df)
+        predicted_category = self.__predictCategory(processed_incident_df)
         self.inform('[incident]: getPredictedIncidentEntry(): Predicted category is ' + predicted_category)
 
         # Based on the predicted category, predict sub-category
-        predicted_sub_category = self.predictSubCategory(processed_incident_df, predicted_category)
+        predicted_sub_category = self.__predictSubCategory(processed_incident_df, predicted_category)
         self.inform('[incident]: getPredictedIncidentEntry(): Predicted sub-category is ' + predicted_sub_category)
 
         # Add the category and subcategory to the dataframe
         processed_incident_df[CATEGORY_COLUMN_NAME] = [predicted_category]
         processed_incident_df[SUB_CATEGORY_COLUMN_NAME] = [predicted_sub_category]
         return processed_incident_df
+
+
+    ## Get N similar incidents
+    def getSimilarIncidents(self, incident_df, n=3):
+        # Process Incident
+        processed_incident_df = self.processIncident(incident_df)
+        self.inform('[incident]: getSimilarIncidents(): Incident was parsed and preprocessed successfully.')
+
+        # Get training set and find the similarities
+        training_set = self.data_processor.getTrainingSet().reset_index(drop=True)
+        similar_df = self.__getSimilarOrderedDf(processed_incident_df, training_set)
+
+        # Return the n most similar (without the head because that is itself)
+        return list(similar_df[INDEX_COLUMN_NAME])[1:n+1]
 
 
     ## Parses excel file and returns dataframe with useful data
@@ -70,48 +91,57 @@ class IncidentWrapper(Debug):
     ### FUNCTIONAL HELPER METHODS ###
 
     ## Returns the best possible initialized Processor object
-    def getProcessor(self):
+    def __getProcessor(self):
         available_databases = os.listdir(self.data_folder)
 
         # Check if pre-calculated vectors are available
         if VECTOR_DATABASE_NAME in available_databases:
             processor = Processor(self.data_folder + VECTOR_DATABASE_NAME)
             processor.initialize(test_ratio=0.00000000001, vectors_available=True)
-            self.inform('[incident]: getProcessor():Vector database was found and loaded.')
+            self.inform('[incident]: __getProcessor():Vector database was found and loaded.')
         elif TEXT_DATABASE_NAME in available_databases:
             processor = Processor(self.data_folder + TEXT_DATABASE_NAME)
-            self.inform('[incident]: getProcessor(): Vector database was not found. Text database was loaded instead. Making embeddings now...')
+            self.inform('[incident]: __getProcessor(): Vector database was not found. Text database was loaded instead. Making embeddings now...')
             processor.initialize(test_ratio=0.00000000001, vectors_available=False)
-            self.inform('[incident]: getProcessor(): Vectors were made and loaded.')
+            self.inform('[incident]: __getProcessor(): Vectors were made and loaded.')
         else:
-            self.inform('[incident]: getProcessor(): The following files were searched: ' + str(available_databases))
-            self.inform('[incident]: getProcessor(): No valid database was found. Aborting process.')
+            self.inform('[incident]: __getProcessor(): The following files were searched: ' + str(available_databases))
+            self.inform('[incident]: __getProcessor(): No valid database was found. Aborting process.')
             return None
 
         return processor
 
-    ## Vectorizes the incident entry
-    def processIncident(self, incident_df):
-        return self.data_processor.processFrame(incident_df)
 
     ## Predicts category of processed incident
-    def predictCategory(self, processed_incident_df):
+    def __predictCategory(self, processed_incident_df):
         classifier_category = ClassifierBuilder.getClassifier(self.data_processor.getTrainingSet())
         categorized_df = classifier_category.classify(processed_incident_df)
         return categorized_df[CATEGORY_COLUMN_NAME][0]
 
     ## Predicts sub-category
-    def predictSubCategory(self, processed_incident_df, predicted_category):
+    def __predictSubCategory(self, processed_incident_df, predicted_category):
         training_set = self.data_processor.getTrainingSet()
         training_set = training_set[training_set[CATEGORY_COLUMN_NAME] == predicted_category]
         classifier_subcategory = ClassifierBuilder.getClassifier(training_set, y_col=SUB_CATEGORY_COLUMN_NAME)
         sub_categorized_df = classifier_subcategory.classify(processed_incident_df)
         return sub_categorized_df[SUB_CATEGORY_COLUMN_NAME][0]
 
-    ## DEBUG message method
-    # def inform(self, *text):
-    #     if self.DEBUG:
-    #         print('[DEBUG]: inform():', *text)
+
+    ## Returns list with cosine similarities
+    def __getSimilarOrderedDf(self, incident_df, df):
+        incident_vector = incident_df.loc[0,VECTOR_COLUMN_NAME]
+
+        # Calculate similarities list
+        similarities = cosine_similarity([incident_vector], list(df[VECTOR_COLUMN_NAME]))
+        similarities_list = list(similarities[0])
+
+        # Put the results in a dataframe and sort it with descending similarity (most similar to the top)
+        similar_df = df[[INDEX_COLUMN_NAME]].copy()
+        similar_df[SIMILARITY_COLUMN_NAME] = similarities_list
+        similar_df = similar_df.sort_values(by=SIMILARITY_COLUMN_NAME, ascending=False)
+
+        return similar_df
+
 
 
 ####################################################################################################

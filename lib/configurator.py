@@ -3,6 +3,8 @@ import os
 path = os.path.dirname(os.path.realpath(__file__))
 path += '/../'
 
+from flask import url_for
+
 
 ########################
 ### GLOBAL VARIABLES ###
@@ -17,7 +19,9 @@ MATERIAL_COLUMN_NAME = 'material'
 TEXT_COLUMN_NAME = 'texto_sap'
 ANALYSIS_COLUMN_NAME = 'analysis_de_causas'
 CAUSA_COLUMN_NAME = 'causa_raiz'
-CUTE_NAMES =  ['Aviso de Calidad:', 'Codigo Cliente: ', 'Material Afectado: ','Texto SAP: ', 'Analysis de Causas: ','Causa Raiz: ', 'Category: ', 'Sub-Category: ']
+SIMILARITY_COLUMN_NAME = 'similarity'
+CUTE_NAMES =  ['Aviso de Calidad:', 'Codigo Cliente: ', 'Material Afectado: ','Texto SAP: ', 'Analysis de Causas: ','Causa Raiz: ', 'Category: ', 'Sub-Category: ',\
+                'Similar Incidents: ']
 
 CATEGORY_COLUMN_NAME = 'category'
 SUB_CATEGORY_COLUMN_NAME = 'sub_category'
@@ -144,3 +148,18 @@ class Utils:
     @staticmethod
     def saveCSV(df, file_path, index=False):
         df.to_csv(file_path, index=index, encoding='utf-8-sig')
+
+
+    @staticmethod
+    def buildLinksString(sim_list):
+        links_string = ""
+        for sim in sim_list:
+            temp_str = Utils.__buildInfoLink(sim) + " "
+            links_string += temp_str
+
+        return links_string
+
+    @staticmethod
+    def __buildInfoLink(id):
+        id = str(id)
+        return '<a href="'+ url_for('get_info', id=id) +'" >'+id+'</a>'

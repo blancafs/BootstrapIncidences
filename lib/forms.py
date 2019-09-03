@@ -3,7 +3,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, DateField, PasswordField, RadioField, BooleanField, SelectField, SubmitField, TextAreaField, Form, TextField, TextAreaField, validators
 from flask import Flask, render_template, flash, request
 from wtforms.validators import DataRequired, Length
-from lib.configurator import CUTE_NAMES
+from .configurator import Utils, CUTE_NAMES, SIMILARITY_COLUMN_NAME
 
 
 # Holds all fields for an incidence filled in online
@@ -34,13 +34,15 @@ class InfoField:
 
 class FormBuilder:
     @staticmethod
-    def buildFromEntry(entry_df):
+    def buildFromEntry(entry_df, incidentWrapper):
         # Get columns of dataframe entry
         #cols = entry_df.columns
         labels = CUTE_NAMES
 
         # Get values of entry, or if empty then return empty form
         if(entry_df.shape[0] == 1):
+            sim_list = incidentWrapper.getSimilarIncidents(entry_df, n=3)
+            entry_df[SIMILARITY_COLUMN_NAME] = [Utils.buildLinksString(sim_list)]
             vals = list(entry_df.loc[0])
         else:
             return FormBuilder.buildEmptyForm()

@@ -92,7 +92,7 @@ def configure():
     id = request.args.get('id')
     category = request.args.get('category')
     sub_category = request.args.get('sub-category')
-    engine.configureIncident(id,category,sub_category)
+    engine.reclassifyIncident(id, category, sub_category)
     return redirect(url_for('get_info', id=id))
 
 

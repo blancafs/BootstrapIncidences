@@ -1,6 +1,4 @@
 ﻿id,texto_sap,category,sub_category
-400014296,"El cliente informa de que mediante el uso del PEAD 5203 – Lote 56004, que las botellas fabricadas tienen pequeñas áreas transparentes. Estas transparencias aparecen al azar en cualquier posición de la botella. Informo que algunas de estas transparencias es fácilmente visible a simples vista, otros solo con un luz de fondo. Informa que el material se utiliza en la fabricación de botellas de detergentes y no se puede correr el Riesgo de una de estas áreas en contacto con el producto ocasione un agujero. ",Producto,Propiedades
-400014302,Entrega de lote AR 03446 del CP121 de nuevo con contaminaciones negras. ,Producto,Contaminacion
 400014303,"El cliente informa que en la entrega de hoy se ha observado una humedad excepcionalmente alta. Se han repetido 3 veces los ensayos y en todos los casos el resultado fue el mismo. Informa que se procede a la descarga condicionada del material, que permanecerá en el silo el máximo tiempo posible para favorecer el secado. Cuando se utilice el material, en caso de detectar incidencias nos comunicara.",Producto,Humedad
 400014305,"Devuelto camión por problemas de calidad. El cliente ha tenido problemas,se detectan zonas débiles e infundidos en las botellas sopladas con este lote. Se adjunta no conformidad enviada por el cliente.",Producto,Propiedades
 400014308,Diferencias de viscosidad para los lotes AP-22541 y AL40104 entregados del material PA440 hay diferencias de viscosidad de 48%,Producto,Contaminacion
@@ -3271,3 +3269,5 @@ RE devolución: 13919531
 
 Nuevo pedido PS: 13919585",Producto,Propiedades
 500003192,Syrtrans nos indica que ha llegado un octabin roto. VER INFORMACIÓN ADICIONAL EN SERVICIOS PARA OBJETO SAP.,Envase,Aspecto
+400014296,"El cliente informa de que mediante el uso del PEAD 5203 – Lote 56004, que las botellas fabricadas tienen pequeñas áreas transparentes. Estas transparencias aparecen al azar en cualquier posición de la botella. Informo que algunas de estas transparencias es fácilmente visible a simples vista, otros solo con un luz de fondo. Informa que el material se utiliza en la fabricación de botellas de detergentes y no se puede correr el Riesgo de una de estas áreas en contacto con el producto ocasione un agujero. ",Producto,Propiedades
+400014302,Entrega de lote AR 03446 del CP121 de nuevo con contaminaciones negras.,Producto,Contaminacion

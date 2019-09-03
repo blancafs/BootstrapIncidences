@@ -176,7 +176,7 @@ input[type=submit]:hover {
                 <label ><b>{{field.label}}</b></label>
             </div>
             <div class="col-75">
-              <p> {{ field.data }}</p>
+                <p> {{ field.data|safe }}</p>
             </div>
         </div>
         {% endfor %}

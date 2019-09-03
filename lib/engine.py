@@ -50,7 +50,7 @@ class Engine(Debug):
         # Check that id does not contain any illegal characters, otherwise return empty form
         if Utils.isInteger(id):
             entry_df = self.incidentBase.getEntry(int(id))
-            form = FormBuilder.buildFromEntry(entry_df)
+            form = FormBuilder.buildFromEntry(entry_df, self.incidentWrapper)
         else:
             form = FormBuilder.buildEmptyForm()
 
@@ -59,7 +59,7 @@ class Engine(Debug):
         return form
 
     ## Changes the classes of the incoming incident id
-    def configureIncident(self, id, category, sub_category):
+    def reclassifyIncident(self, id, category, sub_category):
         if Utils.isInteger(id):
             self.incidentBase.changeIncidentClass(int(id), category, sub_category)
         return

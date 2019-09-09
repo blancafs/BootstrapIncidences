@@ -19,9 +19,22 @@ from .configurator import Utils, MODEL_FOLDER_PATH,CATEGORY_COLUMN_NAME,TEXT_COL
 ### Processor Class used to embed texts and get data ready #########################################
 ####################################################################################################
 class Processor(Debug):
+    """"
+    The processor class is used to embed the texts using the google multilingual embedder and get the text ready
+    for the classification algorithm.
 
+    Args:
+        Debug: The abstract super class Debug includes a debug log method which is inherited by all classes in the system to make debugging efficient.
+    """
     ## Constructor
     def __init__(self, path_to_csv, model_url=MODEL_FOLDER_PATH):
+        """
+        The constructor method needs the path to the csv file/database and the path to the pre-trained model.
+
+        Args:
+            path_to_csv: The local path to the database
+            model_url: Path to the pre-trained model
+        """
         self.path_to_csv = path_to_csv
         self.df = pd.read_csv(path_to_csv)
         self.model_url = model_url
@@ -29,6 +42,22 @@ class Processor(Debug):
 
     ## Initializes model and embeds training set if necessary
     def initialize(self, y_col=CATEGORY_COLUMN_NAME, text_col=TEXT_COLUMN_NAME, vec_col=VECTOR_COLUMN_NAME, drop_cols=[], test_ratio=0.2, random_state=0, vectors_available=False):
+        """
+        Initializes model and embeds the training set if necessary, aka if model hasn't been downloaded before.
+
+        Args:
+            y_col: The name of the column with categories
+            text_col: The name of the column holding the text complaints
+            vec_col: The name of the column holding the vectorized texts
+            drop_cols: The names of any columns we wish to drop from the database
+            test_ratio: The ratio of train to test data
+            random_state: The seed for the randomization algorithm, keep the same to recreate fair trials
+            vectors_available: Set to True if the vectorized database already exists to avoid re-creating the vectorizations
+
+        Returns:
+            Sets the self variables of text_input, embedded_text, session, df, train and test sets.
+        """
+
         # Check Target Column
         if y_col not in self.df.columns:
             self.inform('Please give a valid target column name (y_col=)')
@@ -84,6 +113,16 @@ class Processor(Debug):
 
     ## Process the texts and return new dataframe with the vectors column for classifying
     def processFrame(self, data_frame, text_col=TEXT_COLUMN_NAME, drop_cols=[]):
+        """
+        If vectors are not available, this method is called to process the texts and return a dataframe with a new vectors column for classifying.
+
+        Args:
+            data_frame: The name of the column with categories
+            text_col: The name of the column holding the text complaints
+            drop_cols: The names of any columns we wish to drop from the database
+        Returns:
+            df: The cleaned dataframe with the vectors column
+        """
         # Clean text
         texts = data_frame[text_col].apply(lambda x: self.clean_text(str(x)))
 
@@ -97,6 +136,14 @@ class Processor(Debug):
 
     ## Reads in string of vectors and returns array of floats
     def readVector(self, text_vector):
+        """
+        Reads a string of vectors, as the model returns them, and returns an array of floats.
+
+        Args:
+            text_vector: The string to read
+        Returns:
+            vec: An array of floats
+        """
         text = text_vector.replace('\n','') # Remove \n
         text = text.replace('[','')
         text = text.replace(']','')
@@ -117,6 +164,14 @@ class Processor(Debug):
 
     ## Method to clean text
     def clean_text(self, text):
+        """
+        Method used to clean the basic text of commas, punctuation, capital letters and other unwanted symbols.
+
+        Args:
+            text: The individual text paragraph to process
+        Returns:
+            text: The same text but cleaned
+        """
         # Define regex
         REPLACE_BY_SPACE_RE = re.compile('[/(){}\[\]\|@,;]')
         BAD_SYMBOLS_RE = re.compile('[.]')

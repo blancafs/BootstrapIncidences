@@ -8,6 +8,9 @@ from .configurator import Utils, CUTE_NAMES, SIMILARITY_COLUMN_NAME
 
 # Holds all fields for an incidence filled in online
 class WebForm(FlaskForm):
+    """
+    The Web Form class establishes the fields necessary in the WebForm to fill an incidence, so to change the form these fields must be changed.
+    """
     aviso_calidad = TextField('Aviso de Calidad: ', validators=[DataRequired()])
     codigo_cliente = TextField('Codigo Cliente: ', validators=[DataRequired()])
     material_afectado = TextField('Material Afectado: ', validators=[DataRequired()])
@@ -20,6 +23,9 @@ class WebForm(FlaskForm):
 
 # Classes for holding Incidence information
 class InfoForm:
+    """
+    This class is used to create an Incidence Form , for when an incidence is checked for its category or changed.
+    """
     def __init__(self, fields=[]):
         self.id = 0
         self.fields = fields
@@ -33,8 +39,19 @@ class InfoField:
         self.data = data
 
 class FormBuilder:
+    """
+    This class allows a form to be created from a dataframe, a premade incidence, or an empty form when no incidence is looked up.
+    """
     @staticmethod
     def buildFromEntry(entry_df, incidentWrapper):
+        """
+        This methods creates an Information form from a given dataframe, giving it the fields necessary.
+
+        Args:
+          entry_df: The dataframe of the incidence to show on the form
+        Returns:
+          form: The web form to display with the searched incidence
+        """
         # Get columns of dataframe entry
         #cols = entry_df.columns
         labels = CUTE_NAMES
@@ -55,6 +72,11 @@ class FormBuilder:
 
     @staticmethod
     def buildEmptyForm():
+        """
+        This method returns a simple Info form with no filled fields.
+        Returns:
+            form: Simple empty information form
+        """
         infoForm = InfoForm()
         #infoForm.setID('(nothing to show)')
         return infoForm

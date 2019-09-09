@@ -10,7 +10,20 @@ csv database files in the database folder
 """
 
 class IncidentBase(Debug):
+    """
+    The interface to handle the incidence database. If the database changes, only this class has to be adapted.
+    """
     def __init__(self, incident_wrapper, path_to_training, path_to_vectors, path_to_incidents):
+        """
+        The constructor takes the following parameters to initialise this object.
+
+        Args:
+            incident_wrapper: Incident wrapper object deals with the classification and processing of any incoming incidence, important as it keeps the universal encoder alive
+            path_to_training: Local path to training data
+            path_to_vectors: Local path to vectorised data
+            path_to_incidents: Local path to incidents database
+
+        """
         self.incidentWrapper = incident_wrapper
         self.path_to_training = path_to_training
         self.path_to_vectors = path_to_vectors
@@ -18,10 +31,18 @@ class IncidentBase(Debug):
 
     ## Updates the training databases (both vector and non-vector), by adding or replacing the given incident
     def updateTrainingData(self, df_entry):
+        """
+        Updates the training databases, both vector and non-vector, by adding or replacing a given incident.
+
+        Args:
+            df_entry: The incidence entry to add to the database
+        Returns:
+            boolean: Whether the addition was successful or not
+        """
         # Construct dataframe, get id and see if there are any previous entries for id
         train_df = pd.read_csv(self.path_to_training).reset_index(drop=True)
         vector_df = pd.read_csv(self.path_to_vectors).reset_index(drop=True)
-        ind = self.getRelavantIndex(df_entry, train_df, log='[incidentBase]: updateTrainingData():')
+        ind = self.getRelevantIndex(df_entry, train_df, log='[incidentBase]: updateTrainingData():')
 
         if ind == -1:
             return False
@@ -45,9 +66,18 @@ class IncidentBase(Debug):
 
     ## Updates the incident database with the given incident, replacing or adding it at the end
     def updateIncidentData(self, df_entry):
+        """
+        Updates the incident database with the given incident, replacing or adding it at the end.
+
+        Args:
+            df_entry: The incidence entry to be added to the database
+
+        Returns:
+            boolean: Whether successful or not
+        """
         # Retrieve database and index
         incident_df = pd.read_csv(self.path_to_incidents).reset_index(drop=True)
-        ind = self.getRelavantIndex(df_entry, incident_df, log='[incidentBase]: updateIncidentData():')
+        ind = self.getRelevantIndex(df_entry, incident_df, log='[incidentBase]: updateIncidentData():')
 
         # Replace the entry at the correct index and save it back to csv
         if ind == -1:
@@ -60,6 +90,15 @@ class IncidentBase(Debug):
 
     ## Returns the required entry from its id int(aviso_de_calidad) as a dataframe
     def getEntry(self, incidence_id):
+        """
+        Finds and returns the required entry by its id, the aviso_de_Calidad, as a dataframe.
+
+        Args:
+            incidence_id: The id that identifies the incidence
+
+        Returns:
+            dataframe: The found entry in the database
+        """
         df = pd.read_csv(self.path_to_incidents).reset_index(drop=True)
         occurances = df[df[INDEX_COLUMN_NAME] == incidence_id].shape[0]
         # Find the right index for the entry
@@ -85,31 +124,53 @@ class IncidentBase(Debug):
 
     ## Changes the classification of the incident id
     def changeIncidentClass(self, id, category, sub_category):
-            entry = self.getEntry(id)
-            # Check its not empty
-            if entry.shape[0] != 1:
-                self.inform('[incidentBase]: changeIncidentClass(): No occurances of :',id,'found. Aborting the configuration')
-            else:
-                p_cat = entry.loc[0][CATEGORY_COLUMN_NAME]
-                p_sub_cat = entry.loc[0][SUB_CATEGORY_COLUMN_NAME]
-                self.inform('[incidentBase]: changeIncidentClass():',id,'category was:',p_cat,p_sub_cat)
-                entry.loc[0, CATEGORY_COLUMN_NAME] = category
-                entry.loc[0, SUB_CATEGORY_COLUMN_NAME] = sub_category
-                n_cat = entry.loc[0, CATEGORY_COLUMN_NAME]
-                n_sub_cat = entry.loc[0, SUB_CATEGORY_COLUMN_NAME]
+        """
+        Changes the classification of an entry, finding it in the database by its id.
+
+        Args:
+            id: The int id identifying the incidence
+            category: The new category assigned to the incidence
+            sub_category: The new sub-category assigned to the incidence
+
+        Returns:
+            Passes the changed incidences to appropriate methods to update everything.
+
+        """
+        entry = self.getEntry(id)
+        # Check its not empty
+        if entry.shape[0] != 1:
+            self.inform('[incidentBase]: changeIncidentClass(): No occurances of :',id,'found. Aborting the configuration')
+        else:
+            p_cat = entry.loc[0][CATEGORY_COLUMN_NAME]
+            p_sub_cat = entry.loc[0][SUB_CATEGORY_COLUMN_NAME]
+            self.inform('[incidentBase]: changeIncidentClass():',id,'category was:',p_cat,p_sub_cat)
+            entry.loc[0, CATEGORY_COLUMN_NAME] = category
+            entry.loc[0, SUB_CATEGORY_COLUMN_NAME] = sub_category
+            n_cat = entry.loc[0, CATEGORY_COLUMN_NAME]
+            n_sub_cat = entry.loc[0, SUB_CATEGORY_COLUMN_NAME]
 
 
-                # Update the database
-                incident_df = self.incidentWrapper.keepGeneralCols(entry)
-                training_df = self.incidentWrapper.keepTrainingCols(entry)
-                self.updateIncidentData(incident_df)
-                self.updateTrainingData(training_df)
-                self.inform('[incidentBase]: changeIncidentClass(): Change of :',id,'to',n_cat,n_sub_cat,'was successful!')
-
+            # Update the database
+            incident_df = self.incidentWrapper.keepGeneralCols(entry)
+            training_df = self.incidentWrapper.keepTrainingCols(entry)
+            self.updateIncidentData(incident_df)
+            self.updateTrainingData(training_df)
+            self.inform('[incidentBase]: changeIncidentClass(): Change of :',id,'to',n_cat,n_sub_cat,'was successful!')
 
 
     ## Common functionality
-    def getRelavantIndex(self, df_entry, df_database, log=''):
+    def getRelevantIndex(self, df_entry, df_database, log=''):
+        """
+        Given an entry and a database, this method find the id of that incidence within the given database.
+
+        Args:
+            df_entry: The index being searched for in the database as a pandas dataframe
+            df_database: The incidence database as a pandas dataframe
+            log: Log type
+
+        Returns:
+            int: Index of the incidence in the database
+        """
         # Check it has one entry
         if df_entry.shape[0] != 1:
             self.inform(log, 'The incoming dataframe had more/less than 1 entry, Aborting.')

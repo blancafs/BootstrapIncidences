@@ -18,7 +18,6 @@ Requirements
    :caption: Contents:
 
    project
-   tutorial
    code
 
 

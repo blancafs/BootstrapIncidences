@@ -96,9 +96,9 @@ def allowed_file(filename):
 @app.route('/get_info', methods=['GET', 'POST'])
 def get_info():
     # If no category or sub category, then just display the requested id
-        id = request.args.get('id')
-        form = engine.retrieveFormFromId(id)
-        return render_template('get_info.html', form=form)
+    id = request.args.get('id')
+    form = engine.retrieveFormFromId(id)
+    return render_template('get_info.html', form=form)
 
 @app.route('/get_info/configure', methods=['GET',"POST"])
 def configure():

@@ -49,21 +49,6 @@
 </dd>
 </dl>
 <dl class="method">
-<dt id="lib.engine.Engine.configureIncident">
-<code class="sig-name descname">configureIncident</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">category</em>, <em class="sig-param">sub_category</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.engine.Engine.configureIncident" title="Permalink to this definition">¶</a></dt>
-<dd><p>Changes the classes of the incoming incident id</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>id</strong> – The incidence id</p></li>
-<li><p><strong>category</strong> – The new category assigned to the incidence</p></li>
-<li><p><strong>sub_category</strong> – The new sub-category assigned to the incidence</p></li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
 <dt id="lib.engine.Engine.deal">
 <code class="sig-name descname">deal</code><span class="sig-paren">(</span><em class="sig-param">incident_entry_df</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.engine.Engine.deal" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deals with the incoming dataframe entry as necessary.</p>
@@ -118,6 +103,21 @@
 <dt id="lib.engine.Engine.performInitCheck">
 <code class="sig-name descname">performInitCheck</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lib.engine.Engine.performInitCheck" title="Permalink to this definition">¶</a></dt>
 <dd><p>Performs initialization checks.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.engine.Engine.reclassifyIncident">
+<code class="sig-name descname">reclassifyIncident</code><span class="sig-paren">(</span><em class="sig-param">id</em>, <em class="sig-param">category</em>, <em class="sig-param">sub_category</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.engine.Engine.reclassifyIncident" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes the classes of the incoming incident id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> – The incidence id</p></li>
+<li><p><strong>category</strong> – The new category assigned to the incidence</p></li>
+<li><p><strong>sub_category</strong> – The new sub-category assigned to the incidence</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
@@ -286,7 +286,7 @@ dictionary: The dictionary of parameters to use for the session.</p>
 <dl class="method">
 <dt id="lib.configurator.Utils.saveCSV">
 <em class="property">static </em><code class="sig-name descname">saveCSV</code><span class="sig-paren">(</span><em class="sig-param">df</em>, <em class="sig-param">file_path</em>, <em class="sig-param">index=False</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.configurator.Utils.saveCSV" title="Permalink to this definition">¶</a></dt>
-<dd><p>This method was created for compatability - you can set a specific encoding for the spanish language, or any other encoding/os necessary.</p>
+<dd><p>This method was created for compatibility - you can set a specific encoding for the spanish language, or any other encoding/os necessary.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -574,20 +574,6 @@ Given incidence dataframe, returns the processed incidence along with its predic
 </dd></dl>
 
 <dl class="method">
-<dt id="lib.incident.IncidentWrapper.getProcessor">
-<code class="sig-name descname">getProcessor</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lib.incident.IncidentWrapper.getProcessor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Gets the best possible initialized Processor object.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The best found processor</p>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>processor</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
 <dt id="lib.incident.IncidentWrapper.keepGeneralCols">
 <code class="sig-name descname">keepGeneralCols</code><span class="sig-paren">(</span><em class="sig-param">entry_df</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incident.IncidentWrapper.keepGeneralCols" title="Permalink to this definition">¶</a></dt>
 <dd><p>Finds the columns wanted to save the entry in the general database in the given dataframe.</p>
@@ -665,26 +651,6 @@ Given incidence dataframe, returns the processed incidence along with its predic
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Same incidence given but with a new column for its category</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dataframe</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="lib.incident.IncidentWrapper.predictSubCategory">
-<code class="sig-name descname">predictSubCategory</code><span class="sig-paren">(</span><em class="sig-param">processed_incident_df</em>, <em class="sig-param">predicted_category</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.incident.IncidentWrapper.predictSubCategory" title="Permalink to this definition">¶</a></dt>
-<dd><p>Predicts the sub-category of the processed indicent given.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>processed_incident_df</strong> – Incidence to classify</p></li>
-<li><p><strong>predicted_category</strong> – The given incident’s category classification</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Same incidence given but with a new column for its sub-category</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>dataframe</p>
@@ -827,7 +793,7 @@ Given incidence dataframe, returns the processed incidence along with its predic
 
 <dl class="method">
 <dt id="lib.forms.FormBuilder.buildFromEntry">
-<em class="property">static </em><code class="sig-name descname">buildFromEntry</code><span class="sig-paren">(</span><em class="sig-param">entry_df</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.forms.FormBuilder.buildFromEntry" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">buildFromEntry</code><span class="sig-paren">(</span><em class="sig-param">entry_df</em>, <em class="sig-param">incidentWrapper</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.forms.FormBuilder.buildFromEntry" title="Permalink to this definition">¶</a></dt>
 <dd><p>This methods creates an Information form from a given dataframe, giving it the fields necessary.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

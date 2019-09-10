@@ -11,7 +11,9 @@ Welcome to Project Incidences's documentation!
    :height: 250
 
 Requirements
-------------
+++++++++++++
+
+All technical requirements to run this project can be found in the requirements.txt file :)
 
 .. toctree::
    :maxdepth: 2
@@ -19,8 +21,6 @@ Requirements
 
    project
    code
-
-
 
 Indices and tables
 ==================
